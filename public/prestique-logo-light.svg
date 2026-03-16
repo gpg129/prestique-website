@@ -1,0 +1,9 @@
+<svg width="200" height="40" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gem icon (dark outline for light backgrounds) -->
+  <polygon points="20,2 36,12 36,28 20,38 4,28 4,12" fill="none" stroke="#1a2e4a" stroke-width="2.5" opacity="0.9"/>
+  <polygon points="20,10 30,16 30,24 20,30 10,24 10,16" fill="#1a2e4a" opacity="0.15"/>
+  <polygon points="20,10 30,16 20,22 10,16" fill="#3b82f6" opacity="0.9"/>
+  <!-- Prestique text -->
+  <text x="48" y="27" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5" fill="#1a1a1a">Prest</text>
+  <text x="116" y="27" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5" fill="#3b82f6">ique</text>
+</svg>
