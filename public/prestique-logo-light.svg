@@ -4,6 +4,5 @@
   <polygon points="20,10 30,16 30,24 20,30 10,24 10,16" fill="#1a2e4a" opacity="0.15"/>
   <polygon points="20,10 30,16 20,22 10,16" fill="#3b82f6" opacity="0.9"/>
   <!-- Prestique text -->
-  <text x="48" y="27" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5" fill="#1a1a1a">Prest</text>
-  <text x="116" y="27" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5" fill="#3b82f6">ique</text>
+  <text x="48" y="27" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5"><tspan fill="#1a1a1a">Prest</tspan><tspan fill="#3b82f6">ique</tspan></text>
 </svg>
