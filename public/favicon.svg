@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="6" fill="#1a2e4a"/>
-  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-        font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="18"
-        fill="#60a5fa">P</text>
+  <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" fill="none" stroke="white" stroke-width="2" opacity="0.9"/>
+  <polygon points="16,8 24,13 24,19 16,24 8,19 8,13" fill="white" opacity="0.15"/>
+  <polygon points="16,8 24,13 16,18 8,13" fill="#3b82f6" opacity="0.9"/>
 </svg>
