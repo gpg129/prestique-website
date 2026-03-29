@@ -4,8 +4,8 @@ const AUDIT_URL = 'https://audit.prestique.ai';
 <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5"
      style="background: rgba(10, 15, 26, 0.85); backdrop-filter: blur(12px);">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <a href="/" class="flex items-center gap-3">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <polygon points="20,2 36,12 36,28 20,38 4,28 4,12" fill="none" stroke="white" stroke-width="2.5" opacity="0.9"/>
         <!-- Cube top face (blue) -->
         <polygon points="20,10 30,16 20,22 10,16" fill="#3b82f6" opacity="0.95"/>
@@ -14,10 +14,10 @@ const AUDIT_URL = 'https://audit.prestique.ai';
         <!-- Cube right face -->
         <polygon points="30,16 30,24 20,30 20,22" fill="white" opacity="0.15"/>
       </svg>
-      <span class="text-white font-semibold text-lg tracking-tight">
+      <span class="text-white font-semibold text-xl tracking-tight">
         Prest<span style="color: #3b82f6;">ique</span>
       </span>
-    </div>
+    </a>
     <div class="flex items-center gap-6">
       <a href="/blog" class="text-p-muted hover:text-white transition-colors text-sm font-medium">Blog</a>
       <a href={AUDIT_URL} class="btn-primary text-sm" target="_blank" rel="noopener">
