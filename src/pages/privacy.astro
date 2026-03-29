@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+<Layout title="Privacy Policy — Prestique" description="How Prestique collects, uses, and protects your information.">
+  <Nav />
+  <main class="pt-32 pb-24 px-6">
+    <div class="max-w-3xl mx-auto prose-blog">
+      <h1 class="text-4xl font-bold text-white mb-2">Privacy Policy</h1>
+      <p class="text-p-muted text-sm mb-12">Last updated: March 29, 2026</p>
+
+      <p>Prestique LLC ("Prestique," "we," "us," or "our") operates prestique.ai and audit.prestique.ai. This policy explains what information we collect, how we use it, and your rights with respect to it.</p>
+
+      <h2>Information We Collect</h2>
+      <p>When you use our free AI audit tool, we collect the information you provide directly: your name, email address, industry, company name, and details about your business operations. We use this information to generate your personalized audit report and to follow up about our services.</p>
+      <p>We also collect standard usage data automatically — including IP address, browser type, pages visited, and referring URLs — through our hosting infrastructure.</p>
+
+      <h2>How We Use Your Information</h2>
+      <ul>
+        <li>To generate and deliver your custom AI audit report</li>
+        <li>To contact you about your results and how Prestique can help</li>
+        <li>To send service updates and, where you've opted in, marketing communications</li>
+        <li>To improve our products and understand how people use our tools</li>
+        <li>To comply with legal obligations</li>
+      </ul>
+      <p>We do not sell your personal information to third parties.</p>
+
+      <h2>Third-Party Services</h2>
+      <p>We use the following services to operate our platform. Each has its own privacy practices:</p>
+      <ul>
+        <li><strong>Vercel</strong> — website hosting and infrastructure</li>
+        <li><strong>Resend</strong> — transactional email delivery</li>
+        <li><strong>Airtable</strong> — CRM and lead tracking</li>
+        <li><strong>Calendly</strong> — scheduling discovery calls</li>
+        <li><strong>Anthropic (Claude API)</strong> — AI processing of audit responses to generate your report</li>
+      </ul>
+      <p>Information you submit through the audit tool is processed by Anthropic's Claude API to generate your personalized report. Anthropic's privacy policy governs that processing.</p>
+
+      <h2>Cookies</h2>
+      <p>We use cookies to operate this website. For full details, including how to opt out of analytics and advertising cookies, see our <a href="/cookies">Cookie Policy</a>.</p>
+
+      <h2>Data Retention</h2>
+      <p>We retain your information for as long as you are a client or prospect, and for up to two years following your last interaction with us. You may request deletion at any time (see Your Rights below).</p>
+
+      <h2>Your Rights</h2>
+      <p>You have the right to access, correct, or delete the personal information we hold about you. To exercise any of these rights, email us at <a href="mailto:support@prestique.ai">support@prestique.ai</a>. We will respond within 30 days.</p>
+      <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information is collected, the right to delete it, and the right to opt out of its sale (we do not sell personal information).</p>
+
+      <h2>Security</h2>
+      <p>We take reasonable technical and organizational measures to protect your information. No method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h2>Children</h2>
+      <p>Our services are not directed to children under 13. We do not knowingly collect personal information from children.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this policy from time to time. We will post the updated version here with a revised date. Continued use of our services after changes constitutes acceptance of the updated policy.</p>
+
+      <h2>Contact</h2>
+      <p>Prestique LLC<br />North Carolina, United States<br /><a href="mailto:support@prestique.ai">support@prestique.ai</a></p>
+    </div>
+  </main>
+  <Footer />
+</Layout>
