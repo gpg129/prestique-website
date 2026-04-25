@@ -1,0 +1,162 @@
+---
+interface Props {
+  industry?: string
+  dark?: boolean
+}
+const { industry, dark = true } = Astro.props as Props
+const hasIndustryPreFill = !!industry
+---
+<form data-leadform class="text-left max-w-lg mx-auto w-full">
+  {hasIndustryPreFill && (
+    <div class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl mb-4"
+         style="background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2);">
+      <span class="text-p-blue text-sm">✓</span>
+      <span class="text-p-muted text-sm">
+        This audit is tailored for <span class="text-white font-semibold">{industry}</span>
+      </span>
+    </div>
+  )}
+
+  <div class="flex flex-col gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div>
+        <label for="lf-firstName" class="block text-xs font-medium uppercase tracking-wider text-p-muted mb-1.5">First name</label>
+        <input
+          id="lf-firstName"
+          type="text"
+          name="firstName"
+          placeholder="Sarah"
+          required
+          class={`w-full px-3.5 py-2.5 rounded-lg text-sm outline-none transition-colors ${dark ? 'bg-white/5 border border-white/10 text-white placeholder-white/30 focus:border-p-blue' : 'border border-gray-300 text-gray-900 focus:border-p-blue'}`}
+        />
+      </div>
+      <div>
+        <label for="lf-email" class="block text-xs font-medium uppercase tracking-wider text-p-muted mb-1.5">Work email</label>
+        <input
+          id="lf-email"
+          type="email"
+          name="email"
+          placeholder="sarah@company.com"
+          required
+          class={`w-full px-3.5 py-2.5 rounded-lg text-sm outline-none transition-colors ${dark ? 'bg-white/5 border border-white/10 text-white placeholder-white/30 focus:border-p-blue' : 'border border-gray-300 text-gray-900 focus:border-p-blue'}`}
+        />
+      </div>
+    </div>
+
+    <div>
+      <label for="lf-company" class="block text-xs font-medium uppercase tracking-wider text-p-muted mb-1.5">Company name</label>
+      <input
+        id="lf-company"
+        type="text"
+        name="company"
+        placeholder="Acme HVAC"
+        required
+        class={`w-full px-3.5 py-2.5 rounded-lg text-sm outline-none transition-colors ${dark ? 'bg-white/5 border border-white/10 text-white placeholder-white/30 focus:border-p-blue' : 'border border-gray-300 text-gray-900 focus:border-p-blue'}`}
+      />
+    </div>
+
+    <div>
+      <label for="lf-companyUrl" class="block text-xs font-medium uppercase tracking-wider text-p-muted mb-1.5">
+        Company website <span class="text-white/30 font-normal normal-case tracking-normal">(optional)</span>
+      </label>
+      <input
+        id="lf-companyUrl"
+        type="text"
+        name="companyUrl"
+        placeholder="https://yourcompany.com"
+        class={`w-full px-3.5 py-2.5 rounded-lg text-sm outline-none transition-colors ${dark ? 'bg-white/5 border border-white/10 text-white placeholder-white/30 focus:border-p-blue' : 'border border-gray-300 text-gray-900 focus:border-p-blue'}`}
+      />
+      <p class="text-xs text-white/30 mt-1">Helps Aria give better recommendations.</p>
+    </div>
+
+    {!hasIndustryPreFill && (
+      <div>
+        <label for="lf-industry" class="block text-xs font-medium uppercase tracking-wider text-p-muted mb-1.5">Industry</label>
+        <input
+          id="lf-industry"
+          type="text"
+          name="industry"
+          placeholder="HVAC, plumbing, dental, law…"
+          required
+          class={`w-full px-3.5 py-2.5 rounded-lg text-sm outline-none transition-colors ${dark ? 'bg-white/5 border border-white/10 text-white placeholder-white/30 focus:border-p-blue' : 'border border-gray-300 text-gray-900 focus:border-p-blue'}`}
+        />
+      </div>
+    )}
+
+    {hasIndustryPreFill && (
+      <input type="hidden" name="industry" value={industry} />
+    )}
+
+    <p data-leadform-error class="text-red-400 text-sm m-0 hidden"></p>
+
+    <button
+      type="submit"
+      data-leadform-submit
+      class="btn-primary w-full justify-center text-base py-3.5"
+    >
+      <span data-leadform-label>Start my free audit →</span>
+    </button>
+
+    <p class="text-xs text-white/30 text-center m-0">
+      No spam. Your information is used only to generate your audit report.
+    </p>
+  </div>
+</form>
+
+<script>
+  import { submitLead, buildAuditSessionUrl } from '../lib/api'
+
+  document.querySelectorAll<HTMLFormElement>('form[data-leadform]').forEach((form) => {
+    const submitBtn = form.querySelector<HTMLButtonElement>('[data-leadform-submit]')
+    const label = form.querySelector<HTMLElement>('[data-leadform-label]')
+    const errorEl = form.querySelector<HTMLElement>('[data-leadform-error]')
+    const originalLabel = label?.textContent ?? 'Start my free audit →'
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      if (!errorEl || !submitBtn || !label) return
+
+      errorEl.classList.add('hidden')
+      errorEl.textContent = ''
+
+      const formData = new FormData(form)
+      const data = {
+        firstName: String(formData.get('firstName') || '').trim(),
+        email: String(formData.get('email') || '').trim(),
+        company: String(formData.get('company') || '').trim(),
+        companyUrl: String(formData.get('companyUrl') || '').trim(),
+        industry: String(formData.get('industry') || '').trim(),
+      }
+
+      if (!data.firstName || !data.email || !data.company || !data.industry) {
+        errorEl.textContent = 'Please fill in all required fields.'
+        errorEl.classList.remove('hidden')
+        return
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+        errorEl.textContent = 'Please enter a valid email address.'
+        errorEl.classList.remove('hidden')
+        return
+      }
+
+      submitBtn.disabled = true
+      submitBtn.style.opacity = '0.6'
+      submitBtn.style.cursor = 'wait'
+      label.textContent = 'Getting Aria ready…'
+
+      try {
+        const result = await submitLead(data)
+        const url = buildAuditSessionUrl({ ...data, ...result })
+        window.location.href = url
+      } catch (err) {
+        console.error('Lead submission failed:', err)
+        errorEl.textContent = 'Something went wrong. Please try again.'
+        errorEl.classList.remove('hidden')
+        submitBtn.disabled = false
+        submitBtn.style.opacity = '1'
+        submitBtn.style.cursor = 'pointer'
+        label.textContent = originalLabel
+      }
+    })
+  })
+</script>

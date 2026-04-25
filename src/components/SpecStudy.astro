@@ -1,0 +1,164 @@
+---
+import type { SpecStudy } from '../lib/specStudies/home-services'
+
+interface Props {
+  spec: SpecStudy
+  industry: string
+}
+const { spec, industry } = Astro.props as Props
+---
+<section id="spec-study" class="py-24 px-6">
+  <div class="glow-divider mb-24"></div>
+
+  <div class="max-w-5xl mx-auto">
+    <!-- Intro -->
+    <div class="text-center mb-16 fade-up">
+      <p class="section-label mb-4">Spec Study — {industry}</p>
+      <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 max-w-3xl mx-auto">
+        How Prestique builds for {industry} shops.
+      </h2>
+      <p class="text-p-muted text-lg leading-relaxed max-w-2xl mx-auto">
+        {spec.intro}
+      </p>
+    </div>
+
+    <!-- Problem -->
+    <div class="mb-24 fade-up">
+      <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">The leak</h3>
+      <div class="space-y-5 max-w-3xl">
+        {spec.problem.map((para) => (
+          <p class="text-p-text text-lg leading-relaxed">{para}</p>
+        ))}
+      </div>
+    </div>
+
+    <!-- Stack -->
+    <div class="mb-24">
+      <div class="fade-up mb-8">
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">The stack</h3>
+        <p class="text-p-muted text-base max-w-2xl">
+          Verified API capabilities — every claim below cites the vendor's developer documentation.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {spec.stack.map((tool, i) => (
+          <div class="glass-card p-7 fade-up" style={`transition-delay: ${0.05 * i}s;`}>
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h4 class="text-white font-bold text-xl">{tool.tool}</h4>
+                <p class="text-p-blue text-sm mt-0.5">{tool.role}</p>
+              </div>
+              {tool.docUrl && (
+                <a
+                  href={tool.docUrl}
+                  target="_blank"
+                  rel="noopener"
+                  class="text-p-muted hover:text-p-glow transition-colors text-xs flex items-center gap-1"
+                  aria-label={`${tool.tool} developer docs`}
+                >
+                  Docs ↗
+                </a>
+              )}
+            </div>
+            <ul class="space-y-2.5">
+              {tool.capabilities.map((cap) => (
+                <li class="text-p-muted text-sm leading-relaxed flex gap-2">
+                  <span class="text-p-blue flex-shrink-0">•</span>
+                  <span>{cap}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Agent behaviors -->
+    <div class="mb-24">
+      <div class="fade-up mb-8">
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">What the agent actually does</h3>
+        <p class="text-p-muted text-base max-w-2xl">
+          Behaviors live and in production with our home-services clients.
+        </p>
+      </div>
+      <div class="space-y-4">
+        {spec.agentBehaviors.map((behavior, i) => (
+          <div class="glass-card p-6 md:p-7 fade-up" style={`transition-delay: ${0.05 * i}s;`}>
+            <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
+                   style="background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2);">
+                <span class="text-p-blue font-bold">{i + 1}</span>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-white font-semibold text-lg mb-2">{behavior.title}</h4>
+                <p class="text-p-muted leading-relaxed mb-3">{behavior.description}</p>
+                <div class="flex flex-wrap gap-2">
+                  {behavior.toolsInvolved.map((t) => (
+                    <span class="text-xs px-2.5 py-1 rounded-md text-p-glow"
+                          style="background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.15);">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Rollout -->
+    <div class="mb-24">
+      <div class="fade-up mb-8">
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">4-week rollout</h3>
+        <p class="text-p-muted text-base max-w-2xl">
+          Call intake live by end of week 1. Full handover at week 4.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {spec.rollout.map((week, i) => (
+          <div class="glass-card p-6 fade-up relative" style={`transition-delay: ${0.05 * i}s;`}>
+            <div class="text-p-blue text-xs font-semibold uppercase tracking-wider mb-2">
+              Week {week.week}
+            </div>
+            <h4 class="text-white font-bold text-base mb-4 leading-snug">{week.title}</h4>
+            <ul class="space-y-2 mb-5">
+              {week.tasks.map((task) => (
+                <li class="text-p-muted text-sm leading-relaxed flex gap-1.5">
+                  <span class="text-p-blue flex-shrink-0">·</span>
+                  <span>{task}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="pt-4 border-t border-white/5">
+              <p class="text-xs text-white/40 mb-1">Effort</p>
+              <p class="text-p-text text-sm font-medium">{week.effortHours}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Impact -->
+    <div class="fade-up">
+      <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-8">Impact</h3>
+      <div class="glass-card p-8 md:p-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          {spec.impact.map((metric) => (
+            <div>
+              <p class="text-p-muted text-sm mb-3">{metric.label}</p>
+              <div class="flex items-baseline gap-3 mb-2">
+                <span class="text-white/40 text-lg line-through">{metric.before}</span>
+                <span class="text-p-glow text-2xl">→</span>
+                <span class="text-white text-2xl font-bold">{metric.after}</span>
+              </div>
+              {metric.source && (
+                <p class="text-xs text-white/40">{metric.source}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
