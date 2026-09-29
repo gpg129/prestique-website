@@ -2,7 +2,7 @@ import { canonicalFor, SITE_ORIGIN } from './canonical'
 
 // Single source for the "Schedule a call" link (nav button + BookCallCTA).
 // Swap this one value to change where every booking CTA on the site points.
-export const BOOKING_URL = 'https://calendly.com/griffinguarino-touk/30min'
+export const BOOKING_URL = 'https://calendly.com/prestique/30min'
 
 // Calendly keeps UTM params on the booking, so calls can be traced to the page they came from.
 export function bookingUrlFor(pagePath: string, placement: 'nav' | 'section'): string {
