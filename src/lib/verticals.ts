@@ -14,11 +14,14 @@ export interface VerticalConfig {
   statBadge: string
   metaTitle: string
   metaDescription: string
+  /** Blog content-collection vertical (src/content/config.ts enum) this page maps to. Read by the SEO maintenance loop; not rendered. */
+  blogVertical: 'hvac' | 'dental' | 'law' | 'auto_repair' | 'veterinary' | 'beauty_salon'
 }
 
 export const VERTICALS: Record<string, VerticalConfig> = {
   'home-services': {
     slug: 'home-services',
+    blogVertical: 'hvac',
     label: 'Home Service Businesses',
     industry: 'Home Services',
     headline: 'Home service businesses miss up to 62% of their calls.',
@@ -29,6 +32,7 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   },
   dental: {
     slug: 'dental',
+    blogVertical: 'dental',
     label: 'Dental Practices',
     industry: 'Dental',
     headline: 'Dental practices miss up to 38% of incoming calls.',
@@ -39,6 +43,7 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   },
   law: {
     slug: 'law',
+    blogVertical: 'law',
     label: 'Law Firms',
     industry: 'Law',
     headline: 'Law firms miss over a third of inbound calls.',
@@ -49,6 +54,7 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   },
   'auto-repair': {
     slug: 'auto-repair',
+    blogVertical: 'auto_repair',
     label: 'Auto Repair Shops',
     industry: 'Auto Repair',
     headline: 'Auto repair shops miss nearly half their calls during busy hours.',
@@ -59,6 +65,7 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   },
   veterinary: {
     slug: 'veterinary',
+    blogVertical: 'veterinary',
     label: 'Veterinary Clinics',
     industry: 'Veterinary',
     headline: 'Vet clinics miss up to 40% of incoming calls.',
@@ -69,6 +76,7 @@ export const VERTICALS: Record<string, VerticalConfig> = {
   },
   'beauty-salons': {
     slug: 'beauty-salons',
+    blogVertical: 'beauty_salon',
     label: 'Beauty Salons',
     industry: 'Beauty Salons',
     headline: '71% of salon clients have skipped a booking because it was too hard to reach someone.',
