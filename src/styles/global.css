@@ -36,6 +36,17 @@
     border-color: rgba(96, 165, 250, 0.6);
   }
 
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+  }
+  .btn-secondary:hover {
+    transform: translateY(-1px);
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(96, 165, 250, 0.6);
+  }
+
   .section-label {
     @apply text-xs font-semibold uppercase tracking-widest text-p-blue;
   }

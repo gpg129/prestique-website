@@ -7,6 +7,7 @@ import VerticalHero from '../components/VerticalHero.astro'
 import SpecStudy from '../components/SpecStudy.astro'
 import VerticalFAQ from '../components/VerticalFAQ.astro'
 import LeadForm from '../components/LeadForm.astro'
+import BookCallCTA from '../components/BookCallCTA.astro'
 import Footer from '../components/Footer.astro'
 import { VERTICALS } from '../lib/verticals'
 import { veterinarySpec } from '../lib/specStudies/veterinary'
@@ -55,6 +56,8 @@ const canonical = canonicalFor('/veterinary')
         </div>
       </div>
     </section>
+
+    <BookCallCTA />
 
     <VerticalFAQ faqs={veterinarySpec.faqs} industry={vertical.industry} audience={vertical.label} />
 

@@ -1,0 +1,74 @@
+---
+// "Skip the audit" path: an inline Calendly embed under the audit section.
+// The widget script loads only when the section nears the viewport, so pages
+// stay fast for visitors who never scroll this far.
+import { bookingUrlFor } from '../lib/booking'
+
+const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
+const embedUrl = (() => {
+  const u = new URL(bookUrl)
+  u.searchParams.set('hide_gdpr_banner', '1')
+  u.searchParams.set('background_color', '0a0f1a')
+  u.searchParams.set('text_color', 'ffffff')
+  u.searchParams.set('primary_color', '3b82f6')
+  return u.toString()
+})()
+---
+<section id="book-a-call" class="py-24 px-6">
+  <div class="glow-divider mb-24"></div>
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-10 fade-up">
+      <p class="section-label mb-4">Book a Call</p>
+      <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
+        Already know what you want?
+      </h2>
+      <p class="text-p-muted text-lg leading-relaxed max-w-xl mx-auto">
+        Do you already know exactly what you want for your company? Schedule a call with our team below.
+      </p>
+    </div>
+
+    <div class="glass-card p-1 md:p-2 fade-up overflow-hidden">
+      <div
+        data-calendly-lazy
+        data-url={embedUrl}
+        class="calendly-inline-widget w-full h-[1060px] md:h-[880px]"
+        style="min-width: 280px;"
+      ></div>
+      <noscript>
+        <p class="text-center py-8">
+          <a href={bookUrl} class="btn-primary" target="_blank" rel="noopener">Schedule a Call →</a>
+        </p>
+      </noscript>
+    </div>
+
+    <p class="text-center text-p-muted text-sm mt-6">
+      Calendar not loading?
+      <a href={bookUrl} class="text-p-glow hover:text-white transition-colors" target="_blank" rel="noopener">Open it in a new tab →</a>
+    </p>
+  </div>
+</section>
+
+<script>
+  const el = document.querySelector<HTMLElement>('[data-calendly-lazy]')
+  if (el) {
+    const load = () => {
+      if (document.querySelector('script[data-calendly-widget]')) return
+      const s = document.createElement('script')
+      s.src = 'https://assets.calendly.com/assets/external/widget.js'
+      s.async = true
+      s.dataset.calendlyWidget = ''
+      document.body.appendChild(s)
+    }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          load()
+          io.disconnect()
+        }
+      }, { rootMargin: '600px' })
+      io.observe(el)
+    } else {
+      load()
+    }
+  }
+</script>
