@@ -7,7 +7,7 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     keyword: z.string(),
-    vertical: z.enum(['hvac', 'dental', 'law', 'auto_repair', 'veterinary']),
+    vertical: z.enum(['hvac', 'dental', 'law', 'auto_repair', 'veterinary', 'beauty_salon']),
     author: z.string().optional(),
     readingTime: z.number().optional(),
     tags: z.array(z.string()).optional(),

@@ -67,6 +67,16 @@ export const VERTICALS: Record<string, VerticalConfig> = {
     metaTitle: 'AI for Veterinary Clinics | Prestique',
     metaDescription: 'See exactly what Prestique builds for vet clinics — 24/7 triage, wellness booking, vaccine reminders, emergency escalation. Free 5-minute audit.',
   },
+  'beauty-salons': {
+    slug: 'beauty-salons',
+    label: 'Beauty Salons',
+    industry: 'Beauty Salons',
+    headline: '71% of salon clients have skipped a booking because it was too hard to reach someone.',
+    subhead: "Your stylists can't pick up with foils in. Prestique builds the AI that answers the chair-side call, rebooks every client on time, and fills tomorrow's cancellations.",
+    statBadge: '71% gave up booking',
+    metaTitle: 'AI Receptionist for Beauty Salons | Prestique',
+    metaDescription: 'See what Prestique builds for hair and beauty salons: an AI receptionist that books the right stylist, rebooking texts, waitlist fills and no-show deposits on Square, Zenoti, Phorest and more. Free 5-minute audit.',
+  },
 }
 
 export function getVerticalBySlug(slug: string): VerticalConfig | undefined {

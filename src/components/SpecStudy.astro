@@ -4,8 +4,9 @@ import type { SpecStudy } from '../lib/specStudies/home-services'
 interface Props {
   spec: SpecStudy
   industry: string
+  audience?: string
 }
-const { spec, industry } = Astro.props as Props
+const { spec, industry, audience } = Astro.props as Props
 ---
 <section id="spec-study" class="py-24 px-6">
   <div class="glow-divider mb-24"></div>
@@ -15,7 +16,7 @@ const { spec, industry } = Astro.props as Props
     <div class="text-center mb-16 fade-up">
       <p class="section-label mb-4">Spec Study — {industry}</p>
       <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 max-w-3xl mx-auto">
-        How Prestique builds for {industry} shops.
+        How Prestique builds for {audience ?? industry}.
       </h2>
       <p class="text-p-muted text-lg leading-relaxed max-w-2xl mx-auto">
         {spec.intro}
@@ -78,7 +79,7 @@ const { spec, industry } = Astro.props as Props
       <div class="fade-up mb-8">
         <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">What the agent actually does</h3>
         <p class="text-p-muted text-base max-w-2xl">
-          Behaviors live and in production with our home-services clients.
+          What the agent handles, and how it works with the systems you already run.
         </p>
       </div>
       <div class="space-y-4">

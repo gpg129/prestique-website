@@ -3,7 +3,7 @@ import { VERTICALS } from '../lib/verticals'
 
 const AUDIT_URL = 'https://audit.prestique.ai'
 
-const INDUSTRY_ORDER = ['home-services', 'dental', 'law', 'auto-repair', 'veterinary'] as const
+const INDUSTRY_ORDER = ['home-services', 'dental', 'law', 'auto-repair', 'veterinary', 'beauty-salons'] as const
 const industries = INDUSTRY_ORDER
   .map((slug) => VERTICALS[slug])
   .filter((v): v is NonNullable<typeof v> => Boolean(v))

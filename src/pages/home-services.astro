@@ -35,7 +35,7 @@ const canonical = 'https://prestique.ai/home-services'
       statBadge={vertical.statBadge}
     />
 
-    <SpecStudy spec={homeServicesSpec} industry={vertical.industry} />
+    <SpecStudy spec={homeServicesSpec} industry={vertical.industry} audience={vertical.label} />
 
     <!-- Embedded audit form -->
     <section id="audit-form" class="py-24 px-6">
@@ -51,12 +51,12 @@ const canonical = 'https://prestique.ai/home-services'
           </p>
         </div>
         <div class="glass-card p-8 md:p-10 fade-up">
-          <LeadForm industry={vertical.industry} />
+          <LeadForm industry={vertical.industry} audience={vertical.label} />
         </div>
       </div>
     </section>
 
-    <VerticalFAQ faqs={homeServicesSpec.faqs} industry={vertical.industry} />
+    <VerticalFAQ faqs={homeServicesSpec.faqs} industry={vertical.industry} audience={vertical.label} />
 
     {relatedPosts.length > 0 && (
       <section class="py-24 px-6">

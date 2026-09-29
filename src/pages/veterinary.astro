@@ -35,7 +35,7 @@ const canonical = 'https://prestique.ai/veterinary'
       statBadge={vertical.statBadge}
     />
 
-    <SpecStudy spec={veterinarySpec} industry={vertical.industry} />
+    <SpecStudy spec={veterinarySpec} industry={vertical.industry} audience={vertical.label} />
 
     <section id="audit-form" class="py-24 px-6">
       <div class="glow-divider mb-24"></div>
@@ -50,12 +50,12 @@ const canonical = 'https://prestique.ai/veterinary'
           </p>
         </div>
         <div class="glass-card p-8 md:p-10 fade-up">
-          <LeadForm industry={vertical.industry} />
+          <LeadForm industry={vertical.industry} audience={vertical.label} />
         </div>
       </div>
     </section>
 
-    <VerticalFAQ faqs={veterinarySpec.faqs} industry={vertical.industry} />
+    <VerticalFAQ faqs={veterinarySpec.faqs} industry={vertical.industry} audience={vertical.label} />
 
     {relatedPosts.length > 0 && (
       <section class="py-24 px-6">

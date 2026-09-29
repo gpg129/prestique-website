@@ -8,18 +8,18 @@ import VerticalFAQ from '../components/VerticalFAQ.astro'
 import LeadForm from '../components/LeadForm.astro'
 import Footer from '../components/Footer.astro'
 import { VERTICALS } from '../lib/verticals'
-import { dentalSpec } from '../lib/specStudies/dental'
+import { beautySalonsSpec } from '../lib/specStudies/beauty-salons'
 import '../styles/global.css'
 
-const vertical = VERTICALS['dental']!
+const vertical = VERTICALS['beauty-salons']!
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft)
 const relatedPosts = allPosts
-  .filter((p) => p.data.vertical === 'dental')
+  .filter((p) => p.data.vertical === 'beauty_salon')
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3)
 
-const canonical = 'https://prestique.ai/dental'
+const canonical = 'https://prestique.ai/beauty-salons'
 ---
 <Layout
   title={vertical.metaTitle}
@@ -35,7 +35,7 @@ const canonical = 'https://prestique.ai/dental'
       statBadge={vertical.statBadge}
     />
 
-    <SpecStudy spec={dentalSpec} industry={vertical.industry} audience={vertical.label} />
+    <SpecStudy spec={beautySalonsSpec} industry={vertical.industry} audience={vertical.label} />
 
     <section id="audit-form" class="py-24 px-6">
       <div class="glow-divider mb-24"></div>
@@ -43,7 +43,7 @@ const canonical = 'https://prestique.ai/dental'
         <div class="text-center mb-12 fade-up">
           <p class="section-label mb-4">Free Audit</p>
           <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
-            See what we'd build for your practice.
+            See what we'd build for your salon.
           </h2>
           <p class="text-p-muted text-lg leading-relaxed max-w-xl mx-auto">
             Aria walks you through a 5-minute discovery and emails back a custom report — top automation opportunities, estimated revenue impact, and what we'd build first.
@@ -55,7 +55,7 @@ const canonical = 'https://prestique.ai/dental'
       </div>
     </section>
 
-    <VerticalFAQ faqs={dentalSpec.faqs} industry={vertical.industry} audience={vertical.label} />
+    <VerticalFAQ faqs={beautySalonsSpec.faqs} industry={vertical.industry} audience={vertical.label} />
 
     {relatedPosts.length > 0 && (
       <section class="py-24 px-6">
@@ -74,7 +74,7 @@ const canonical = 'https://prestique.ai/dental'
                 class="glass-card p-6 hover:bg-p-navy/40 transition-colors fade-up flex flex-col"
                 style={`transition-delay: ${0.05 * i}s;`}
               >
-                <p class="text-xs text-p-blue uppercase tracking-wider mb-3">Dental</p>
+                <p class="text-xs text-p-blue uppercase tracking-wider mb-3">Beauty Salons</p>
                 <h3 class="text-white font-semibold text-lg leading-snug mb-3 flex-1">
                   {post.data.title}
                 </h3>
