@@ -99,4 +99,4 @@ Understanding how HVAC companies lose revenue from missed calls is the first ste
 
 Most owners don't know the real number. They know it's a problem, but they've never quantified it. That's exactly what a quick AI audit is designed to uncover. In about five minutes, you can identify where calls are falling through the cracks, what revenue you're leaving on the table, and which parts of your phone operation are the best candidates for automation.
 
-Prestique offers a [free AI Audit](/booking) for home service businesses — no commitment, no pitch, just a clear-eyed look at where your phones are costing you money and what can be done about it. If the numbers make sense, you move forward. If they don't, you walk away with better data than you had before. Either way, you stop guessing.
+Prestique offers a [free AI Audit](https://audit.prestique.ai) for home service businesses — no commitment, no pitch, just a clear-eyed look at where your phones are costing you money and what can be done about it. If the numbers make sense, you move forward. If they don't, you walk away with better data than you had before. Either way, you stop guessing.
