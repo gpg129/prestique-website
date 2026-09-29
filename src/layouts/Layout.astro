@@ -1,4 +1,6 @@
 ---
+import { canonicalFor } from '../lib/canonical';
+import Attribution from '../components/Attribution.astro';
 interface Props {
   title?: string;
   description?: string;
@@ -12,7 +14,7 @@ const {
   ogType = 'website',
   pubDate,
 } = Astro.props;
-const canonicalURL = Astro.props.canonicalURL ?? Astro.url.href;
+const canonicalURL = Astro.props.canonicalURL ?? canonicalFor(Astro.url.pathname);
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +34,7 @@ const canonicalURL = Astro.props.canonicalURL ?? Astro.url.href;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="theme-color" content="#0a0f1a" />
+    <Attribution />
     <slot name="head" />
   </head>
   <body>

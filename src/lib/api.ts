@@ -4,12 +4,28 @@
 
 const AUDIT_API_BASE = 'https://audit.prestique.ai'
 
+// First-touch attribution captured by components/Attribution.astro (localStorage `pq_attr`).
+export interface Attribution {
+  landing_path?: string
+  landing_url?: string
+  referrer?: string
+  utm_source?: string
+  utm_medium?: string
+  utm_campaign?: string
+  utm_term?: string
+  utm_content?: string
+  gclid_present?: boolean
+  first_seen_at?: string
+  entry_point?: string
+}
+
 export interface LeadInput {
   firstName: string
   email: string
   company: string
   companyUrl?: string
   industry: string
+  attribution?: Attribution
 }
 
 export interface LeadResponse {

@@ -1,0 +1,64 @@
+---
+// First-touch lead attribution (first-party localStorage only — no cookies,
+// no PII, no third-party analytics). Included once in Layout.astro.
+//
+// 1. On first visit (or after the 90-day window), stores `pq_attr`:
+//    landing page, external referrer, UTM params, gclid presence, timestamp.
+// 2. On click of any link to the audit tool, appends pq_lp / pq_ref / pq_ts +
+//    utm_* so audit.prestique.ai sees the real landing page (the browser's
+//    default referrer policy strips the path on cross-origin navigation).
+// LeadForm.astro reads `pq_attr` directly for vertical-page submissions.
+// Everything is wrapped in try/catch: storage failure must never break navigation.
+---
+<script is:inline>
+(function () {
+  try {
+    var KEY = 'pq_attr';
+    var WINDOW_MS = 90 * 24 * 60 * 60 * 1000;
+    var OWN_HOSTS = ['prestique.ai', 'www.prestique.ai', 'audit.prestique.ai', 'prestique-audit.vercel.app'];
+    var UTM = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    var cap = function (v) { return typeof v === 'string' ? v.slice(0, 500) : v; };
+
+    var attr = null;
+    try { attr = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { attr = null; }
+    var fresh = attr && attr.first_seen_at && (Date.now() - Date.parse(attr.first_seen_at) < WINDOW_MS);
+
+    if (!fresh) {
+      var params = new URLSearchParams(location.search);
+      var ref = '';
+      try {
+        if (document.referrer) {
+          var rh = new URL(document.referrer).hostname;
+          if (OWN_HOSTS.indexOf(rh) === -1) ref = document.referrer;
+        }
+      } catch (e) {}
+      attr = {
+        landing_path: cap(location.pathname),
+        landing_url: cap(location.origin + location.pathname + location.search),
+        referrer: cap(ref),
+        gclid_present: !!params.get('gclid'),
+        first_seen_at: new Date().toISOString()
+      };
+      UTM.forEach(function (k) { var v = params.get(k); if (v) attr[k] = cap(v); });
+      try { localStorage.setItem(KEY, JSON.stringify(attr)); } catch (e) {}
+    }
+
+    document.addEventListener('click', function (ev) {
+      try {
+        var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+        if (!a) return;
+        var url = new URL(a.href, location.href);
+        if (url.hostname !== 'audit.prestique.ai' && url.hostname !== 'prestique-audit.vercel.app') return;
+        var cur = JSON.parse(localStorage.getItem(KEY) || 'null') || attr || {};
+        var set = function (k, v) { if (v && !url.searchParams.has(k)) url.searchParams.set(k, v); };
+        set('pq_lp', cur.landing_path);
+        set('pq_ref', cur.referrer);
+        set('pq_ts', cur.first_seen_at);
+        if (cur.gclid_present) set('pq_gclid', '1');
+        UTM.forEach(function (k) { set(k, cur[k]); });
+        a.href = url.toString();
+      } catch (e) {}
+    }, true);
+  } catch (e) {}
+})();
+</script>
