@@ -104,7 +104,15 @@ const hasIndustryPreFill = !!industry
 </form>
 
 <script>
-  import { submitLead, buildAuditSessionUrl } from '../lib/api'
+  import { submitLead, buildAuditSessionUrl, type Attribution } from '../lib/api'
+
+  function readAttribution(): Attribution {
+    try {
+      return { ...JSON.parse(localStorage.getItem('pq_attr') || '{}'), entry_point: 'prestique.ai form' }
+    } catch {
+      return { entry_point: 'prestique.ai form' }
+    }
+  }
 
   document.querySelectorAll<HTMLFormElement>('form[data-leadform]').forEach((form) => {
     const submitBtn = form.querySelector<HTMLButtonElement>('[data-leadform-submit]')
@@ -126,6 +134,7 @@ const hasIndustryPreFill = !!industry
         company: String(formData.get('company') || '').trim(),
         companyUrl: String(formData.get('companyUrl') || '').trim(),
         industry: String(formData.get('industry') || '').trim(),
+        attribution: readAttribution(),
       }
 
       if (!data.firstName || !data.email || !data.company || !data.industry) {
