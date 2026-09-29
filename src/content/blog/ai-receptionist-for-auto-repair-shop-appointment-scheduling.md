@@ -31,7 +31,7 @@ It's 2:47 PM on a Tuesday. Your lead tech is elbow-deep in a transmission rebuil
 
 That was a fleet manager looking to schedule brake jobs on four vans. Worth about $2,000 in revenue. He called the shop two blocks away instead. They picked up.
 
-This happens every day in auto repair shops across the country. Not once — multiple times. And it's exactly why an **AI receptionist for auto repair shop appointment scheduling** has gone from futuristic concept to operational necessity for independent shops that want to stay competitive.
+This happens every day in auto repair shops across the country. Not once — multiple times. And it's exactly why an **[AI receptionist for auto repair shop](/blog/ai-receptionist-for-auto-repair-shops-reducing-no-shows) appointment scheduling** has gone from futuristic concept to operational necessity for independent shops that want to stay competitive.
 
 The phone is still where your revenue starts. The question is whether anyone is answering it.
 
