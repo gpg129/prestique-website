@@ -47,7 +47,7 @@ const jsonLd = {
   </div>
 </section>
 
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline></script>
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, "\\u003c")} is:inline></script>
 
 <style>
   details summary::-webkit-details-marker { display: none; }
