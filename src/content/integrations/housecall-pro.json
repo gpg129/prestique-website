@@ -1,0 +1,131 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "housecallpro.capability.availability"
+      ],
+      "text": "Housecall Pro's public API shows how a company has configured its business hours and bookable windows"
+    },
+    {
+      "factIds": [
+        "housecallpro.capability.status"
+      ],
+      "text": "Housecall Pro's public API can retrieve a lead by its ID"
+    },
+    {
+      "factIds": [
+        "housecallpro.capability.lead"
+      ],
+      "text": "Housecall Pro's public API can create a lead for an already existing customer"
+    },
+    {
+      "factIds": [
+        "housecallpro.capability.convert"
+      ],
+      "text": "Housecall Pro's public API can convert a lead into an estimate or a job"
+    },
+    {
+      "factIds": [
+        "housecallpro.capability.webhooks"
+      ],
+      "text": "Housecall Pro provides webhooks that notify developers of events triggered by its Pros"
+    },
+    {
+      "factIds": [
+        "housecallpro.access.model"
+      ],
+      "text": "Requirement: API access is available only to users on a MAX plan"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "Housecall Pro's API is available only to Pros on a MAX plan. The agent's ability to create leads, check schedule availability, and convert leads depends on that access being in place. A call with Prestique can help clarify what's possible for your setup.",
+      "q": "Will this work with the Housecall Pro plan I'm already on?"
+    },
+    {
+      "a": "Through Housecall Pro's API, the agent can check how your business hours and bookable windows are configured, create a lead for an existing customer, retrieve a lead by its ID, and convert a lead into an estimate or a job. The agent only does what the API allows and what you have approved.",
+      "q": "What can the agent actually do inside Housecall Pro?"
+    },
+    {
+      "a": "No. You keep the software you already use. The agent works with Housecall Pro rather than replacing it.",
+      "q": "Do I have to replace Housecall Pro or change how my team works?"
+    },
+    {
+      "a": "Every call is recorded with a transcript and a summary of what the caller needed. Anything the agent shouldn't handle goes to your team with a summary of the call. The agent can also follow up with the caller by text message after a call.",
+      "q": "How do I know what happened on each call?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do I get started?"
+    },
+    {
+      "a": "Prestique is not affiliated with Housecall Pro. Housecall Pro is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with Housecall Pro?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with Housecall Pro.",
+  "howItWorks": [
+    {
+      "body": "The agent answers calls after hours and when the line is busy. Every call is recorded with a transcript and a summary of what the caller needed. Anything the agent shouldn't handle goes to your team with a summary of the call.",
+      "title": "Answers calls when your team can't"
+    },
+    {
+      "body": "Where Housecall Pro's API allows it, the agent can check how your business hours and bookable windows are configured, create a lead for an existing customer, and retrieve a lead by its ID. It can also convert a lead into an estimate or a job. API access in Housecall Pro is available only to Pros on a MAX plan, so the agent's connection depends on your plan level.",
+      "title": "Connects to Housecall Pro's API"
+    },
+    {
+      "body": "After a call, the agent can follow up with the caller by text message. The agent only does what Housecall Pro's API allows and what you have approved it to do. You control what it says and does, and changes are made when you ask for them.",
+      "title": "Follows up and stays in your control"
+    }
+  ],
+  "intro": [
+    "Prestique builds custom AI voice and text agents for small businesses. When you run Housecall Pro, the agent connects to its API so it can work from the same information your team sees and create records there, within what that API allows.",
+    "You keep Housecall Pro. The agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them."
+  ],
+  "lastVerified": "2026-09-30",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with Housecall Pro, based on Housecall Pro's own published API documentation.",
+  "platform": "Housecall Pro",
+  "slug": "housecall-pro",
+  "sources": [
+    {
+      "id": "housecallpro.access.model",
+      "label": "Housecall Pro documentation",
+      "retrieved": "2026-09-30",
+      "url": "https://help.housecallpro.com/en/articles/8505035-api-overview"
+    },
+    {
+      "id": "housecallpro.capability.availability",
+      "label": "Housecall Pro documentation",
+      "retrieved": "2026-09-30",
+      "url": "https://docs.housecallpro.com/docs/housecall-public-api/898190c92fb8b-schedule-windows"
+    },
+    {
+      "id": "housecallpro.capability.convert",
+      "label": "Housecall Pro documentation",
+      "retrieved": "2026-09-30",
+      "url": "https://docs.housecallpro.com/docs/housecall-public-api/d9c8a89ed4e4c-convert-lead-to-estimate-or-job"
+    },
+    {
+      "id": "housecallpro.capability.lead",
+      "label": "Housecall Pro documentation",
+      "retrieved": "2026-09-30",
+      "url": "https://docs.housecallpro.com/docs/housecall-public-api/8961eaf9f1c28-create-lead"
+    },
+    {
+      "id": "housecallpro.capability.status",
+      "label": "Housecall Pro documentation",
+      "retrieved": "2026-09-30",
+      "url": "https://docs.housecallpro.com/docs/housecall-public-api/fc11c266161fe-get-lead"
+    },
+    {
+      "id": "housecallpro.capability.webhooks",
+      "label": "Housecall Pro documentation",
+      "retrieved": "2026-09-30",
+      "url": "https://docs.housecallpro.com/docs/housecall-public-api/46e9e1be07621-webhooks"
+    }
+  ],
+  "status": "live",
+  "subhead": "A custom AI receptionist that answers calls and works with Housecall Pro. Built by Prestique for home service businesses.",
+  "title": "AI Receptionist for Housecall Pro | Prestique",
+  "vertical": "hvac"
+}
