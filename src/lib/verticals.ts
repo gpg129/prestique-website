@@ -14,7 +14,7 @@ export interface VerticalConfig {
   statBadge: string
   metaTitle: string
   metaDescription: string
-  /** Blog content-collection vertical (src/content/config.ts enum) this page maps to. Read by the SEO maintenance loop; not rendered. */
+  /** Blog content-collection vertical (src/content.config.ts enum) this page maps to. Read by the SEO maintenance loop; not rendered. */
   blogVertical: 'hvac' | 'dental' | 'law' | 'auto_repair' | 'veterinary' | 'beauty_salon'
 }
 

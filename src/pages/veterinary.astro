@@ -77,7 +77,7 @@ const canonical = canonicalFor('/veterinary')
           <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
             {relatedPosts.map((post, i) => (
               <a
-                href={`/blog/${post.slug}`}
+                href={`/blog/${post.id}`}
                 class="glass-card p-6 hover:bg-p-navy/40 transition-colors fade-up flex flex-col"
                 style={`transition-delay: ${0.05 * i}s;`}
               >
