@@ -1,6 +1,6 @@
 ---
 // First-touch lead attribution (first-party localStorage only — no cookies,
-// no PII, no third-party analytics). Included once in Layout.astro.
+// no PII (landing_url keeps only utm_* from the query string), no third-party analytics). Included once in Layout.astro.
 //
 // 1. On first visit (or after the 90-day window), stores `pq_attr`:
 //    landing page, external referrer, UTM params, gclid presence, timestamp.
@@ -18,6 +18,13 @@
     var OWN_HOSTS = ['prestique.ai', 'www.prestique.ai', 'audit.prestique.ai', 'prestique-audit.vercel.app'];
     var UTM = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
     var cap = function (v) { return typeof v === 'string' ? v.slice(0, 500) : v; };
+    // Path + utm_* only: gclid/fbclid/email params are click ids or PII (UTMs have their own fields).
+    var landingUrl = function (params) {
+      var kept = new URLSearchParams();
+      UTM.forEach(function (k) { var v = params.get(k); if (v) kept.set(k, v); });
+      var qs = kept.toString();
+      return location.origin + location.pathname + (qs ? '?' + qs : '');
+    };
 
     var attr = null;
     try { attr = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { attr = null; }
@@ -34,7 +41,7 @@
       } catch (e) {}
       attr = {
         landing_path: cap(location.pathname),
-        landing_url: cap(location.origin + location.pathname + location.search),
+        landing_url: cap(landingUrl(params)),
         referrer: cap(ref),
         gclid_present: !!params.get('gclid'),
         first_seen_at: new Date().toISOString()

@@ -104,11 +104,12 @@ const hasIndustryPreFill = !!industry
 </form>
 
 <script>
-  import { submitLead, buildAuditSessionUrl, type Attribution } from '../lib/api'
+  import { submitLead, buildAuditSessionUrl, stripLandingUrl, type Attribution } from '../lib/api'
 
   function readAttribution(): Attribution {
     try {
-      return { ...JSON.parse(localStorage.getItem('pq_attr') || '{}'), entry_point: 'prestique.ai form' }
+      const stored: Attribution = JSON.parse(localStorage.getItem('pq_attr') || '{}')
+      return { ...stored, landing_url: stripLandingUrl(stored.landing_url), entry_point: 'prestique.ai form' }
     } catch {
       return { entry_point: 'prestique.ai form' }
     }

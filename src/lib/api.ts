@@ -19,6 +19,26 @@ export interface Attribution {
   entry_point?: string
 }
 
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+
+// landing_url → origin + path + utm_* only (drops gclid/fbclid/email params). Components/Attribution.astro
+// already stores it this way; this also cleans pq_attr values stored before that change (90-day window).
+export function stripLandingUrl(raw: string | undefined): string | undefined {
+  if (!raw) return undefined
+  try {
+    const u = new URL(raw)
+    const kept = new URLSearchParams()
+    for (const k of UTM_KEYS) {
+      const v = u.searchParams.get(k)
+      if (v) kept.set(k, v)
+    }
+    const qs = kept.toString()
+    return u.origin + u.pathname + (qs ? `?${qs}` : '')
+  } catch {
+    return undefined
+  }
+}
+
 export interface LeadInput {
   firstName: string
   email: string
@@ -47,8 +67,17 @@ export async function submitLead(data: LeadInput): Promise<LeadResponse> {
   return res.json() as Promise<LeadResponse>
 }
 
+// UTF-8-safe base64. btoa() only accepts Latin-1, so a name like "Zoë Ødegård" / "李" or a
+// UTM like utm_campaign=café made it throw and broke the form (for 90 days, since the UTM
+// lives in pq_attr). Decoder: prestique-audit src/lib/session.ts (reads old Latin-1 links too).
+export function encodeSessionPayload(payload: unknown): string {
+  const bytes = new TextEncoder().encode(JSON.stringify(payload))
+  let binary = ''
+  for (const b of bytes) binary += String.fromCharCode(b)
+  return btoa(binary)
+}
+
 export function buildAuditSessionUrl(payload: LeadResponse & LeadInput): string {
-  const json = JSON.stringify(payload)
-  const encoded = btoa(json)
-  return `${AUDIT_API_BASE}/audit?session=${encoded}`
+  // encodeURIComponent: base64 contains "+" and "/", and "+" reads back as a space.
+  return `${AUDIT_API_BASE}/audit?session=${encodeURIComponent(encodeSessionPayload(payload))}`
 }
