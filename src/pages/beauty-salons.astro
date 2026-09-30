@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import VerticalHero from '../components/VerticalHero.astro'
 import SpecStudy from '../components/SpecStudy.astro'
+import IntegrationLinks from '../components/IntegrationLinks.astro'
 import VerticalFAQ from '../components/VerticalFAQ.astro'
 import LeadForm from '../components/LeadForm.astro'
 import BookCallCTA from '../components/BookCallCTA.astro'
@@ -38,6 +39,8 @@ const canonical = canonicalFor('/beauty-salons')
     />
 
     <SpecStudy spec={beautySalonsSpec} industry={vertical.industry} audience={vertical.label} />
+
+    <IntegrationLinks blogVertical={vertical.blogVertical} />
 
     <section id="audit-form" class="py-24 px-6">
       <div class="glow-divider mb-24"></div>

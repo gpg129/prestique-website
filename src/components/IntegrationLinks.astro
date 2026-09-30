@@ -1,0 +1,24 @@
+---
+// "Works with" block for a vertical page: live Group C integration pages for this vertical.
+// Renders nothing until at least one page is live.
+import { liveIntegrations } from '../lib/integrations'
+
+interface Props { blogVertical: string }
+const { blogVertical } = Astro.props as Props
+const items = (await liveIntegrations()).filter((e) => e.data.vertical === blogVertical)
+---
+{items.length > 0 && (
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      <p class="section-label mb-4 text-center">Works with</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {items.map((e) => (
+          <a href={`/integrations/${e.data.slug}`} class="glass-card p-5 hover:bg-p-navy/40 transition-colors">
+            <p class="text-white font-semibold">{e.data.platform}</p>
+            <p class="text-p-muted text-sm mt-1">{e.data.capabilities[0]?.text}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

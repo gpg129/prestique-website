@@ -1,0 +1,42 @@
+---
+import { canonicalFor } from '../../lib/canonical'
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+import { VERTICALS } from '../../lib/verticals'
+import { liveIntegrations, verticalFor } from '../../lib/integrations'
+import '../../styles/global.css'
+
+const live = await liveIntegrations()
+const groups = Object.values(VERTICALS)
+  .map((v) => ({ v, items: live.filter((e) => verticalFor(e.data.vertical)?.slug === v.slug) }))
+---
+<Layout title="Integrations | Prestique" description="AI receptionists that work with the software your business already runs: shop, practice, booking and field-service systems."
+        canonicalURL={canonicalFor('/integrations')}>
+  <Nav />
+  <main class="pt-32 pb-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <p class="section-label mb-4">Integrations</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">AI that works with the software you already run.</h1>
+      <p class="text-p-muted text-lg mb-16 max-w-2xl">Each guide covers what an AI agent can do with that system, based on the vendor's own published documentation.</p>
+      {groups.map(({ v, items }) => (
+        <section class="mb-12">
+          <h2 class="text-white text-2xl font-semibold mb-4"><a href={`/${v.slug}`} class="hover:text-p-glow">{v.industry}</a></h2>
+          {items.length ? (
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {items.map((e) => (
+                <a href={`/integrations/${e.data.slug}`} class="glass-card p-5 hover:bg-p-navy/40 transition-colors">
+                  <p class="text-white font-semibold">{e.data.platform}</p>
+                  <p class="text-p-muted text-sm mt-1">{e.data.capabilities[0]?.text}</p>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <p class="text-p-muted text-sm">Integration guides coming soon.</p>
+          )}
+        </section>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -1,3 +1,7 @@
+---
+import { liveIntegrations } from '../lib/integrations'
+const hasIntegrations = (await liveIntegrations()).length > 0
+---
 <footer class="py-12 px-6 border-t border-white/5">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-p-muted text-sm">
     <div class="flex flex-col items-center md:items-start gap-1">
@@ -7,6 +11,7 @@
     <span>© 2026 Prestique LLC. All rights reserved.</span>
     <div class="flex flex-wrap justify-center gap-6">
       <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+      {hasIntegrations && <a href="/integrations" class="hover:text-white transition-colors">Integrations</a>}
       <a href="mailto:support@prestique.ai" class="hover:text-white transition-colors">support@prestique.ai</a>
       <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
       <a href="/terms" class="hover:text-white transition-colors">Terms</a>
