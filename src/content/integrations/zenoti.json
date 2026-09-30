@@ -15,51 +15,51 @@
   ],
   "faqs": [
     {
-      "a": "No. You keep the software you already use. The agent works with Zenoti rather than replacing it.",
-      "q": "Will this replace Zenoti or require me to switch software?"
+      "a": "Where Zenoti offers an API, Prestique connects the agent to it so the agent works from the same information your team sees. Zenoti provides an API to retrieve available slots for a service booking and endpoints to mark an appointment as confirmed or undo confirmation. The agent only does what those API endpoints allow and what you have approved it to do.",
+      "q": "Does the agent actually connect to my Zenoti account, or does it keep a separate calendar?"
     },
     {
-      "a": "Zenoti provides an API to retrieve available slots for a service booking and endpoints to mark an appointment as confirmed or undo confirmation. The agent connects to those. It only does what Zenoti's API allows and what you have approved it to do.",
-      "q": "What can the agent actually do inside Zenoti?"
-    },
-    {
-      "a": "Anything the agent shouldn't handle goes to your team with a summary of the call.",
-      "q": "What happens if a caller asks for something the agent can't handle?"
+      "a": "Anything the agent shouldn't handle goes to your team with a summary of the call. Every call is also recorded with a transcript and a summary of what the caller needed, so nothing is lost.",
+      "q": "What happens when a caller asks about something the agent can't handle?"
     },
     {
       "a": "Yes. Booking follows your own rules, such as your hours, your capacity and what the agent won't do. You control what the agent says and does, and changes are made when you ask for them.",
-      "q": "Can I set rules about what the agent does and doesn't do?"
+      "q": "Can I set limits on what the agent will and won't do?"
+    },
+    {
+      "a": "No. You keep the software you already use. The agent works with Zenoti rather than replacing it. Prestique is not affiliated with Zenoti. Zenoti is a trademark of its owner.",
+      "q": "Will I have to move away from Zenoti to use this?"
     },
     {
       "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
-      "q": "How do I find out if this would help my salon?"
+      "q": "How do I find out whether this is a good fit for my salon or spa?"
     },
     {
       "a": "Prestique is not affiliated with Zenoti. Zenoti is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
       "q": "Is Prestique affiliated with Zenoti?"
     }
   ],
-  "headline": "A custom AI agent that answers your phones and works directly with Zenoti.",
+  "headline": "A custom AI receptionist that connects to your Zenoti account.",
   "howItWorks": [
     {
-      "body": "The agent answers calls after hours and when the line is busy. It can check available slots through Zenoti's API and mark an appointment as confirmed. Anything the agent shouldn't handle goes to your team with a summary of the call.",
-      "title": "Answers calls when your team can't"
+      "body": "The agent answers calls when your team can't: after hours and when the line is busy. Every call is recorded with a transcript and a summary of what the caller needed. The agent can also follow up by text message after a call.",
+      "title": "The agent answers calls"
     },
     {
-      "body": "Every call is recorded with a transcript and a summary of what the caller needed. The agent can also follow up by text message after a call.",
-      "title": "Keeps a record of every call"
+      "body": "Zenoti provides an API to retrieve available slots for a service booking and to mark an appointment as confirmed or undo confirmation. Prestique connects the agent to those endpoints so calls turn into real records in your system. The agent only does what Zenoti's API allows and what you have approved it to do.",
+      "title": "It connects to Zenoti's API"
     },
     {
-      "body": "The agent only does what Zenoti's API allows and what you have approved it to do. You control what the agent says and does, and changes are made when you ask for them.",
-      "title": "Stays within the limits you set"
+      "body": "You control what the agent says and does, and changes are made when you ask for them. Anything outside the agent's scope goes to your team with a summary of the call. You keep the software you already use; the agent works with it.",
+      "title": "You stay in control"
     }
   ],
   "intro": [
-    "Prestique builds custom AI voice and text agents for small businesses. Where a platform offers an API, Prestique connects the agent to it so calls turn into real records in your system. Zenoti provides an API to retrieve available slots for a service booking, and endpoints to mark an appointment as confirmed or undo confirmation. The agent uses those to do its work inside the system you already use.",
-    "You keep the software you already use; the agent works with it rather than replacing it. The agent only does what Zenoti's API allows and what you have approved it to do. Booking follows your own rules, such as your hours, your capacity and what the agent won't do. You control what the agent says and does, and changes are made when you ask for them."
+    "Zenoti provides an API to retrieve available slots for a service booking and endpoints to mark an appointment as confirmed or undo confirmation. Prestique connects a custom AI agent to those endpoints so that when a caller asks about availability or confirms an appointment, the agent is working with live data from your system — not a separate copy.",
+    "You keep Zenoti. The agent works with it rather than replacing it. Booking follows your own rules, such as your hours, your capacity and what the agent won't do. Anything the agent shouldn't handle goes to your team with a summary of the call."
   ],
   "lastVerified": "2026-09-30",
-  "metaDescription": "Prestique builds custom AI voice and text agents that connect to Zenoti's API. Answers calls after hours, checks availability, and confirms appointments.",
+  "metaDescription": "Prestique builds custom AI voice and text agents that connect to Zenoti's API. Calls answered, slots checked, appointments confirmed. Your system, your rules.",
   "platform": "Zenoti",
   "slug": "zenoti",
   "sources": [
@@ -77,7 +77,7 @@
     }
   ],
   "status": "live",
-  "subhead": "Prestique builds voice and text agents for salons and spas that run Zenoti. The agent connects to Zenoti's API so what happens on a call is reflected in your system.",
+  "subhead": "Prestique builds AI voice and text agents for salons and spas that run Zenoti. The agent connects to Zenoti's API so it works from the same information your team sees.",
   "title": "AI Receptionist for Zenoti Salons and Spas | Prestique",
   "vertical": "beauty_salon"
 }
