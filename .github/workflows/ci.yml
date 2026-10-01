@@ -86,8 +86,13 @@ jobs:
 
           if [ "$total" -gt 0 ] && [ "$unsafe" -eq 0 ] && [ "$foreign" -eq 0 ]; then
             echo "All updates are patch/minor — merging $HEAD_SHA."
-            gh pr merge "$PR_URL" --squash --match-head-commit "$HEAD_SHA"
-            exit 0
+            # Retry: a sibling Dependabot PR merging at the same moment makes
+            # GitHub reject this one with "Base branch was modified".
+            for attempt in 1 2 3 4 5; do
+              if gh pr merge "$PR_URL" --squash --match-head-commit "$HEAD_SHA"; then exit 0; fi
+              echo "Merge attempt $attempt failed; retrying in 20s"; sleep 20
+            done
+            echo "Merge failed after 5 attempts"; exit 1
           fi
 
           # Not safe: make sure no earlier run left auto-merge armed.
