@@ -36,11 +36,11 @@ jobs:
         run: npm run check:canonicals
 
   # Dependabot security fixes merge themselves once every CI job above passes —
-  # but ONLY patch/minor bumps. A major bump (or a 0.x minor bump, which semver
-  # treats as breaking) is left open with a comment for manual review. Anything
-  # the metadata can't classify is also left open. This repo only receives
-  # Dependabot SECURITY updates (no version-update schedule), so every PR this
-  # touches is a security fix.
+  # but ONLY when every updated dependency is a patch or minor bump with a known
+  # previous version, and every commit on the PR is Dependabot's. 0.x minor and
+  # 0.0.x patch bumps count as breaking. Anything else stays open with one
+  # manual-review comment. This repo only receives Dependabot SECURITY updates
+  # (no version-update schedule), so every PR this touches is a security fix.
   dependabot-automerge:
     name: dependabot auto-merge
     needs: [build]
@@ -52,7 +52,10 @@ jobs:
     steps:
       - name: Fetch Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v2
+        # Fails when the PR has no parseable/verified metadata; the next step
+        # turns that into a "could not classify" comment instead of a merge.
+        continue-on-error: true
+        uses: dependabot/fetch-metadata@21025c705c08248db411dc16f3619e6b5f9ea21a # v2.5.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -60,38 +63,51 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          META_OK: ${{ steps.metadata.outcome == 'success' }}
           DEPS: ${{ steps.metadata.outputs.updated-dependencies-json }}
         run: |
           set -euo pipefail
+          if [ "$META_OK" != "true" ]; then DEPS='[]'; fi
           echo "Updated dependencies: ${DEPS:-<none>}"
           total=$(jq 'length' <<<"${DEPS:-[]}")
-          # A dependency is safe only if it is a patch/minor bump AND not a 0.x
-          # minor bump (0.y -> 0.z can break under semver).
-          unsafe=$(jq '[.[] | select(
+          # Unsafe: not patch/minor; a minor bump from an unknown or 0.x version;
+          # a patch bump from an unknown or 0.0.x version.
+          unsafe=$(jq '[.[] | ((.prevVersion // "") | ltrimstr("v")) as $p | select(
               (.updateType != "version-update:semver-patch" and .updateType != "version-update:semver-minor")
-              or (.updateType == "version-update:semver-minor" and ((.prevVersion // "0") | startswith("0.")))
+              or (.updateType == "version-update:semver-minor" and ($p == "" or ($p | startswith("0."))))
+              or (.updateType == "version-update:semver-patch" and ($p == "" or ($p | startswith("0.0."))))
             )] | length' <<<"${DEPS:-[]}")
           major=$(jq '[.[] | select(.updateType == "version-update:semver-major")] | length' <<<"${DEPS:-[]}")
-          echo "total=$total unsafe=$unsafe major=$major"
+          # Every commit must be Dependabot's — nothing rides along with the bump.
+          foreign=$(gh pr view "$PR_URL" --json commits \
+            --jq '[.commits[] | select(all(.authors[]; .login == "dependabot[bot]") | not)] | length')
+          echo "total=$total unsafe=$unsafe major=$major foreign_commits=$foreign"
 
-          if [ "$total" -gt 0 ] && [ "$unsafe" -eq 0 ]; then
-            echo "All updates are patch/minor — merging."
-            gh pr merge "$PR_URL" --squash
+          if [ "$total" -gt 0 ] && [ "$unsafe" -eq 0 ] && [ "$foreign" -eq 0 ]; then
+            echo "All updates are patch/minor — merging $HEAD_SHA."
+            gh pr merge "$PR_URL" --squash --match-head-commit "$HEAD_SHA"
             exit 0
           fi
 
-          marker='<!-- dependabot-automerge -->'
-          if gh pr view "$PR_URL" --json comments --jq '.comments[].body' | grep -qF "$marker"; then
+          # Not safe: make sure no earlier run left auto-merge armed.
+          gh pr merge "$PR_URL" --disable-auto >/dev/null 2>&1 || true
+
+          seen=$(gh pr view "$PR_URL" --json comments \
+            --jq '[.comments[].body | select(contains("<!-- dependabot-automerge -->"))] | length')
+          if [ "$seen" -gt 0 ]; then
             echo "Manual-review comment already posted; nothing to do."
             exit 0
           fi
           if [ "$major" -gt 0 ]; then
             reason="major bump — needs manual review"
+          elif [ "$foreign" -gt 0 ]; then
+            reason="PR has commits not authored by Dependabot — needs manual review"
           elif [ "$total" -eq 0 ]; then
             reason="could not classify this update — needs manual review"
           else
-            reason="0.x minor bump (breaking under semver) or unclassified update — needs manual review"
+            reason="0.x bump (breaking under semver) or version not attested — needs manual review"
           fi
-          gh pr comment "$PR_URL" --body "$marker
+          gh pr comment "$PR_URL" --body "<!-- dependabot-automerge -->
           **Not auto-merged:** $reason. Auto-merge only handles patch/minor security bumps."
           echo "Left open: $reason"
