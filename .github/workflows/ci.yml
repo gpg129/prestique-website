@@ -1,0 +1,97 @@
+name: CI
+
+# Runs on every PR and every push to the default branch. Secret-free: the build
+# needs no environment variables. The final job auto-merges Dependabot
+# patch/minor security fixes once these checks pass.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - name: Install
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Unit tests
+        run: npm test
+      - name: Canonical URL check
+        run: npm run check:canonicals
+
+  # Dependabot security fixes merge themselves once every CI job above passes —
+  # but ONLY patch/minor bumps. A major bump (or a 0.x minor bump, which semver
+  # treats as breaking) is left open with a comment for manual review. Anything
+  # the metadata can't classify is also left open. This repo only receives
+  # Dependabot SECURITY updates (no version-update schedule), so every PR this
+  # touches is a security fix.
+  dependabot-automerge:
+    name: dependabot auto-merge
+    needs: [build]
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Merge patch/minor, flag everything else
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          DEPS: ${{ steps.metadata.outputs.updated-dependencies-json }}
+        run: |
+          set -euo pipefail
+          echo "Updated dependencies: ${DEPS:-<none>}"
+          total=$(jq 'length' <<<"${DEPS:-[]}")
+          # A dependency is safe only if it is a patch/minor bump AND not a 0.x
+          # minor bump (0.y -> 0.z can break under semver).
+          unsafe=$(jq '[.[] | select(
+              (.updateType != "version-update:semver-patch" and .updateType != "version-update:semver-minor")
+              or (.updateType == "version-update:semver-minor" and ((.prevVersion // "0") | startswith("0.")))
+            )] | length' <<<"${DEPS:-[]}")
+          major=$(jq '[.[] | select(.updateType == "version-update:semver-major")] | length' <<<"${DEPS:-[]}")
+          echo "total=$total unsafe=$unsafe major=$major"
+
+          if [ "$total" -gt 0 ] && [ "$unsafe" -eq 0 ]; then
+            echo "All updates are patch/minor — merging."
+            gh pr merge "$PR_URL" --squash
+            exit 0
+          fi
+
+          marker='<!-- dependabot-automerge -->'
+          if gh pr view "$PR_URL" --json comments --jq '.comments[].body' | grep -qF "$marker"; then
+            echo "Manual-review comment already posted; nothing to do."
+            exit 0
+          fi
+          if [ "$major" -gt 0 ]; then
+            reason="major bump — needs manual review"
+          elif [ "$total" -eq 0 ]; then
+            reason="could not classify this update — needs manual review"
+          else
+            reason="0.x minor bump (breaking under semver) or unclassified update — needs manual review"
+          fi
+          gh pr comment "$PR_URL" --body "$marker
+          **Not auto-merged:** $reason. Auto-merge only handles patch/minor security bumps."
+          echo "Left open: $reason"
