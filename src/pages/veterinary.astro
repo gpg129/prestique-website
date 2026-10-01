@@ -10,6 +10,7 @@ import VerticalFAQ from '../components/VerticalFAQ.astro'
 import LeadForm from '../components/LeadForm.astro'
 import BookCallCTA from '../components/BookCallCTA.astro'
 import Footer from '../components/Footer.astro'
+import VerticalGuides from '../components/VerticalGuides.astro'
 import { VERTICALS } from '../lib/verticals'
 import { veterinarySpec } from '../lib/specStudies/veterinary'
 import '../styles/global.css'
@@ -95,6 +96,7 @@ const canonical = canonicalFor('/veterinary')
         </div>
       </section>
     )}
+    <VerticalGuides blogVertical={vertical.blogVertical} label={vertical.label} />
   </main>
   <Footer />
 </Layout>

@@ -4,14 +4,17 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { canonicalFor, SITE_ORIGIN } from '../lib/canonical';
+import RelatedPosts from '../components/RelatedPosts.astro';
 
 const AUDIT_URL = 'https://audit.prestique.ai';
 const SITE_URL = SITE_ORIGIN;
 
 interface Props {
+  id: string;
   title: string;
   description: string;
   pubDate: Date;
+  updatedDate?: Date;
   keyword: string;
   vertical: string;
   author?: string;
@@ -19,7 +22,7 @@ interface Props {
   tags?: string[];
   faqs?: Array<{ q: string; a: string }>;
 }
-const { title, description, pubDate, keyword, vertical, author, readingTime, tags, faqs } = Astro.props;
+const { id, title, description, pubDate, updatedDate, keyword, vertical, author, readingTime, tags, faqs } = Astro.props;
 const formattedDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 const canonicalURL = canonicalFor(Astro.url.pathname);
 
@@ -39,6 +42,7 @@ const articleSchema = {
   headline: title,
   description: description,
   datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
   author: { '@type': 'Organization', name: author ?? 'The Prestique Team' },
   publisher: { '@type': 'Organization', name: 'Prestique', url: SITE_URL },
   url: canonicalURL,
@@ -137,6 +141,8 @@ const faqSchema = faqs && faqs.length > 0 ? {
           </div>
         </div>
       )}
+
+      <RelatedPosts id={id} vertical={vertical} label={verticalLabel[vertical] ?? vertical} />
 
       <!-- Inline audit CTA -->
       <div class="mt-16 glass-card p-8 md:p-10 text-center relative overflow-hidden">

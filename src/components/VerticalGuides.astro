@@ -1,0 +1,23 @@
+---
+// "All guides" list on a vertical landing page: every published post in the vertical, newest
+// first. Makes each vertical page the hub for its posts, so no post depends on /blog alone
+// for discovery (crawl-priority plan, 2026-10-01).
+import { getCollection } from 'astro:content'
+
+interface Props { blogVertical: string; label: string }
+const { blogVertical, label } = Astro.props as Props
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.vertical === blogVertical))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+---
+{posts.length > 0 && (
+  <section class="pb-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-xl font-bold text-white mb-5">All guides for {label}</h2>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+        {posts.map((post) => (
+          <li><a href={`/blog/${post.id}`} class="text-p-muted hover:text-white transition-colors">{post.data.title}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}

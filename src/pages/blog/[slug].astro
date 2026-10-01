@@ -14,6 +14,8 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 <BlogPost
+  id={post.id}
+  updatedDate={post.data.updatedDate}
   title={post.data.title}
   description={post.data.description}
   pubDate={post.data.pubDate}

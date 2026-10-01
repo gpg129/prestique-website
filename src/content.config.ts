@@ -10,6 +10,9 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
+    // Set by Group B when a post gains real content (merge winner, FAQ refresh). Feeds the
+    // sitemap <lastmod> and JSON-LD dateModified. Never set for link-only edits.
+    updatedDate: z.coerce.date().optional(),
     keyword: z.string(),
     vertical: z.enum(['hvac', 'dental', 'law', 'auto_repair', 'veterinary', 'beauty_salon']),
     author: z.string().optional(),
