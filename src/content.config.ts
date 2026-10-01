@@ -1,7 +1,11 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const blog = defineCollection({
-  type: 'content',
+  // Content-layer loader (Astro 6+ removed legacy `type: 'content'`).
+  // Entry `id` is the filename without extension, i.e. the old `slug`.
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -20,7 +24,9 @@ const blog = defineCollection({
 // source traces to a verified fact in aios-starter-kit data/seo-facts/facts.json. Only status "live" is built;
 // "withdrawn" pages 404 and drop out of the sitemap, index and vertical "Works with" links.
 const integrations = defineCollection({
-  type: 'data',
+  // Content-layer loader (Astro 6+ removed legacy `type: 'data'`). One JSON file per entry;
+  // the glob loader uses the file's `slug` field as the entry id. Pages read `entry.data.slug`.
+  loader: glob({ pattern: '**/*.json', base: './src/content/integrations' }),
   schema: z.object({
     platform: z.string(),
     slug: z.string().regex(/^[a-z0-9-]+$/),
