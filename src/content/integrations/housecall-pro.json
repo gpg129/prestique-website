@@ -82,7 +82,7 @@
     "Prestique builds custom AI voice and text agents for small businesses. When you run Housecall Pro, the agent connects to its API so it can work from the same information your team sees and create records there, within what that API allows.",
     "You keep Housecall Pro. The agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them."
   ],
-  "lastVerified": "2026-09-30",
+  "lastVerified": "2026-10-04",
   "metaDescription": "What a custom AI receptionist from Prestique can do with Housecall Pro, based on Housecall Pro's own published API documentation.",
   "platform": "Housecall Pro",
   "slug": "housecall-pro",
@@ -90,37 +90,37 @@
     {
       "id": "housecallpro.access.model",
       "label": "Housecall Pro documentation",
-      "retrieved": "2026-09-30",
+      "retrieved": "2026-10-04",
       "url": "https://help.housecallpro.com/en/articles/8505035-api-overview"
     },
     {
       "id": "housecallpro.capability.availability",
       "label": "Housecall Pro documentation",
-      "retrieved": "2026-09-30",
+      "retrieved": "2026-10-04",
       "url": "https://docs.housecallpro.com/docs/housecall-public-api/898190c92fb8b-schedule-windows"
     },
     {
       "id": "housecallpro.capability.convert",
       "label": "Housecall Pro documentation",
-      "retrieved": "2026-09-30",
+      "retrieved": "2026-10-04",
       "url": "https://docs.housecallpro.com/docs/housecall-public-api/d9c8a89ed4e4c-convert-lead-to-estimate-or-job"
     },
     {
       "id": "housecallpro.capability.lead",
       "label": "Housecall Pro documentation",
-      "retrieved": "2026-09-30",
+      "retrieved": "2026-10-04",
       "url": "https://docs.housecallpro.com/docs/housecall-public-api/8961eaf9f1c28-create-lead"
     },
     {
       "id": "housecallpro.capability.status",
       "label": "Housecall Pro documentation",
-      "retrieved": "2026-09-30",
+      "retrieved": "2026-10-04",
       "url": "https://docs.housecallpro.com/docs/housecall-public-api/fc11c266161fe-get-lead"
     },
     {
       "id": "housecallpro.capability.webhooks",
       "label": "Housecall Pro documentation",
-      "retrieved": "2026-09-30",
+      "retrieved": "2026-10-04",
       "url": "https://docs.housecallpro.com/docs/housecall-public-api/46e9e1be07621-webhooks"
     }
   ],

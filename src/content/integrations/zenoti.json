@@ -58,7 +58,7 @@
     "Prestique builds custom AI voice and text agents for small businesses. Where Zenoti offers an API, Prestique connects the agent to it so the agent works from the same information your team sees.",
     "You keep Zenoti. The agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them."
   ],
-  "lastVerified": "2026-09-30",
+  "lastVerified": "2026-10-04",
   "metaDescription": "What a custom AI receptionist from Prestique can do with Zenoti, based on Zenoti's own published API documentation.",
   "platform": "Zenoti",
   "slug": "zenoti",
@@ -66,13 +66,13 @@
     {
       "id": "zenoti.capability.availability",
       "label": "Zenoti documentation",
-      "retrieved": "2026-09-30",
+      "retrieved": "2026-10-04",
       "url": "https://docs.zenoti.com/docs/step-2-reserve-a-slot-for-the-booking.md"
     },
     {
       "id": "zenoti.capability.status",
       "label": "Zenoti documentation",
-      "retrieved": "2026-09-30",
+      "retrieved": "2026-10-04",
       "url": "https://docs.zenoti.com/reference/mark-an-appointment-as-confirm-or-undo-confirm.md"
     }
   ],
