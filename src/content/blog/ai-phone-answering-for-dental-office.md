@@ -22,7 +22,7 @@ faqs:
     a: "Absolutely. AI phone answering provides 24/7 coverage, triaging after-hours calls by collecting symptoms and urgency details, then routing true emergencies to the on-call dentist while scheduling non-urgent requests for the next business day."
   - q: "How long does it take to set up AI phone answering for a dental practice?"
     a: "Most dental practices can go live with an AI phone answering agent within one to two weeks, including customization to your scheduling rules, insurance questions, and call routing preferences."
-draft: false
+draft: true
 ---
 
 It's 11:47 a.m. on a Tuesday. Your front desk coordinator is checking in a family of three, confirming tomorrow's crown prep over the phone, and trying to process an insurance verification — all at the same time. The phone rings again. Then again. Both calls go to voicemail. One caller leaves a message. The other hangs up and Googles "dentist near me" instead. You just lost a patient you'll never know about. This is exactly the scenario that **AI phone answering for dental office** practices was built to solve — and it's happening in your practice more often than you think.

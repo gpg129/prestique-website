@@ -22,7 +22,7 @@ faqs:
     a: "Absolutely. One of the biggest advantages is 24/7 call coverage. The AI agent answers every call — nights, weekends, and holidays — so you never lose a new patient to voicemail again."
   - q: "How long does it take to set up an AI phone answering service for a dental practice?"
     a: "Most dental practices are fully up and running within one to two weeks. Setup includes configuring your scheduling rules, call flows, and integration with your practice management system."
-draft: false
+draft: true
 ---
 
 ## It's Monday at 8:47 AM — and You've Already Lost a Patient

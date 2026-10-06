@@ -41,6 +41,16 @@
       "source": "/blog/reduce-dental-no-shows-ai",
       "destination": "/blog/how-to-reduce-dental-no-shows-with-automated-reminders",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/ai-phone-answering-service-for-dental-practices",
+      "destination": "/blog/ai-phone-answering-service-for-busy-dental-practices",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/ai-phone-answering-for-dental-office",
+      "destination": "/blog/ai-phone-answering-service-for-busy-dental-practices",
+      "statusCode": 301
     }
   ]
 }
