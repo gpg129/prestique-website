@@ -22,7 +22,7 @@ faqs:
     a: "Today's AI voice agents use natural-sounding conversational AI that handles common auto repair inquiries — estimates, scheduling, status updates — so seamlessly that most callers don't notice the difference."
   - q: "How long does it take to set up an AI missed call solution for a mechanic shop?"
     a: "Most auto repair shops can be fully operational with an AI voice agent within one to two weeks, including customization for your specific services, pricing ranges, and scheduling workflow."
-draft: false
+draft: true
 ---
 
 ## It's 2:30 PM on a Tuesday and Your Phone Won't Stop Ringing

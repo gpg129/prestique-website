@@ -11,6 +11,11 @@
       "source": "/blog/ai-phone-answering-service-for-mechanic-shops-after-hours",
       "destination": "/blog/ai-answering-service-for-auto-repair-shops-after-hours",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/mechanic-shop-missed-call-solution-for-high-call-volume",
+      "destination": "/blog/mechanic-shop-phone-answering-service-for-high-call-volume",
+      "statusCode": 301
     }
   ]
 }
