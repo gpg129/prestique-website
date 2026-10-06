@@ -22,7 +22,7 @@ faqs:
     a: "Most home service businesses can have a voice AI agent live and answering calls within 1-2 weeks, including training the system on your specific services, pricing ranges, and scheduling rules."
   - q: "Does voice AI work for emergency plumbing or HVAC calls after hours?"
     a: "Absolutely. AI voice agents handle after-hours emergency calls by qualifying the urgency, collecting property details, and dispatching on-call technicians — capturing revenue that would otherwise go to competitors."
-draft: false
+draft: true
 ---
 
 ## It's 2 PM on the First Hot Day of Summer, and Your Phone Won't Stop Ringing

@@ -81,6 +81,11 @@
       "source": "/blog/how-to-stop-missing-calls-for-plumbing-business",
       "destination": "/blog/how-to-stop-losing-calls-for-plumbing-business",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/voice-ai-for-home-services",
+      "destination": "/blog/voice-ai-receptionist-for-home-service-businesses",
+      "statusCode": 301
     }
   ]
 }
