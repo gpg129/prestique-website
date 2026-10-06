@@ -76,6 +76,11 @@
       "source": "/blog/missed-call-revenue-hvac-company",
       "destination": "/blog/missed-calls-costing-hvac-company-revenue-monthly",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/how-to-stop-missing-calls-for-plumbing-business",
+      "destination": "/blog/how-to-stop-losing-calls-for-plumbing-business",
+      "statusCode": 301
     }
   ]
 }
