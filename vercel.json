@@ -1,5 +1,16 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": []
+  "redirects": [
+    {
+      "source": "/blog/after-hours-call-handling-for-busy-auto-repair-shops",
+      "destination": "/blog/ai-answering-service-for-auto-repair-shops-after-hours",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/ai-phone-answering-service-for-mechanic-shops-after-hours",
+      "destination": "/blog/ai-answering-service-for-auto-repair-shops-after-hours",
+      "statusCode": 301
+    }
+  ]
 }

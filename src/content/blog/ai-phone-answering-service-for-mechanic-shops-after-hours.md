@@ -22,7 +22,7 @@ faqs:
     a: "Modern AI voice agents sound natural and conversational. Most callers don't realize they're speaking with AI. The agent greets them by your shop name, asks relevant questions about their vehicle, and responds intelligently to follow-ups."
   - q: "How long does it take to set up an AI phone answering service for my auto shop?"
     a: "Most shops are fully operational within one to two weeks. Setup involves mapping your services, configuring your scheduling preferences, and training the AI on your shop's specific procedures and pricing guidelines."
-draft: false
+draft: true
 ---
 
 ## It's 7:14 PM and Your Phone Is Ringing

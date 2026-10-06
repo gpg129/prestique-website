@@ -22,7 +22,7 @@ faqs:
     a: "Most AI voice agent systems for auto repair shops are fully operational within 1-2 weeks. This includes configuring call flows, integrating with your scheduling system, and training the AI on your specific services and pricing."
   - q: "Is AI call handling expensive for a small auto repair shop?"
     a: "AI voice agents typically cost a fraction of a part-time receptionist — often 70-80% less. Given that a single recovered call can be worth $150-500, most shops see a positive ROI within the first month."
-draft: false
+draft: true
 ---
 
 It's 7:14 PM on a Tuesday. Your shop closed an hour ago. You're sitting at dinner when your phone buzzes — a voicemail from someone whose check engine light just came on. They sound worried. They want to get in tomorrow morning. By the time you call back at 7:30 AM Wednesday, they've already booked with the shop down the street that answered at 8 PM via their answering service. That job was worth $380. And it's gone. This is why **after-hours call handling for busy auto repair shops** isn't a nice-to-have anymore — it's the difference between growing your business and watching revenue leak out every single night.
