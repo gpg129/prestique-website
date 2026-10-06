@@ -21,6 +21,26 @@
       "source": "/blog/how-auto-repair-shops-lose-revenue-from-missed-calls",
       "destination": "/blog/how-auto-repair-shops-lose-money-on-missed-calls",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/automated-appointment-reminders-dental",
+      "destination": "/blog/how-to-reduce-dental-no-shows-with-automated-reminders",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/reduce-dental-no-shows-with-automated-appointment-reminders",
+      "destination": "/blog/how-to-reduce-dental-no-shows-with-automated-reminders",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/reduce-dental-appointment-no-shows-with-automated-reminders",
+      "destination": "/blog/how-to-reduce-dental-no-shows-with-automated-reminders",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/reduce-dental-no-shows-ai",
+      "destination": "/blog/how-to-reduce-dental-no-shows-with-automated-reminders",
+      "statusCode": 301
     }
   ]
 }

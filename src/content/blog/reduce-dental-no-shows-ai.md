@@ -22,7 +22,7 @@ faqs:
     a: "Modern AI voice agents use natural-sounding conversational speech and can answer common questions about office hours, directions, and preparation instructions. Most patients don't distinguish the experience from speaking with a live receptionist."
   - q: "How long does it take to set up AI no-show prevention for a dental office?"
     a: "Most dental practices can have an AI voice agent fully operational within one to two weeks, including integration with popular practice management systems like Dentrix, Eaglesoft, and Open Dental."
-draft: false
+draft: true
 ---
 
 ## The Empty Chair Problem You Already Know Too Well

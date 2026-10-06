@@ -22,7 +22,7 @@ faqs:
     a: "Reputable AI automation providers build their systems to comply with HIPAA requirements, ensuring patient information is handled securely during reminder calls, texts, and voicemails."
   - q: "How long does it take to set up AI appointment reminders for a dental office?"
     a: "Most dental practices can have an AI reminder and scheduling system fully operational within one to two weeks, including customization for your specific scheduling workflow and patient communication preferences."
-draft: false
+draft: true
 ---
 
 ## The Monday Morning That Costs You Thousands

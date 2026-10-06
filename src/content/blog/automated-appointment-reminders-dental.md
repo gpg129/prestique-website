@@ -22,7 +22,7 @@ faqs:
     a: "Today's AI voice agents use natural, conversational language that most callers find indistinguishable from a human receptionist. Patient satisfaction scores remain high when the experience is fast and helpful."
   - q: "How long does it take to set up automated dental appointment reminders?"
     a: "Most AI-powered reminder systems can be configured and integrated with your practice management software within one to two weeks, with measurable no-show reduction visible within the first month."
-draft: false
+draft: true
 ---
 
 ## It's Monday Morning and Your Schedule Is Already Falling Apart

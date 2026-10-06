@@ -22,7 +22,7 @@ faqs:
     a: "Most dental practices can have an AI-powered reminder system fully operational within one to two weeks, including integration with existing practice management software and customization of messaging."
   - q: "Are automated reminder calls HIPAA compliant for dental practices?"
     a: "Reputable AI voice agent providers build their systems with HIPAA compliance in mind, including secure data handling and appropriate disclosure practices. Always verify compliance certifications before choosing a provider."
-draft: false
+draft: true
 ---
 
 ## The Monday Morning That Broke Your Schedule
