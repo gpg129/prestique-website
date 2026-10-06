@@ -22,7 +22,7 @@ faqs:
     a: "An AI voice agent is an intelligent phone system that answers calls in a natural, conversational voice. It can schedule appointments, answer common questions, capture caller details, and route emergencies — without putting anyone on hold."
   - q: "How fast can an HVAC company set up AI call answering?"
     a: "Most HVAC companies can have an AI voice agent fully operational within one to two weeks. The setup involves mapping your service offerings, scheduling rules, and dispatch protocols so the agent handles calls the way you would."
-draft: false
+draft: true
 ---
 
 It's 2:47 PM on the first 98-degree day of summer. Your two techs are elbow-deep in compressor replacements. Your office manager is on a call with a homeowner who needs a quote for a mini-split install. Three more calls come in — straight to voicemail. One is an elderly woman whose AC just died. She waits 90 seconds, hangs up, and dials the next contractor on Google. By the time your office manager is free, that $350 service call belongs to your competitor.

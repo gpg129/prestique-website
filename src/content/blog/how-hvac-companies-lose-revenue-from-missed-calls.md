@@ -22,7 +22,7 @@ faqs:
     a: "Most customers don't leave voicemails. Industry data shows that the majority of callers who reach voicemail hang up and call a competitor instead, meaning that unanswered call is likely gone forever."
   - q: "How quickly can an HVAC company set up AI call answering?"
     a: "Most AI voice agent solutions can be configured and deployed within one to two weeks. Many HVAC companies see measurable improvements in lead capture and booking rates within the first 30 days."
-draft: false
+draft: true
 ---
 
 It's the first 95-degree day of summer. Your two technicians are already on jobs. Your office manager is juggling a parts order and a frustrated customer at the counter. The phone rings. Then it rings again. Then a third time. She picks up one — the other two go to voicemail. Neither caller leaves a message. You'll never know who they were or what they needed.

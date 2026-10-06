@@ -22,7 +22,7 @@ faqs:
     a: "HVAC companies miss 30-40% of inbound calls during peak periods like summer cooling season and winter heating emergencies. Each unanswered call is a potential customer who calls your competitor instead."
   - q: "How fast can an HVAC company set up an AI voice agent?"
     a: "Most AI voice agent implementations for HVAC companies take 1-3 weeks from initial setup to live deployment, including customizing scripts for your specific service area, pricing structure, and scheduling workflow."
-draft: false
+draft: true
 ---
 
 ## It's 2:47 PM on a 98-Degree Tuesday. Your Phone Is Ringing.

@@ -61,6 +61,21 @@
       "source": "/blog/after-hours-call-handling-for-busy-dental-offices",
       "destination": "/blog/after-hours-call-handling-for-high-volume-dental-offices",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/how-hvac-contractors-lose-revenue-from-missed-calls-daily",
+      "destination": "/blog/missed-calls-costing-hvac-company-revenue-monthly",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/how-hvac-companies-lose-revenue-from-missed-calls",
+      "destination": "/blog/missed-calls-costing-hvac-company-revenue-monthly",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/missed-call-revenue-hvac-company",
+      "destination": "/blog/missed-calls-costing-hvac-company-revenue-monthly",
+      "statusCode": 301
     }
   ]
 }
