@@ -16,6 +16,11 @@
       "source": "/blog/mechanic-shop-missed-call-solution-for-high-call-volume",
       "destination": "/blog/mechanic-shop-phone-answering-service-for-high-call-volume",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/how-auto-repair-shops-lose-revenue-from-missed-calls",
+      "destination": "/blog/how-auto-repair-shops-lose-money-on-missed-calls",
+      "statusCode": 301
     }
   ]
 }

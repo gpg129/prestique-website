@@ -22,7 +22,7 @@ faqs:
     a: "Research shows that 60% of auto shop customers choose their mechanic based on who picks up the phone first. If you don't answer, a competitor likely will."
   - q: "How much does an AI voice agent cost compared to a receptionist for an auto shop?"
     a: "AI voice agents typically cost a fraction of a full-time receptionist's salary — often 70-80% less — while providing 24/7 coverage that a single employee simply cannot match."
-draft: false
+draft: true
 ---
 
 It's a Tuesday morning in July. Your shop has four cars on lifts, two more in the lot waiting for diagnosis, and your service writer is elbow-deep in an estimate for a transmission rebuild. The phone rings. It goes to voicemail. It rings again — another voicemail. By lunch, you've missed nine calls. Three of those callers needed brake jobs, one had a check engine light, and the rest wanted oil changes. None of them left a message. All of them called the shop down the street instead.
