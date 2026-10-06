@@ -51,6 +51,16 @@
       "source": "/blog/ai-phone-answering-for-dental-office",
       "destination": "/blog/ai-phone-answering-service-for-busy-dental-practices",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/ai-phone-answering-service-for-busy-dental-offices-after-hours",
+      "destination": "/blog/after-hours-call-handling-for-high-volume-dental-offices",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/after-hours-call-handling-for-busy-dental-offices",
+      "destination": "/blog/after-hours-call-handling-for-high-volume-dental-offices",
+      "statusCode": 301
     }
   ]
 }

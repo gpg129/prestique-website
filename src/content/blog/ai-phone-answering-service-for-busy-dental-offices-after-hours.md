@@ -22,7 +22,7 @@ faqs:
     a: "Reputable AI voice agent providers build their systems to be HIPAA-compliant, encrypting call data and ensuring patient information is handled with the same security standards as your existing practice management tools."
   - q: "What happens if the AI can't handle a patient's question?"
     a: "If a call requires clinical judgment or falls outside the AI's training, the system seamlessly escalates — either transferring to an on-call team member, taking a detailed message, or flagging the call for priority follow-up the next morning."
-draft: false
+draft: true
 ---
 
 ## The Call That Never Gets Answered

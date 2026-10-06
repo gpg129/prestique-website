@@ -22,7 +22,7 @@ faqs:
     a: "Most dental practices can have an AI voice agent fully operational within one to two weeks, including integration with scheduling systems and customization for your specific services, hours, and insurance protocols."
   - q: "Is AI after-hours call handling expensive for a small dental practice?"
     a: "AI voice agents typically cost a fraction of hiring a part-time after-hours receptionist — often 70-80% less. Given that a single recovered patient relationship can be worth thousands in lifetime value, most practices see a return on investment within the first month."
-draft: false
+draft: true
 ---
 
 ## It's 7:14 PM and Your Phone Is Ringing
