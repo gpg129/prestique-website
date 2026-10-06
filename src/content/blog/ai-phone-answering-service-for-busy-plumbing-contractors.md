@@ -22,7 +22,7 @@ faqs:
     a: "AI phone answering services can be configured with escalation rules — for example, routing burst pipe or gas leak calls directly to an on-call plumber's cell phone while handling routine scheduling and estimate requests on its own."
   - q: "How quickly can a plumbing company set up an AI answering service?"
     a: "Most plumbing contractors can be fully operational with an AI phone answering service within one to two weeks, including custom call scripting, scheduling integration, and testing."
-draft: false
+draft: true
 ---
 
 It's 7:42 on a Tuesday morning. You're already under a house replacing a water heater. Your phone buzzes — once, twice, three times. By the time you crawl out, wipe your hands, and check, you've got two voicemails and one missed call with no message. That last one? A homeowner with a slab leak who needed someone today. She already called the next plumber on Google. You'll never know her name.

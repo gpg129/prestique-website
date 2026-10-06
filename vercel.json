@@ -86,6 +86,11 @@
       "source": "/blog/voice-ai-for-home-services",
       "destination": "/blog/voice-ai-receptionist-for-home-service-businesses",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/ai-phone-answering-service-for-busy-plumbing-contractors",
+      "destination": "/blog/ai-receptionist-for-plumbers",
+      "statusCode": 301
     }
   ]
 }
