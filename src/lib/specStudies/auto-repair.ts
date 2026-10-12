@@ -85,7 +85,7 @@ export const autoRepairSpec: SpecStudy = {
     {
       title: 'Vehicle intake by VIN and symptom',
       description:
-        "When a new caller describes a problem, we capture year/make/model or pull it from VIN, log the symptoms in the caller's own words, and create the customer + vehicle records in the shop management system before the call ends.",
+        "When a new caller describes a problem, we capture year/make/model or pull it from VIN, log the symptoms in the caller's own words, and hand the advisor a complete customer + vehicle intake before the call ends, ready to drop into the shop management system.",
       toolsInvolved: ['VAPI', 'Tekmetric', 'AutoLeap'],
     },
     {
@@ -103,7 +103,7 @@ export const autoRepairSpec: SpecStudy = {
     {
       title: 'Estimate approval flow over SMS',
       description:
-        'When the advisor finalizes an estimate, we text the customer a summary, accept "yes/no/call me" replies, and update the RO when they approve — so the advisor is not on the phone chasing approvals between bays.',
+        'When the advisor finalizes an estimate, we text the customer a summary, accept "yes/no/call me" replies, and flag the approval to the advisor right away — so the advisor is not on the phone chasing approvals between bays.',
       toolsInvolved: ['Twilio', 'AutoLeap', 'Tekmetric'],
     },
     {
@@ -211,7 +211,7 @@ export const autoRepairSpec: SpecStudy = {
     },
     {
       q: 'How much does this cost to run?',
-      a: 'A single shop typically lands in the $400-$800 per month range for VAPI minutes, Twilio voice and SMS, and the Anthropic model spend, before any Prestique build or retainer fee. The exact number depends on call volume.',
+      a: 'There is a one-time build fee and a monthly fee that covers call minutes, texting and ongoing tuning. The numbers depend on your call volume and shop management system, so we scope them on the call and give you a fixed quote before any work starts.',
     },
     {
       q: 'When does it actually go live?',

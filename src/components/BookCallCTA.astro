@@ -87,8 +87,10 @@ const onTheCall = [
       setTimeout(() => skeleton.remove(), 300)
     }
     window.addEventListener('message', (e) => {
-      if (typeof e.origin === 'string' && e.origin.includes('calendly.com')
-          && String((e.data && e.data.event) || '').startsWith('calendly.')) hideSkeleton()
+      let host = ''
+      try { host = new URL(e.origin).hostname } catch (_) { return }
+      const fromCalendly = host === 'calendly.com' || host.endsWith('.calendly.com')
+      if (fromCalendly && String((e.data && e.data.event) || '').startsWith('calendly.')) hideSkeleton()
     })
     const load = () => {
       if (document.querySelector('script[data-calendly-widget]')) return

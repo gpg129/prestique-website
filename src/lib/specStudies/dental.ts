@@ -217,7 +217,7 @@ export const dentalSpec: SpecStudy = {
     },
     {
       q: 'What does it cost?',
-      a: "There's a one-time build fee and a monthly run fee. The big variables are VAPI (with the HIPAA add-on at around $1,000/month on standard plans, or bundled into Enterprise contracts), Twilio voice and SMS usage, and the PMS gateway subscription. We size the actual numbers in the proposal once we know your call volume.",
+      a: "There's a one-time build fee and a monthly run fee. The big variables are HIPAA-eligible voice hosting, call and text volume, and your PMS gateway subscription. We size the actual numbers in the proposal once we know your call volume, and give you a fixed quote before any work starts.",
     },
     {
       q: 'How long until it is live?',

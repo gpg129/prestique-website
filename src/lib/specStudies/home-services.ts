@@ -266,7 +266,7 @@ export const homeServicesSpec: SpecStudy = {
     },
     {
       q: 'What does this cost?',
-      a: 'Setup fee + monthly run cost. Setup is fixed-bid based on which CRM and how many integrations. Monthly run cost is mostly call minutes + Claude API + Twilio — typically $200–$600/mo for a small shop, scales with volume.',
+      a: 'A one-time setup fee plus a monthly run cost. Setup is fixed-bid based on your CRM and how many integrations are in scope; the monthly cost is mostly call minutes and texting, so it scales with volume. We scope both on the call and give you a fixed quote before any work starts.',
     },
     {
       q: 'What if I already have a call-answering service?',
