@@ -26,10 +26,9 @@ const { call, animate = true, class: className = '' } = Astro.props as Props
     {call.turns.map((t, i) => (
       <li class={`call-bubble flex ${t.who === 'ai' ? 'justify-end' : 'justify-start'}`} style={`--i:${i}`}>
         <div class={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${t.who === 'ai' ? 'call-ai rounded-br-md' : 'call-caller rounded-bl-md'}`}>
-          {t.who === 'ai' && i === call.turns.findIndex((x) => x.who === 'ai') ? (
-            <span class="block text-[11px] font-medium uppercase tracking-wide mb-0.5 opacity-70"><span class="sr-only">Speaker: </span>AI receptionist</span>
-          ) : (
-            <span class="sr-only">{t.who === 'ai' ? 'AI receptionist: ' : 'Caller: '}</span>
+          <span class="sr-only">{t.who === 'ai' ? 'AI receptionist: ' : 'Caller: '}</span>
+          {t.who === 'ai' && i === call.turns.findIndex((x) => x.who === 'ai') && (
+            <span class="block text-[11px] font-medium uppercase tracking-wide mb-0.5 opacity-70" aria-hidden="true">AI receptionist</span>
           )}
           {t.text}
         </div>

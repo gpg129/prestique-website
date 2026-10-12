@@ -1,7 +1,8 @@
 // Illustrative sample calls for the hero cards (homepage tabs + each industry hero).
 // Every call may only show behaviour its spec study (src/lib/specStudies/*) already
 // describes, phrased conservatively: no direct writes into a shop system, no clinical,
-// legal or veterinary advice, no prices, no real businesses. Rendered with a
+// legal or veterinary advice, no prices. Cards name a KIND of business, never a business name: invented names
+// kept colliding with real companies in the same trade. Rendered with a
 // "Sample call · illustrative" label.
 
 export interface SampleCallTurn {
@@ -18,18 +19,18 @@ export interface SampleCall {
 
 export const SAMPLE_CALLS: Record<string, SampleCall> = {
   'home-services': {
-    business: 'Summit Comfort Heating & Air',
+    business: 'Heating & air company',
     time: '9:47 PM',
     turns: [
       { who: 'caller', text: "Our upstairs AC just quit and it's 88 in here. Can anyone come tonight?" },
       { who: 'ai', text: "I'm sorry, that's miserable. Is anyone in the home elderly, very young, or unwell in the heat?" },
       { who: 'caller', text: "My mom's staying with us. She's 81." },
-      { who: 'ai', text: "Thanks. I'm marking this urgent and paging our on-call tech now. He'll call you back on this number shortly." },
+      { who: 'ai', text: "Thanks. I'm marking this urgent and paging our on-call tech now. They'll call you back on this number shortly." },
     ],
     result: 'Urgent job paged to the on-call tech',
   },
   dental: {
-    business: 'Brightwater Family Dental',
+    business: 'Family dental practice',
     time: '6:12 PM',
     turns: [
       { who: 'caller', text: "Hi, I'd like to book a cleaning. It's been about a year." },
@@ -40,29 +41,29 @@ export const SAMPLE_CALLS: Record<string, SampleCall> = {
     result: 'Cleaning booked · reminder scheduled',
   },
   law: {
-    business: 'Hartwell & Lane Law',
+    business: 'Personal injury firm',
     time: '8:05 PM',
     turns: [
       { who: 'caller', text: 'I was rear-ended this afternoon and I think I need a lawyer.' },
       { who: 'ai', text: "I'm sorry to hear that. Are you safe, and have you been seen by a doctor?" },
       { who: 'caller', text: "Yes, I'm okay, just sore." },
-      { who: 'ai', text: 'Good. I\'ll take a few details for the attorney and run a quick conflict check. Then I can offer a free consultation tomorrow at 10:00 or 2:00.' },
+      { who: 'ai', text: 'Good. I\'ll take a few details for the attorney and run a quick conflict check. Then I can book you a consultation with the attorney tomorrow at 10:00 or 2:00.' },
     ],
     result: 'Intake logged · conflict check before booking',
   },
   'auto-repair': {
-    business: 'Ridgeline Auto & Diesel',
+    business: 'Auto & diesel shop',
     time: '7:18 AM',
     turns: [
       { who: 'caller', text: "My check engine light came on and the truck's idling rough." },
       { who: 'ai', text: "Sorry about that. What's the year, make and model, and is it safe to drive in?" },
       { who: 'caller', text: '2018 F-150. I can drive it. Thursday morning?' },
-      { who: 'ai', text: "I'll request Thursday at 8:00 AM, and your service advisor will confirm by text shortly." },
+      { who: 'ai', text: "I'll request Thursday at 8:00 AM, and our service advisor will confirm by text shortly." },
     ],
     result: 'Booking request sent to your service advisor',
   },
   veterinary: {
-    business: 'Cedar Hollow Animal Hospital',
+    business: 'Animal hospital',
     time: '10:41 PM',
     turns: [
       { who: 'caller', text: 'My dog just ate half a bar of dark chocolate.' },
@@ -73,7 +74,7 @@ export const SAMPLE_CALLS: Record<string, SampleCall> = {
     result: 'Emergency routed to the on-call vet',
   },
   'beauty-salons': {
-    business: 'Luxe & Lather Salon',
+    business: 'Hair salon',
     time: '1:30 PM',
     turns: [
       { who: 'caller', text: 'Hi, I need to move my color appointment with Jess on Saturday.' },

@@ -23,11 +23,16 @@ const slugs = ORDER.filter((s) => SAMPLE_CALLS[s])
       </button>
     ))}
   </div>
-  {slugs.map((slug, i) => (
-    <div role="tabpanel" id={`call-panel-${slug}`} aria-labelledby={`call-tab-${slug}`} hidden={i !== 0}>
-      <SampleCall call={SAMPLE_CALLS[slug]} />
-    </div>
-  ))}
+  <!-- All panels share one grid cell, so the card keeps the height of the tallest call
+       and the page doesn't jump when switching tabs. Inactive panels are invisible + inert. -->
+  <div class="call-stack">
+    {slugs.map((slug, i) => (
+      <div role="tabpanel" id={`call-panel-${slug}`} aria-labelledby={`call-tab-${slug}`} tabindex="0"
+           class={i === 0 ? '' : 'call-panel-off'} inert={i !== 0} aria-hidden={i === 0 ? undefined : 'true'}>
+        <SampleCall call={SAMPLE_CALLS[slug]} />
+      </div>
+    ))}
+  </div>
 </div>
 
 <script>
@@ -40,7 +45,10 @@ const slugs = ORDER.filter((s) => SAMPLE_CALLS[s])
         t.tabIndex = on ? 0 : -1
         const panel = root.querySelector<HTMLElement>(`#${t.getAttribute('aria-controls')}`)
         if (!panel) return
-        panel.hidden = !on
+        panel.classList.toggle('call-panel-off', !on)
+        panel.inert = !on
+        if (on) panel.removeAttribute('aria-hidden')
+        else panel.setAttribute('aria-hidden', 'true')
         if (on) {
           // Replay the entrance animation for the newly shown call.
           const card = panel.querySelector<HTMLElement>('.call-card')

@@ -134,6 +134,10 @@ html:not(.js) [data-calendly-skeleton] { display: none; }
 .call-tab[aria-selected='true'] { color: #fff; background: rgba(37, 99, 235, 0.25); border-color: rgba(96, 165, 250, 0.45); }
 .call-tab:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
 .call-tablist { scrollbar-width: none; }
+.call-stack { display: grid; }
+.call-stack > [role='tabpanel'] { grid-area: 1 / 1; }
+.call-stack > [role='tabpanel']:focus-visible { outline: 2px solid #60a5fa; outline-offset: 4px; border-radius: 1rem; }
+.call-panel-off { visibility: hidden; }
 .call-tablist::-webkit-scrollbar { display: none; }
 @keyframes bubble-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 html.js .call-animate .call-bubble {
