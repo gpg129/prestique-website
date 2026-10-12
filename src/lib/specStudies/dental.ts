@@ -87,7 +87,7 @@ export const dentalSpec: SpecStudy = {
     {
       title: 'Live availability lookup mid-call',
       description:
-        'When a patient asks for an appointment, the agent calls our backend through a VAPI Custom Tool, which queries the PMS for real availability and reads back open slots while the caller is still on the line.',
+        'When a patient asks for an appointment, the agent checks your practice management system for real availability and reads back open slots while the caller is still on the line.',
       toolsInvolved: ['VAPI', 'NexHealth Synchronizer', 'Open Dental API', 'Sikka ONE API'],
     },
     {
@@ -131,48 +131,44 @@ export const dentalSpec: SpecStudy = {
   rollout: [
     {
       week: 1,
-      title: 'Discovery and BAA execution',
+      title: "Paperwork and practice-system access",
       tasks: [
-        'Sign BAAs with VAPI (security@vapi.ai), Twilio (Security or Enterprise Edition required), and the practice itself',
-        'Confirm PMS, version, and integration path (NexHealth, Sikka, or direct Open Dental)',
-        'Provision Twilio account on Security/Enterprise Edition, kick off A2P 10DLC brand and campaign registration (10-15 day approval window)',
-        'Map current call patterns: peak times, average missed-call rate, top reasons for inbound',
+        "We sign HIPAA business associate agreements with you and with the voice and texting providers",
+        "We confirm your practice management system and how we connect to it: directly, or through NexHealth or Sikka",
+        "We map when and why patients call, and register your texting number with the carriers (10 to 15 days)",
       ],
       tools: ['VAPI', 'Twilio'],
       effortHours: '~12-16h',
     },
     {
       week: 2,
-      title: 'PMS integration and scheduling logic',
+      title: "Scheduling connection",
       tasks: [
-        'Stand up NexHealth subdomain or Open Dental developer/customer key pair, run end-to-end test bookings against a sandbox',
-        'Implement availability lookup, appointment write, and webhook handler for appointment_insertion',
-        'Define operatory and provider mapping rules so the agent only books slots the practice actually wants exposed',
-        'Wire VAPI Custom Tools to the scheduling backend with toolCallId-keyed responses',
+        "We connect to your schedule in a test environment and run end-to-end test bookings",
+        "You decide which providers, operatories and appointment types it can book",
+        "It only ever offers the slots you have opened to it",
       ],
       tools: ['NexHealth Synchronizer', 'Open Dental API', 'VAPI'],
       effortHours: '~20-28h',
     },
     {
       week: 3,
-      title: 'Agent training and SMS layer',
+      title: "Training and a dry run",
       tasks: [
-        'Build the Claude-powered assistant prompt covering booking, insurance capture, after-hours triage, and emergency escalation',
-        'Configure Twilio Programmable Messaging for confirmations, day-before reminders, and recall reach-outs once 10DLC is approved',
-        "Run shadow-mode calls — agent listens but doesn't act — to validate transcript quality and tool-call correctness",
-        'Tighten edge cases: noisy lines, accents, multi-patient households, transfer-to-human triggers',
+        "We set how it handles booking, insurance questions, after-hours calls and emergencies",
+        "Confirmations, day-before reminders and recall texts switch on once texting is approved",
+        "Dry run: it listens without acting, so we can check every call before it goes live",
       ],
       tools: ['VAPI', 'Twilio', 'NexHealth Synchronizer'],
       effortHours: '~16-24h',
     },
     {
       week: 4,
-      title: 'Go-live and tuning',
+      title: "Go live and tune",
       tasks: [
-        "Cut over the practice's main number to VAPI; keep a fallback path to a human for the first week",
-        'Monitor end-of-call-report events daily, review every call where the agent transferred or failed to book',
-        'Stand up the daily recall list job and the no-show recovery loop',
-        'Hand off the dashboard so the front desk can see calls, bookings, and confirmations in real time',
+        "It starts answering your main line, with a person one transfer away for the first week",
+        "We review every call where it transferred or could not book",
+        "Your front desk sees calls, bookings and confirmations in one place",
       ],
       tools: ['VAPI', 'Twilio', 'NexHealth Synchronizer'],
       effortHours: '~10-14h',
@@ -221,7 +217,7 @@ export const dentalSpec: SpecStudy = {
     },
     {
       q: 'How long until it is live?',
-      a: "Four weeks end-to-end. Week one is BAAs and discovery, week two is PMS integration, week three is agent training and SMS, week four is cutover and tuning. The one external dependency that can stretch this is A2P 10DLC SMS registration, which Twilio's carrier process currently runs 10-15 days through TCR.",
+      a: "Four weeks end-to-end. Week one is paperwork and discovery, week two connects your practice system, week three is training and texting, week four is go-live and tuning. The one outside dependency that can stretch this is carrier approval for texting, which takes 10 to 15 days.",
     },
     {
       q: "Will patients know they're talking to AI?",

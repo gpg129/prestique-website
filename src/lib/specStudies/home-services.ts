@@ -141,7 +141,7 @@ export const homeServicesSpec: SpecStudy = {
       title: 'Pre-qualifies quote requests',
       description:
         'When a caller wants a quote, the agent asks the right questions (age of system, square footage, scope of work) and stages the quote draft in the CRM so a human can review and send same-hour instead of same-week.',
-      toolsInvolved: ['VAPI Custom Tools', 'CRM quote API'],
+      toolsInvolved: ['Voice agent', 'CRM quote API'],
     },
     {
       title: 'Schedules + reschedules without a dispatcher',
@@ -172,48 +172,44 @@ export const homeServicesSpec: SpecStudy = {
   rollout: [
     {
       week: 1,
-      title: 'Call intake + CRM connection',
+      title: "Call intake and your field software",
       tasks: [
-        'Stand up VAPI assistant with your business voice and FAQ',
-        'Wire CRM API: customer + location create, job create, schedule read',
-        'Connect existing phone number (or provision Twilio + port later)',
-        'Test against five seeded scenarios end-to-end',
+        "We set up the receptionist with your voice, services and common questions",
+        "We connect it to your field software (ServiceTitan, Jobber or Housecall Pro) for customers, jobs and the schedule",
+        "We connect your existing phone number and test real-world call scenarios end to end",
       ],
       tools: ['VAPI', 'CRM (ServiceTitan / Jobber / Housecall Pro)', 'Twilio'],
       effortHours: '~25–35h',
     },
     {
       week: 2,
-      title: 'After-hours + missed-call SMS',
+      title: "After-hours and missed calls",
       tasks: [
-        'Twilio statusCallback wired for missed-call detection',
-        'Recovery SMS template tuned for your tone',
-        'After-hours routing rules (urgent vs routine)',
-        'A2P 10DLC submission (note: 10–15 day approval window)',
+        "Missed callers get a text back, written in your tone",
+        "After-hours rules: urgent calls page the on-call tech, routine ones book for the morning",
+        "We register your texting number with the carriers, which takes 10 to 15 days, so it starts on day one",
       ],
       tools: ['Twilio', 'VAPI', 'CRM webhooks'],
       effortHours: '~15–25h',
     },
     {
       week: 3,
-      title: 'Quoting + scheduling automation',
+      title: "Quotes and scheduling",
       tasks: [
-        'Quote draft pre-population from call transcript',
-        'Calendar read/write to live tech availability',
-        'SMS-based reschedule flow',
-        'Mid-call CRM tool calls for customer history lookup',
+        "Quote drafts start from what the caller already told the agent",
+        "It books against your techs' real availability",
+        "Customers can reschedule by text",
       ],
-      tools: ['VAPI Custom Tools', 'CRM quote + schedule API'],
+      tools: ['Voice agent', 'CRM quote + schedule API'],
       effortHours: '~20–30h',
     },
     {
       week: 4,
-      title: 'Reporting + handover',
+      title: "Reporting and handover",
       tasks: [
-        'Call-source attribution wired through CallRail',
-        'Daily / weekly summary email to ownership',
-        'Dashboard of booked jobs, missed-call recovery rate, and revenue per source',
-        'SOP doc + handover walkthrough with your dispatcher',
+        "We track which ads and sources your calls come from",
+        "You get a daily or weekly summary by email",
+        "We hand over a short playbook and walk your dispatcher through it",
       ],
       tools: ['CallRail', 'CRM reports', 'email digest'],
       effortHours: '~15–20h',
@@ -254,7 +250,7 @@ export const homeServicesSpec: SpecStudy = {
     },
     {
       q: 'How long until the agent is live?',
-      a: 'Four weeks for the full rollout — call intake live by end of week 1, missed-call SMS by end of week 2. The longest dependency is A2P 10DLC SMS registration through Twilio (10–15 days), which we kick off on day one.',
+      a: 'Four weeks for the full rollout — call intake live by end of week 1, missed-call SMS by end of week 2. The longest dependency is carrier approval for texting (10 to 15 days), which we start on day one.',
     },
     {
       q: 'What happens when the agent doesn\'t know something?',

@@ -137,7 +137,7 @@ export const beautySalonsSpec: SpecStudy = {
       tasks: [
         'Map call volume, busy hours, services and durations, stylist rules, and your deposit and cancellation policy',
         'Connect your booking system: Square and Zenoti in days; Phorest, Meevo, Mindbody and Vagaro access requests start the same day',
-        'Start A2P 10DLC SMS registration with the carriers, which takes 10 to 15 days',
+        "We register your texting number with the carriers, which takes 10 to 15 days, so it starts on day one",
       ],
       tools: ['Square', 'Zenoti', 'Phorest', 'Twilio'],
       effortHours: '~8-12h',
@@ -222,7 +222,7 @@ export const beautySalonsSpec: SpecStudy = {
     },
     {
       q: 'Is texting clients compliant?',
-      a: 'Every business number is registered for A2P 10DLC before it sends, which takes 10 to 15 days. Appointment texts go to clients who booked with you; marketing texts only go to clients who opted in, and every text honours STOP.',
+      a: 'Every business texting number is registered with the carriers before it sends, which takes 10 to 15 days. Appointment texts go to clients who booked with you; marketing texts only go to clients who opted in, and every text honours STOP.',
     },
     {
       q: 'Will clients know it’s AI?',
