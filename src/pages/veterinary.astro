@@ -40,16 +40,17 @@ const canonical = canonicalFor('/veterinary')
     />
 
     <SpecStudy spec={veterinarySpec} industry={vertical.industry} audience={vertical.label} />
+    <BookCallCTA />
 
-    <IntegrationLinks blogVertical={vertical.blogVertical} />
+    <VerticalFAQ faqs={veterinarySpec.faqs} industry={vertical.industry} audience={vertical.label} />
 
     <section id="audit-form" class="py-24 px-6">
       <div class="glow-divider mb-24"></div>
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-12 fade-up">
-          <p class="section-label mb-4">Free Audit</p>
-          <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
-            See what we'd build for your clinic.
+          <p class="section-label mb-4">Free audit</p>
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white leading-tight mb-6">
+            Prefer to start with a free audit?
           </h2>
           <p class="text-p-muted text-lg leading-relaxed max-w-xl mx-auto">
             Aria walks you through a 5-minute discovery and emails back a custom report — top automation opportunities, estimated revenue impact, and what we'd build first.
@@ -61,9 +62,7 @@ const canonical = canonicalFor('/veterinary')
       </div>
     </section>
 
-    <BookCallCTA />
-
-    <VerticalFAQ faqs={veterinarySpec.faqs} industry={vertical.industry} audience={vertical.label} />
+    <IntegrationLinks blogVertical={vertical.blogVertical} />
 
     {relatedPosts.length > 0 && (
       <section class="py-24 px-6">
@@ -71,7 +70,7 @@ const canonical = canonicalFor('/veterinary')
         <div class="max-w-5xl mx-auto">
           <div class="text-center mb-12 fade-up">
             <p class="section-label mb-4">Further reading</p>
-            <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white leading-tight">
               From the Prestique blog.
             </h2>
           </div>

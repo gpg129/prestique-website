@@ -121,7 +121,7 @@ export const autoRepairSpec: SpecStudy = {
     {
       title: 'After-hours overflow capture',
       description:
-        'When the shop is closed or every advisor is on another line, the VAPI agent answers, captures intent (quote, status, new appointment, parts question), books the appointment slot directly when possible, and otherwise drops a structured handoff note into the queue.',
+        'When the shop is closed or every advisor is on another line, the VAPI agent answers, captures intent (quote, status, new appointment, parts question) and the customer’s preferred times, and drops a structured booking request and handoff note into the advisor queue.',
       toolsInvolved: ['VAPI', 'Twilio', 'Tekmetric', 'AutoLeap'],
     },
   ],
@@ -223,7 +223,7 @@ export const autoRepairSpec: SpecStudy = {
     },
     {
       q: 'What about complex diagnostics over the phone?',
-      a: "The agent does not diagnose. For anything past basic intake (year/make/model, symptoms, when it started, drivability), it books the customer in or hands off to an advisor. Diagnosis is a human job — the agent's job is to make sure the diagnostic appointment actually gets on the calendar.",
+      a: "The agent does not diagnose. For anything past basic intake (year/make/model, symptoms, when it started, drivability), it lines up the appointment request or hands off to an advisor. Diagnosis is a human job — the agent's job is to make sure the diagnostic appointment actually gets on the calendar.",
     },
     {
       q: 'What about customer data privacy in SMS?',

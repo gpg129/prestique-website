@@ -1,7 +1,7 @@
 ---
-// "Skip the audit" path: an inline Calendly embed under the audit section.
-// The widget script loads only when the section nears the viewport, so pages
-// stay fast for visitors who never scroll this far.
+// The primary conversion: an inline Calendly embed. The widget script loads only when
+// the section nears the viewport, so pages stay fast for visitors who never scroll
+// this far. A skeleton stands in until Calendly reports it has rendered.
 import { bookingUrlFor } from '../lib/booking'
 
 const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
@@ -13,44 +13,83 @@ const embedUrl = (() => {
   u.searchParams.set('primary_color', '3b82f6')
   return u.toString()
 })()
+
+const onTheCall = [
+  'We map where calls and leads slip today',
+  "We show you what we'd build for your business",
+  'You get a written proposal afterwards, with no obligation',
+]
 ---
-<section id="book-a-call" class="py-24 px-6">
+<section id="book-a-call" class="py-24 px-6 scroll-mt-16">
   <div class="glow-divider mb-24"></div>
-  <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-10 fade-up">
-      <p class="section-label mb-4">Book a Call</p>
-      <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
-        Already know what you want?
+  <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-10 lg:gap-14 items-start">
+    <div class="fade-up lg:pt-6">
+      <p class="section-label mb-4">Book a call</p>
+      <h2 class="text-3xl md:text-4xl font-semibold text-white leading-tight tracking-tight mb-5">
+        Talk it through with us.
       </h2>
-      <p class="text-p-muted text-lg leading-relaxed max-w-xl mx-auto">
-        Do you already know exactly what you want for your company? Schedule a call with our team below.
+      <p class="text-p-muted text-lg leading-relaxed mb-8">
+        Pick a time that works for you. 30 minutes, on video.
+      </p>
+      <p class="text-white text-sm font-semibold mb-4">What happens on the call</p>
+      <ul class="space-y-3">
+        {onTheCall.map((item) => (
+          <li class="flex gap-3 text-p-text leading-relaxed">
+            <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-p-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" />
+            </svg>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-p-muted text-sm mt-8">
+        Calendar not loading?
+        <a href={bookUrl} class="text-p-glow hover:text-white transition-colors" target="_blank" rel="noopener">Open it in a new tab →</a>
       </p>
     </div>
 
-    <div class="glass-card p-1 md:p-2 fade-up overflow-hidden">
+    <div class="glass-card p-1 md:p-2 fade-up overflow-hidden relative">
       <div
         data-calendly-lazy
         data-url={embedUrl}
-        class="calendly-inline-widget w-full h-[1060px] md:h-[880px]"
+        class="calendly-inline-widget w-full h-[1060px] lg:h-[900px]"
         style="min-width: 280px;"
       ></div>
+
+      <!-- Skeleton: shown until Calendly posts its first message -->
+      <div data-calendly-skeleton class="absolute inset-1 md:inset-2 rounded-lg flex flex-col items-center pt-16 px-6 bg-p-dark transition-opacity duration-300" aria-hidden="true">
+        <div class="h-3 w-24 rounded bg-white/10 mb-3"></div>
+        <div class="h-5 w-56 rounded bg-white/10 mb-12"></div>
+        <div class="grid grid-cols-7 gap-3 animate-pulse">
+          {Array.from({ length: 35 }).map((_, i) => (
+            <div class={`w-9 h-9 rounded-full ${i % 7 > 0 && i % 7 < 6 && i > 9 ? 'bg-p-blue/15' : 'bg-white/5'}`}></div>
+          ))}
+        </div>
+        <p data-calendly-skeleton-text class="text-p-muted text-sm mt-10">Loading calendar…</p>
+      </div>
+
       <noscript>
         <p class="text-center py-8">
-          <a href={bookUrl} class="btn-primary" target="_blank" rel="noopener">Schedule a Call →</a>
+          <a href={bookUrl} class="btn-primary" target="_blank" rel="noopener">Book a call →</a>
         </p>
       </noscript>
     </div>
-
-    <p class="text-center text-p-muted text-sm mt-6">
-      Calendar not loading?
-      <a href={bookUrl} class="text-p-glow hover:text-white transition-colors" target="_blank" rel="noopener">Open it in a new tab →</a>
-    </p>
   </div>
 </section>
 
-<script>
-  const el = document.querySelector<HTMLElement>('[data-calendly-lazy]')
+<script define:vars={{ bookUrl }}>
+  const el = document.querySelector('[data-calendly-lazy]')
+  const skeleton = document.querySelector('[data-calendly-skeleton]')
   if (el) {
+    const hideSkeleton = () => {
+      if (!skeleton) return
+      skeleton.style.opacity = '0'
+      setTimeout(() => skeleton.remove(), 300)
+    }
+    window.addEventListener('message', (e) => {
+      if (typeof e.origin === 'string' && e.origin.includes('calendly.com')
+          && String((e.data && e.data.event) || '').startsWith('calendly.')) hideSkeleton()
+    })
     const load = () => {
       if (document.querySelector('script[data-calendly-widget]')) return
       const s = document.createElement('script')
@@ -58,6 +97,13 @@ const embedUrl = (() => {
       s.async = true
       s.dataset.calendlyWidget = ''
       document.body.appendChild(s)
+      // If Calendly is slow or blocked, point people at the direct link instead of a spinner.
+      setTimeout(() => {
+        const t = document.querySelector('[data-calendly-skeleton-text]')
+        if (t && document.body.contains(t)) {
+          t.innerHTML = `Calendar taking a while? <a href="${bookUrl}" target="_blank" rel="noopener" class="text-p-glow underline">Open it in a new tab →</a>`
+        }
+      }, 8000)
     }
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {

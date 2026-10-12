@@ -14,6 +14,8 @@
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li { text-wrap: pretty; }
 }
 
 @layer components {
@@ -26,25 +28,33 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200;
-    background: linear-gradient(135deg, #1a2e4a 0%, #2563eb 100%);
-    border: 1px solid rgba(96, 165, 250, 0.3);
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-colors duration-150;
+    background: #2563eb;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset, 0 6px 20px -6px rgba(37, 99, 235, 0.55);
   }
   .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
-    border-color: rgba(96, 165, 250, 0.6);
+    background: #1d4ed8;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-p-text transition-colors duration-150;
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(96, 165, 250, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.14);
   }
   .btn-secondary:hover {
-    transform: translateY(-1px);
-    background: rgba(59, 130, 246, 0.1);
-    border-color: rgba(96, 165, 250, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.24);
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1 font-medium text-p-muted hover:text-white transition-colors underline-offset-4 hover:underline;
+  }
+
+  .btn-primary:focus-visible,
+  .btn-secondary:focus-visible,
+  .btn-link:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
   }
 
   .section-label {
@@ -91,13 +101,22 @@
   }
 }
 
-/* Scroll animation */
-.fade-up {
+/* Scroll animation — progressive enhancement: content is only hidden once JS has
+   marked <html class="js"> (Layout.astro), so it is never invisible without JS. */
+html.js .fade-up {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.fade-up.visible {
+html.js .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .fade-up { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+summary::-webkit-details-marker { display: none; }
+html:not(.js) [data-calendly-skeleton] { display: none; }

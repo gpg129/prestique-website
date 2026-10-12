@@ -1,0 +1,29 @@
+---
+// The only place the site draws the Prestique logo. Geometry + colours live in src/lib/logo.ts.
+import { FACETS, LOGO_COLORS, type LogoVariant } from '../lib/logo'
+
+interface Props {
+  variant?: LogoVariant
+  size?: 'sm' | 'md' | 'lg'
+  wordmark?: boolean
+  class?: string
+}
+const { variant = 'dark', size = 'md', wordmark = true, class: className = '' } = Astro.props as Props
+const c = LOGO_COLORS[variant]
+const gem = { sm: 'w-6 h-6', md: 'w-8 h-8 sm:w-9 sm:h-9', lg: 'w-11 h-11' }[size]
+const text = { sm: 'text-base', md: 'text-xl sm:text-2xl', lg: 'text-3xl' }[size]
+const gap = { sm: 'gap-2', md: 'gap-2.5', lg: 'gap-3' }[size]
+---
+<span class={`inline-flex items-center ${gap} ${className}`} aria-label="Prestique" role="img">
+  <svg class={`${gem} flex-shrink-0`} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <polygon points={FACETS.outline} fill="none" stroke={c.outline} stroke-width="2.5" stroke-linejoin="round" />
+    <polygon points={FACETS.top} fill={c.top} />
+    <polygon points={FACETS.left} fill={c.left} />
+    <polygon points={FACETS.right} fill={c.right} />
+  </svg>
+  {wordmark && (
+    <span class={`${text} font-semibold tracking-tight leading-none`} aria-hidden="true">
+      <span style={`color:${c.prest}`}>Prest</span><span style={`color:${c.ique}`}>ique</span>
+    </span>
+  )}
+</span>

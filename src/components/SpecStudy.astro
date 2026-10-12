@@ -14,8 +14,8 @@ const { spec, industry, audience } = Astro.props as Props
   <div class="max-w-5xl mx-auto">
     <!-- Intro -->
     <div class="text-center mb-16 fade-up">
-      <p class="section-label mb-4">Spec Study — {industry}</p>
-      <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6 max-w-3xl mx-auto">
+      <p class="section-label mb-4">How we'd build it</p>
+      <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white leading-tight mb-6 max-w-3xl mx-auto">
         How Prestique builds for {audience ?? industry}.
       </h2>
       <p class="text-p-muted text-lg leading-relaxed max-w-2xl mx-auto">
@@ -25,51 +25,10 @@ const { spec, industry, audience } = Astro.props as Props
 
     <!-- Problem -->
     <div class="mb-24 fade-up">
-      <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">The leak</h3>
+      <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">Where the revenue goes</h3>
       <div class="space-y-5 max-w-3xl">
         {spec.problem.map((para) => (
           <p class="text-p-text text-lg leading-relaxed">{para}</p>
-        ))}
-      </div>
-    </div>
-
-    <!-- Stack -->
-    <div class="mb-24">
-      <div class="fade-up mb-8">
-        <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">The stack</h3>
-        <p class="text-p-muted text-base max-w-2xl">
-          Verified API capabilities — every claim below cites the vendor's developer documentation.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {spec.stack.map((tool, i) => (
-          <div class="glass-card p-7 fade-up" style={`transition-delay: ${0.05 * i}s;`}>
-            <div class="flex items-start justify-between gap-4 mb-4">
-              <div>
-                <h4 class="text-white font-bold text-xl">{tool.tool}</h4>
-                <p class="text-p-blue text-sm mt-0.5">{tool.role}</p>
-              </div>
-              {tool.docUrl && (
-                <a
-                  href={tool.docUrl}
-                  target="_blank"
-                  rel="noopener"
-                  class="text-p-muted hover:text-p-glow transition-colors text-xs flex items-center gap-1"
-                  aria-label={`${tool.tool} developer docs`}
-                >
-                  Docs ↗
-                </a>
-              )}
-            </div>
-            <ul class="space-y-2.5">
-              {tool.capabilities.map((cap) => (
-                <li class="text-p-muted text-sm leading-relaxed flex gap-2">
-                  <span class="text-p-blue flex-shrink-0">•</span>
-                  <span>{cap}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         ))}
       </div>
     </div>
@@ -111,7 +70,7 @@ const { spec, industry, audience } = Astro.props as Props
     <!-- Rollout -->
     <div class="mb-24">
       <div class="fade-up mb-8">
-        <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">4-week rollout</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-4">How a project runs</h3>
         <p class="text-p-muted text-base max-w-2xl">
           Call intake live by end of week 1. Full handover at week 4.
         </p>
@@ -123,7 +82,7 @@ const { spec, industry, audience } = Astro.props as Props
               Week {week.week}
             </div>
             <h4 class="text-white font-bold text-base mb-4 leading-snug">{week.title}</h4>
-            <ul class="space-y-2 mb-5">
+            <ul class="space-y-2">
               {week.tasks.map((task) => (
                 <li class="text-p-muted text-sm leading-relaxed flex gap-1.5">
                   <span class="text-p-blue flex-shrink-0">·</span>
@@ -131,18 +90,14 @@ const { spec, industry, audience } = Astro.props as Props
                 </li>
               ))}
             </ul>
-            <div class="pt-4 border-t border-white/5">
-              <p class="text-xs text-white/40 mb-1">Effort</p>
-              <p class="text-p-text text-sm font-medium">{week.effortHours}</p>
-            </div>
           </div>
         ))}
       </div>
     </div>
 
     <!-- Impact -->
-    <div class="fade-up">
-      <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-8">Impact</h3>
+    <div class="mb-24 fade-up">
+      <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-8">What we aim for</h3>
       <div class="glass-card p-8 md:p-10">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {spec.impact.map((metric) => (
@@ -153,13 +108,62 @@ const { spec, industry, audience } = Astro.props as Props
                 <span class="text-p-glow text-2xl">→</span>
                 <span class="text-white text-2xl font-bold">{metric.after}</span>
               </div>
-              {metric.source && (
-                <p class="text-xs text-white/40">{metric.source}</p>
-              )}
             </div>
           ))}
         </div>
+        <p class="text-xs text-p-muted mt-8 pt-6 border-t border-white/5">
+          Targets we build toward, not guarantees. Results depend on your call volume and the systems you run.
+        </p>
       </div>
     </div>
+    <!-- Stack -->
+    <details class="group glass-card fade-up">
+      <summary class="cursor-pointer list-none flex items-center justify-between gap-4 p-6 md:p-7 select-none">
+        <span>
+          <span class="block text-white font-semibold text-lg">For the technical folks</span>
+          <span class="block text-p-muted text-sm mt-1">The systems we connect to and what their APIs support.</span>
+        </span>
+        <svg class="w-5 h-5 text-p-muted transition-transform duration-200 group-open:rotate-180 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" /></svg>
+      </summary>
+      <div class="px-6 md:px-7 pb-7">
+      <div class="mb-6">
+        <p class="text-p-muted text-base max-w-2xl">
+          Verified API capabilities — every claim below cites the vendor's developer documentation.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {spec.stack.map((tool, i) => (
+          <div class="rounded-xl p-6" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);">
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h4 class="text-white font-bold text-xl">{tool.tool}</h4>
+                <p class="text-p-blue text-sm mt-0.5">{tool.role}</p>
+              </div>
+              {tool.docUrl && (
+                <a
+                  href={tool.docUrl}
+                  target="_blank"
+                  rel="noopener"
+                  class="text-p-muted hover:text-p-glow transition-colors text-xs flex items-center gap-1"
+                  aria-label={`${tool.tool} developer docs`}
+                >
+                  Docs ↗
+                </a>
+              )}
+            </div>
+            <ul class="space-y-2.5">
+              {tool.capabilities.map((cap) => (
+                <li class="text-p-muted text-sm leading-relaxed flex gap-2">
+                  <span class="text-p-blue flex-shrink-0">•</span>
+                  <span>{cap}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+    </details>
+
   </div>
 </section>

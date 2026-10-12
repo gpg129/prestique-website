@@ -5,8 +5,10 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { canonicalFor, SITE_ORIGIN } from '../lib/canonical';
 import RelatedPosts from '../components/RelatedPosts.astro';
+import { bookingUrlFor } from '../lib/booking';
 
 const AUDIT_URL = 'https://audit.prestique.ai';
+const BOOK_URL = bookingUrlFor(Astro.url.pathname, 'blog');
 const SITE_URL = SITE_ORIGIN;
 
 interface Props {
@@ -107,7 +109,7 @@ const faqSchema = faqs && faqs.length > 0 ? {
             </>
           )}
         </div>
-        <h1 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">{title}</h1>
+        <h1 class="text-3xl md:text-4xl font-semibold tracking-tight text-white leading-tight mb-4">{title}</h1>
         <p class="text-p-muted text-lg leading-relaxed">{description}</p>
         {tags && tags.length > 0 && (
           <div class="flex flex-wrap gap-2 mt-4">
@@ -144,24 +146,24 @@ const faqSchema = faqs && faqs.length > 0 ? {
 
       <RelatedPosts id={id} vertical={vertical} label={verticalLabel[vertical] ?? vertical} />
 
-      <!-- Inline audit CTA -->
+      <!-- Inline CTA: book a call (primary) or take the audit -->
       <div class="mt-16 glass-card p-8 md:p-10 text-center relative overflow-hidden">
         <div class="absolute inset-0 pointer-events-none"
              style="background: radial-gradient(ellipse at 50% 0%, rgba(26,46,74,0.5) 0%, transparent 70%);"></div>
         <div class="absolute top-0 left-0 right-0 h-px"
              style="background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), transparent);"></div>
         <div class="relative">
-          <p class="section-label mb-3">Free for Your Business</p>
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-            Find out exactly where AI can help your business
+          <p class="section-label mb-3">Prestique</p>
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">
+            Want this working in your business?
           </h2>
           <p class="text-p-muted mb-7 max-w-lg mx-auto">
-            The Prestique AI Audit is run by an AI agent — it asks about your business, identifies your top automation opportunities, and delivers a personalized report in about 5 minutes. No forms, no sales call, no pitch.
+            Book a 30-minute call. We'll look at how calls and leads reach you today and show you what we'd build. Prefer to start on your own? The free audit gives you a custom report in about 5 minutes.
           </p>
-          <a href={AUDIT_URL} class="btn-primary text-base px-8 py-3" target="_blank" rel="noopener">
-            Take the Free Audit →
-          </a>
-          <p class="text-p-muted text-sm mt-4">Free &nbsp;·&nbsp; Powered by AI &nbsp;·&nbsp; Custom to your business</p>
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+            <a href={BOOK_URL} class="btn-primary text-base px-7 py-3" target="_blank" rel="noopener">Book a call</a>
+            <a href={AUDIT_URL} class="btn-link" target="_blank" rel="noopener">Or take the free audit →</a>
+          </div>
         </div>
       </div>
 
