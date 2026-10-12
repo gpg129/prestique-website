@@ -1,0 +1,66 @@
+---
+// Homepage hero: pick your trade, see a sample call for it. ARIA tabs; the first
+// panel is visible at build time so the page is complete without JS.
+import SampleCall from './SampleCall.astro'
+import { SAMPLE_CALLS, TAB_LABELS } from '../lib/sampleCalls'
+
+const ORDER = ['home-services', 'dental', 'law', 'auto-repair', 'veterinary', 'beauty-salons']
+const slugs = ORDER.filter((s) => SAMPLE_CALLS[s])
+---
+<div class="w-full max-w-[500px] mx-auto lg:mx-0 lg:ml-auto" data-call-tabs>
+  <div class="call-tablist flex gap-1.5 overflow-x-auto lg:overflow-visible lg:flex-wrap pb-3 -mx-1 px-1" role="tablist" aria-label="Pick your industry">
+    {slugs.map((slug, i) => (
+      <button
+        type="button"
+        role="tab"
+        id={`call-tab-${slug}`}
+        aria-controls={`call-panel-${slug}`}
+        aria-selected={i === 0 ? 'true' : 'false'}
+        tabindex={i === 0 ? 0 : -1}
+        class="call-tab whitespace-nowrap rounded-full px-2.5 py-1.5 text-[13px] font-medium transition-colors"
+      >
+        {TAB_LABELS[slug]}
+      </button>
+    ))}
+  </div>
+  {slugs.map((slug, i) => (
+    <div role="tabpanel" id={`call-panel-${slug}`} aria-labelledby={`call-tab-${slug}`} hidden={i !== 0}>
+      <SampleCall call={SAMPLE_CALLS[slug]} />
+    </div>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-call-tabs]').forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'))
+    const select = (tab: HTMLButtonElement, focus = false) => {
+      tabs.forEach((t) => {
+        const on = t === tab
+        t.setAttribute('aria-selected', on ? 'true' : 'false')
+        t.tabIndex = on ? 0 : -1
+        const panel = root.querySelector<HTMLElement>(`#${t.getAttribute('aria-controls')}`)
+        if (!panel) return
+        panel.hidden = !on
+        if (on) {
+          // Replay the entrance animation for the newly shown call.
+          const card = panel.querySelector<HTMLElement>('.call-card')
+          if (card) { card.classList.remove('call-animate'); void card.offsetWidth; card.classList.add('call-animate') }
+        }
+      })
+      if (focus) tab.focus()
+      tab.scrollIntoView({ block: 'nearest', inline: 'nearest' })
+    }
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(tab))
+      tab.addEventListener('keydown', (e) => {
+        const k = e.key
+        let next = -1
+        if (k === 'ArrowRight') next = (i + 1) % tabs.length
+        else if (k === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length
+        else if (k === 'Home') next = 0
+        else if (k === 'End') next = tabs.length - 1
+        if (next >= 0) { e.preventDefault(); select(tabs[next], true) }
+      })
+    })
+  })
+</script>

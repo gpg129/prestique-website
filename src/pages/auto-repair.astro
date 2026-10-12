@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import VerticalHero from '../components/VerticalHero.astro'
+import ProofRow from '../components/ProofRow.astro'
 import SpecStudy from '../components/SpecStudy.astro'
 import IntegrationLinks from '../components/IntegrationLinks.astro'
 import VerticalFAQ from '../components/VerticalFAQ.astro'
@@ -37,7 +38,9 @@ const canonical = canonicalFor('/auto-repair')
       headline={vertical.headline}
       subhead={vertical.subhead}
       statBadge={vertical.statBadge}
+      slug="auto-repair"
     />
+    <ProofRow />
 
     <SpecStudy spec={autoRepairSpec} industry={vertical.industry} audience={vertical.label} />
     <BookCallCTA />

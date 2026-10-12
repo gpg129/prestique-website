@@ -1,9 +1,13 @@
 ---
+import SampleCall from './SampleCall.astro'
+import { SAMPLE_CALLS } from '../lib/sampleCalls'
+
 interface Props {
   industry: string
   headline: string
   subhead: string
   statBadge: string
+  slug?: string
   formAnchor?: string
   bookAnchor?: string
 }
@@ -11,33 +15,43 @@ const {
   headline,
   subhead,
   statBadge,
+  slug,
   formAnchor = '#audit-form',
   bookAnchor = '#book-a-call',
 } = Astro.props as Props
+const call = slug ? SAMPLE_CALLS[slug] : undefined
 ---
-<section class="relative pt-36 pb-20 md:pt-40 md:pb-24 px-6 overflow-hidden">
+<section class="relative pt-32 pb-16 md:pt-40 md:pb-20 px-6 overflow-hidden">
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[640px] rounded-full opacity-25"
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[700px] rounded-full opacity-25"
          style="background: radial-gradient(ellipse, #1a2e4a 0%, transparent 70%);"></div>
   </div>
 
-  <div class="relative max-w-4xl mx-auto text-center">
-    <p class="section-label mb-6">{statBadge}</p>
+  <div class={`relative mx-auto ${call ? 'max-w-6xl grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-14 items-center' : 'max-w-4xl'}`}>
+    <div class={call ? 'text-center lg:text-left' : 'text-center'}>
+      <p class="section-label mb-6">{statBadge}</p>
 
-    <h1 class="text-4xl sm:text-5xl md:text-[3.5rem] font-semibold text-white leading-[1.1] tracking-tight mb-6">
-      {headline}
-    </h1>
+      <h1 class="text-4xl sm:text-5xl lg:text-[3rem] font-semibold text-white leading-[1.1] tracking-tight mb-6">
+        {headline}
+      </h1>
 
-    <p class="text-lg md:text-xl text-p-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-      {subhead}
-    </p>
+      <p class={`text-lg md:text-xl text-p-muted max-w-2xl mx-auto ${call ? 'lg:mx-0' : ''} mb-10 leading-relaxed`}>
+        {subhead}
+      </p>
 
-    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-      <a href={bookAnchor} class="btn-primary text-base px-7 py-3.5">Book a call</a>
-      <a href={formAnchor} class="btn-link text-base">Or get a free audit →</a>
+      <div class={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center ${call ? 'lg:justify-start' : ''} items-center`}>
+        <a href={bookAnchor} class="btn-primary text-base px-7 py-3.5">Book a call</a>
+        <a href={formAnchor} class="btn-link text-base">Or get a free audit →</a>
+      </div>
+      <p class="text-p-muted/80 text-sm mt-5">
+        30 minutes &nbsp;·&nbsp; No prep needed &nbsp;·&nbsp; No obligation
+      </p>
     </div>
-    <p class="text-p-muted/80 text-sm mt-5">
-      30 minutes &nbsp;·&nbsp; No prep needed &nbsp;·&nbsp; No obligation
-    </p>
+
+    {call && (
+      <div class="w-full max-w-[480px] mx-auto lg:mx-0 lg:ml-auto">
+        <SampleCall call={call} />
+      </div>
+    )}
   </div>
 </section>

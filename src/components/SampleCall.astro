@@ -1,0 +1,51 @@
+---
+// One illustrative call card. Data: src/lib/sampleCalls.ts. The "actions" slot is
+// reserved for the Phase 3 live demo buttons ("Talk to it now").
+import type { SampleCall } from '../lib/sampleCalls'
+
+interface Props {
+  call: SampleCall
+  animate?: boolean
+  class?: string
+}
+const { call, animate = true, class: className = '' } = Astro.props as Props
+---
+<div class={`call-card rounded-2xl p-5 sm:p-6 text-left w-full ${animate ? 'call-animate' : ''} ${className}`}>
+  <div class="flex items-center justify-between gap-3 pb-4 mb-4 border-b border-white/[0.06]">
+    <div class="flex items-center gap-2 text-sm text-p-text whitespace-nowrap">
+      <span class="relative flex h-2 w-2" aria-hidden="true">
+        <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400/50 motion-safe:animate-ping"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+      </span>
+      <span>Incoming call · {call.time}</span>
+    </div>
+    <span class="text-xs text-p-muted truncate">{call.business}</span>
+  </div>
+
+  <ol class="space-y-2.5" aria-label="Sample call transcript">
+    {call.turns.map((t, i) => (
+      <li class={`call-bubble flex ${t.who === 'ai' ? 'justify-end' : 'justify-start'}`} style={`--i:${i}`}>
+        <div class={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${t.who === 'ai' ? 'call-ai rounded-br-md' : 'call-caller rounded-bl-md'}`}>
+          {t.who === 'ai' && i === call.turns.findIndex((x) => x.who === 'ai') ? (
+            <span class="block text-[11px] font-medium uppercase tracking-wide mb-0.5 opacity-70"><span class="sr-only">Speaker: </span>AI receptionist</span>
+          ) : (
+            <span class="sr-only">{t.who === 'ai' ? 'AI receptionist: ' : 'Caller: '}</span>
+          )}
+          {t.text}
+        </div>
+      </li>
+    ))}
+  </ol>
+
+  <div class="call-bubble mt-4 flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-emerald-300"
+       style={`--i:${call.turns.length}; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.22);`}>
+    <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" />
+    </svg>
+    <span>{call.result}</span>
+  </div>
+
+  <slot name="actions" />
+
+  <p class="mt-4 text-[11px] text-p-muted/80">Sample call · illustrative</p>
+</div>
