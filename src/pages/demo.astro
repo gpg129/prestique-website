@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import DemoRequest from '../components/DemoRequest.astro';
+import { bookingUrlFor } from '../lib/booking';
+const bookUrl = bookingUrlFor('/demo', 'section');
 import SampleCall from '../components/SampleCall.astro';
 import { SAMPLE_CALLS, TAB_LABELS } from '../lib/sampleCalls';
 import '../styles/global.css';
@@ -19,11 +21,14 @@ import '../styles/global.css';
           so you can hear exactly what your customers would.
         </p>
         <ol class="space-y-3 text-p-text mb-8">
-          <li class="flex gap-3"><span class="text-p-blue font-semibold">1</span>Fill in four quick details</li>
+          <li class="flex gap-3"><span class="text-p-blue font-semibold">1</span>Fill in a few quick details</li>
           <li class="flex gap-3"><span class="text-p-blue font-semibold">2</span>Call the number from your phone</li>
           <li class="flex gap-3"><span class="text-p-blue font-semibold">3</span>Play a customer. It handles the rest.</li>
         </ol>
-        <DemoRequest select label="Get the demo number" />
+        <DemoRequest select label="Get the demo number" noJsHref={bookUrl} />
+        <noscript>
+          <p class="mt-3 text-sm text-p-muted">Turn on JavaScript to get the demo number, or <a href={bookUrl} class="text-p-glow underline">book a call</a> and we'll walk you through it live.</p>
+        </noscript>
       </div>
       <div class="hidden lg:block">
         <SampleCall call={SAMPLE_CALLS['dental']} />
@@ -31,7 +36,7 @@ import '../styles/global.css';
     </section>
 
     <div class="max-w-3xl mx-auto prose-blog">
-      <h2 class="text-2xl font-semibold text-white mb-2">Property management SMS demo</h2>
+      <h2 class="text-2xl font-semibold text-white mb-2">Property management: text demo</h2>
       <p>If you run a property management company and want to see how AI handles tenant-side calls — text or call our demo line with a maintenance scenario, lockout, or any tenant-side question you'd normally take by phone. Our AI replies in seconds with how it would handle the situation, including how it would dispatch to your vendors and notify you.</p>
 
       <h2>Text or call our demo line</h2>

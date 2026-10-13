@@ -10,14 +10,15 @@ interface Props {
   industry?: string
   select?: boolean
   label?: string
+  noJsHref?: string   // where the button goes without JavaScript (default /demo)
   class?: string
 }
-const { industry = '', select = false, label = 'Try it live: hear it answer as your business', class: className = '' } = Astro.props as Props
+const { industry = '', select = false, label = 'Try it live: hear it answer as your business', noJsHref = '/demo', class: className = '' } = Astro.props as Props
 const uid = Math.random().toString(36).slice(2, 8)
 const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
 ---
 <div class={className} data-demo-root data-demo-fixed={industry} data-demo-book-url={bookUrl}>
-  <a href="/demo" data-demo-open class="btn-secondary w-full justify-center text-sm !py-2.5">
+  <a href={noJsHref} data-demo-open class="btn-secondary w-full justify-center text-sm !py-2.5">
     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
     </svg>
@@ -54,12 +55,12 @@ const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
         <div aria-hidden="true" class="absolute -left-[9999px] w-px h-px overflow-hidden">
           <label>Company website<input name="hp" tabindex="-1" autocomplete="off" /></label>
         </div>
-        <p data-demo-error role="alert" class="hidden mt-4 text-sm text-red-300"></p>
-        <button type="submit" data-demo-submit class="btn-primary w-full justify-center mt-5">Show me the demo number</button>
-        <p class="mt-3 text-[11px] leading-relaxed text-p-muted/80">
-          Calls are transcribed so we can improve the demo and follow up with you. By submitting, you agree to be contacted about Prestique.
-          See our <a href="/privacy" class="underline hover:text-white">privacy policy</a>.
+        <p class="mt-4 text-[11px] leading-relaxed text-p-muted/80">
+          Calls are transcribed so we can improve the demo and follow up with you. By submitting, you agree that Prestique may
+          contact you about this demo by phone or email. See our <a href="/privacy" class="underline hover:text-white">privacy policy</a>.
         </p>
+        <p data-demo-error role="alert" class="hidden mt-4 text-sm text-red-300"></p>
+        <button type="submit" data-demo-submit class="btn-primary w-full justify-center mt-4">Show me the demo number</button>
       </form>
 
       <div data-demo-done class="hidden mt-4 text-center">
@@ -71,6 +72,7 @@ const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
         </p>
         <a data-demo-tel-btn href="#" class="btn-primary w-full justify-center mt-5 sm:hidden">Call now</a>
         <p class="mt-4 text-xs text-p-muted">Prefer to talk to a person? <a href="#book-a-call" data-demo-book class="text-p-glow hover:text-white">Book a call</a>.</p>
+        <button type="button" data-demo-again class="mt-3 text-xs text-p-muted underline underline-offset-2 hover:text-white">Entered the wrong phone? Start again</button>
       </div>
     </div>
   </dialog>
@@ -78,6 +80,10 @@ const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
 
 <script>
   import { DEMO_API, type DemoResponse } from '../lib/demo'
+
+  class ApiError extends Error {}
+  const MIN_FILL_MS = 3200   // the server treats faster submissions as bots
+  const wait = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
   function attribution() {
     try {
@@ -121,6 +127,13 @@ const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
     }
     book?.addEventListener('click', () => dialog.close())
 
+    root.querySelector('[data-demo-again]')?.addEventListener('click', () => {
+      done.classList.add('hidden')
+      form.classList.remove('hidden')
+      openedAt = Date.now()
+      form.querySelector<HTMLInputElement>('input[name="phone"]')?.focus()
+    })
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
       err.classList.add('hidden')
@@ -129,6 +142,8 @@ const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
       submit.disabled = true
       submit.textContent = 'One moment…'
       try {
+        const early = MIN_FILL_MS - (Date.now() - openedAt)
+        if (early > 0) await wait(early)   // browser autofill can be faster than the bot check allows
         const res = await fetch(`${DEMO_API}/demo/request`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -144,7 +159,7 @@ const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
           }),
         })
         const body = await res.json().catch(() => ({}))
-        if (!res.ok) throw new Error(body.error || 'Something went wrong. Please try again.')
+        if (!res.ok) throw new ApiError(body.error || 'Something went wrong. Please try again.')
         const r = body as DemoResponse
         root.querySelectorAll<HTMLAnchorElement>('[data-demo-tel], [data-demo-tel-btn]').forEach((a) => (a.href = `tel:${r.number}`))
         root.querySelector('[data-demo-tel]')!.textContent = r.display
@@ -153,7 +168,8 @@ const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
         form.classList.add('hidden')
         done.classList.remove('hidden')
       } catch (x) {
-        err.textContent = x instanceof Error ? x.message : 'Something went wrong. Please try again.'
+        err.textContent = x instanceof ApiError ? x.message
+          : "We couldn't reach the demo service. Check your connection and try again, or book a call."
         err.classList.remove('hidden')
       } finally {
         submit.disabled = false
