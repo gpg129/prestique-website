@@ -10,12 +10,29 @@ const INDUSTRY_ORDER = ['home-services', 'dental', 'law', 'auto-repair', 'veteri
 const industries = INDUSTRY_ORDER
   .map((slug) => VERTICALS[slug])
   .filter((v): v is NonNullable<typeof v> => Boolean(v))
+
+// Menu copy: who each page is for (no stats in the nav). Icons: Heroicons outline paths.
+const MENU: Record<string, { title: string; blurb: string; icon: string }> = {
+  'home-services': { title: 'Home services', blurb: 'HVAC, plumbing, electrical and roofing',
+    icon: 'm2.25 12 8.954-8.955a1.126 1.126 0 0 1 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25' },
+  dental: { title: 'Dental', blurb: 'Family and general dental practices',
+    icon: 'M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z' },
+  law: { title: 'Law firms', blurb: 'Personal injury and family law intake',
+    icon: 'M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z' },
+  'auto-repair': { title: 'Auto repair', blurb: 'Independent auto and diesel shops',
+    icon: 'M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12' },
+  veterinary: { title: 'Veterinary', blurb: 'Clinics and animal hospitals',
+    icon: 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z' },
+  'beauty-salons': { title: 'Salons', blurb: 'Hair and beauty salons',
+    icon: 'm7.848 8.25 1.536.887M7.848 8.25a3 3 0 1 1-5.196-3 3 3 0 0 1 5.196 3Zm1.536.887a2.165 2.165 0 0 1 1.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 1 1-5.196 3 3 3 0 0 1 5.196-3Zm1.536-.887a2.165 2.165 0 0 0 1.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863 2.077-1.199m0-3.328a4.323 4.323 0 0 1 2.068-1.379l5.325-1.628a4.5 4.5 0 0 1 2.48-.044l.803.215-7.794 4.5m-2.882-1.664A4.33 4.33 0 0 0 10.607 12m3.736 0 7.794 4.5-.802.215a4.5 4.5 0 0 1-2.48-.043l-5.326-1.629a4.324 4.324 0 0 1-2.068-1.379M14.343 12l-2.882 1.664' },
+}
+const current = Astro.url.pathname.replace(/\/$/, '')
 ---
 <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5"
      style="background: rgba(10, 15, 26, 0.85); backdrop-filter: blur(12px);">
-  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+  <div class="max-w-6xl mx-auto px-6 h-16 sm:h-[72px] flex items-center justify-between">
     <a href="/" class="flex items-center min-w-0" aria-label="Prestique home">
-      <Logo size="md" />
+      <Logo size="nav" />
     </a>
     <div class="flex items-center gap-3 sm:gap-6 flex-shrink-0">
       <div class="hidden md:block relative" data-industries-dropdown>
@@ -34,24 +51,50 @@ const industries = INDUSTRY_ORDER
 
         <div
           data-industries-menu
-          class="absolute top-full right-0 mt-2 w-72 rounded-xl overflow-hidden opacity-0 pointer-events-none translate-y-1 transition-all duration-150"
-          style="background: rgba(10, 15, 26, 0.97); backdrop-filter: blur(16px); border: 1px solid rgba(96, 165, 250, 0.18); box-shadow: 0 12px 40px rgba(0,0,0,0.5);"
+          class="absolute top-full right-0 mt-3 w-[560px] rounded-2xl overflow-hidden opacity-0 pointer-events-none translate-y-1 transition-all duration-150"
+          style="background: #0c1321; border: 1px solid rgba(148, 163, 184, 0.16); box-shadow: 0 24px 60px -12px rgba(0,0,0,0.75);"
           role="menu"
         >
-          <ul class="py-2">
-            {industries.map((v) => (
-              <li>
-                <a
-                  href={`/${v.slug}`}
-                  role="menuitem"
-                  class="flex items-center justify-between gap-3 px-4 py-2.5 text-sm hover:bg-white/5 transition-colors group"
-                >
-                  <span class="text-white font-medium">{v.label}</span>
-                  <span class="text-p-glow text-xs whitespace-nowrap opacity-70 group-hover:opacity-100 transition-opacity">{v.statBadge}</span>
-                </a>
-              </li>
-            ))}
+          <p class="px-5 pt-4 pb-1 text-[11px] font-semibold uppercase tracking-widest text-p-muted">Industries we build for</p>
+          <ul class="grid grid-cols-2 gap-1 p-2">
+            {industries.map((v) => {
+              const m = MENU[v.slug] ?? { title: v.label, blurb: '', icon: '' }
+              const active = current === `/${v.slug}`
+              return (
+                <li>
+                  <a
+                    href={`/${v.slug}`}
+                    role="menuitem"
+                    aria-current={active ? 'page' : undefined}
+                    class={`flex items-start gap-3 rounded-xl px-3 py-3 transition-colors group ${active ? 'bg-white/[0.06]' : 'hover:bg-white/[0.05]'}`}
+                  >
+                    <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg text-p-glow"
+                          style="background: rgba(59,130,246,0.1); border: 1px solid rgba(96,165,250,0.2);">
+                      <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d={m.icon} />
+                      </svg>
+                    </span>
+                    <span class="min-w-0">
+                      <span class="block text-sm font-semibold text-white">{m.title}</span>
+                      <span class="block text-xs leading-snug text-p-muted group-hover:text-p-text transition-colors">{m.blurb}</span>
+                    </span>
+                  </a>
+                </li>
+              )
+            })}
           </ul>
+          <a href="/demo" role="menuitem"
+             class="flex items-center justify-between gap-3 px-5 py-3.5 text-sm transition-colors hover:bg-white/[0.04]"
+             style="border-top: 1px solid rgba(148,163,184,0.12); background: rgba(16,185,129,0.06);">
+            <span class="flex items-center gap-2.5 text-emerald-200 font-medium">
+              <span class="relative flex h-2 w-2" aria-hidden="true">
+                <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400/60 motion-safe:animate-ping"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+              </span>
+              Hear our AI answer as your business
+            </span>
+            <span class="text-emerald-300" aria-hidden="true">Try the live demo →</span>
+          </a>
         </div>
       </div>
       <a href="/blog" class="hidden md:inline text-p-muted hover:text-white transition-colors text-sm font-medium">Blog</a>

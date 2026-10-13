@@ -4,15 +4,15 @@ import { FACETS, LOGO_COLORS, type LogoVariant } from '../lib/logo'
 
 interface Props {
   variant?: LogoVariant
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md' | 'nav' | 'lg'
   wordmark?: boolean
   class?: string
 }
 const { variant = 'dark', size = 'md', wordmark = true, class: className = '' } = Astro.props as Props
 const c = LOGO_COLORS[variant]
-const gem = { sm: 'w-6 h-6', md: 'w-8 h-8 sm:w-9 sm:h-9', lg: 'w-11 h-11' }[size]
-const text = { sm: 'text-base', md: 'text-xl sm:text-2xl', lg: 'text-3xl' }[size]
-const gap = { sm: 'gap-2', md: 'gap-2.5', lg: 'gap-3' }[size]
+const gem = { sm: 'w-6 h-6', md: 'w-8 h-8 sm:w-9 sm:h-9', nav: 'w-9 h-9 sm:w-11 sm:h-11', lg: 'w-11 h-11' }[size]
+const text = { sm: 'text-base', md: 'text-xl sm:text-2xl', nav: 'text-[1.4rem] sm:text-[1.75rem]', lg: 'text-3xl' }[size]
+const gap = { sm: 'gap-2', md: 'gap-2.5', nav: 'gap-2.5 sm:gap-3', lg: 'gap-3' }[size]
 ---
 <span class={`inline-flex items-center ${gap} ${className}`} aria-label="Prestique" role="img">
   <svg class={`${gem} flex-shrink-0`} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
