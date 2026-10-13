@@ -116,6 +116,11 @@
       "source": "/blog/ai-phone-answering-for-veterinary-clinic",
       "destination": "/blog/ai-phone-answering-service-for-busy-veterinary-clinics",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/how-vet-clinics-lose-revenue-from-missed-calls",
+      "destination": "/blog/missed-calls-veterinary-practice-revenue-loss",
+      "statusCode": 301
     }
   ]
 }

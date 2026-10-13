@@ -22,7 +22,7 @@ faqs:
     a: "Research shows 60-80% of new veterinary clients call a clinic before booking their first appointment, making phone responsiveness one of the most important factors in new client acquisition."
   - q: "How quickly can a vet clinic set up AI phone answering?"
     a: "Most veterinary clinics can have an AI voice agent fully operational within 1-2 weeks, including customization for appointment types, triage protocols, and integration with practice management software."
-draft: false
+draft: true
 ---
 
 ## It's Tuesday at 2 PM, and Your Front Desk Is Drowning
