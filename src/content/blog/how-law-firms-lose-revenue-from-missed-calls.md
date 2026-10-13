@@ -22,7 +22,7 @@ faqs:
     a: "AI voice agents typically cost a fraction of a full-time receptionist's salary — often 70-80% less — while providing 24/7 coverage that a single employee never could. Most firms see positive ROI within the first month."
   - q: "Do AI voice agents work after hours for law firms?"
     a: "Absolutely. AI voice agents answer every call 24/7, including nights, weekends, and holidays. This is especially critical for law firms since many prospective clients research and call attorneys outside of standard business hours."
-draft: false
+draft: true
 ---
 
 ## A Call Comes In at 6:47 PM — And Nobody Answers

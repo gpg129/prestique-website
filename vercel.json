@@ -91,6 +91,21 @@
       "source": "/blog/ai-phone-answering-service-for-busy-plumbing-contractors",
       "destination": "/blog/ai-receptionist-for-plumbers",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/how-law-firms-lose-revenue-from-missed-calls",
+      "destination": "/blog/missed-calls-law-firm-revenue-loss",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/how-missed-calls-are-costing-law-firms-revenue-monthly",
+      "destination": "/blog/missed-calls-law-firm-revenue-loss",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/missed-calls-costing-law-practice-new-clients",
+      "destination": "/blog/missed-calls-law-firm-revenue-loss",
+      "statusCode": 301
     }
   ]
 }

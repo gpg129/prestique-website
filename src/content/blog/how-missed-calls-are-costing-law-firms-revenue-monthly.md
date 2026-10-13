@@ -22,7 +22,7 @@ faqs:
     a: "Most small to mid-sized law firms can have an AI voice agent fully configured and answering calls within one to two weeks, including custom intake scripts, scheduling integration, and CRM or case management system connections."
   - q: "Is an AI receptionist cheaper than a human receptionist for a law firm?"
     a: "Significantly. A full-time legal receptionist costs $35,000-$50,000 annually plus benefits. An AI voice agent provides 24/7 coverage — nights, weekends, and holidays included — at a fraction of that cost while never calling in sick or taking vacation."
-draft: false
+draft: true
 ---
 
 ## A Call You'll Never Know About
