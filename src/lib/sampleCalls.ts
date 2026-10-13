@@ -1,6 +1,6 @@
 // Illustrative sample calls for the hero cards (homepage tabs + each industry hero).
 // Every call may only show behaviour its spec study (src/lib/specStudies/*) already
-// describes, phrased conservatively: no direct writes into a shop system, no clinical,
+// describes, phrased conservatively: never name a specific software it writes into, no clinical,
 // legal or veterinary advice, no prices. Cards name a KIND of business, never a business name: invented names
 // kept colliding with real companies in the same trade. Rendered with a
 // "Sample call · illustrative" label.
@@ -58,9 +58,9 @@ export const SAMPLE_CALLS: Record<string, SampleCall> = {
       { who: 'caller', text: "My check engine light came on and the truck's idling rough." },
       { who: 'ai', text: "Sorry about that. What's the year, make and model, and is it safe to drive in?" },
       { who: 'caller', text: '2018 F-150. I can drive it. Thursday morning?' },
-      { who: 'ai', text: "I'll request Thursday at 8:00 AM, and our service advisor will confirm by text shortly." },
+      { who: 'ai', text: "You're booked for Thursday at 8:00 AM. I'm texting you a confirmation now." },
     ],
-    result: 'Booking request sent to your service advisor',
+    result: 'Drop-off booked · confirmation texted',
   },
   veterinary: {
     business: 'Animal hospital',

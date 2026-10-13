@@ -173,3 +173,18 @@ html:not(.js) .call-tablist { display: none; }
 }
 .demo-field select option { color: #0a0f1a; }
 .demo-field input:focus, .demo-field select:focus { border-color: #3b82f6; }
+
+/* "Try it live": the live-demo call to action. Green = live (matches the call card's result chip);
+   distinct from the blue "Book a call" so the site still has one primary blue action. */
+.btn-live {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.85rem 1.1rem; border-radius: 0.75rem;
+  font-weight: 600; font-size: 0.95rem; color: #d1fae5;
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.22), rgba(16, 185, 129, 0.12));
+  border: 1px solid rgba(52, 211, 153, 0.55);
+  box-shadow: 0 8px 28px -10px rgba(16, 185, 129, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.btn-live:hover { color: #ffffff; border-color: rgba(110, 231, 183, 0.9);
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.32), rgba(16, 185, 129, 0.18)); }
+.btn-live:focus-visible { outline: 2px solid #6ee7b7; outline-offset: 3px; }
