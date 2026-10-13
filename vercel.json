@@ -126,6 +126,11 @@
       "source": "/blog/after-hours-emergency-call-handling-for-animal-hospitals",
       "destination": "/blog/ai-receptionist-handling-after-hours-pet-intake-and-emergency-triage",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/how-to-reduce-missed-calls-at-vet-clinic",
+      "destination": "/blog/reduce-missed-calls-at-pet-clinic-with-ai-receptionist",
+      "statusCode": 301
     }
   ]
 }

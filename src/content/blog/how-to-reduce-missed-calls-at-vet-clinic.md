@@ -22,7 +22,7 @@ faqs:
     a: "AI voice agents typically cost a fraction of a full-time receptionist's salary — often between $300-800 per month depending on call volume and features, compared to $30,000-40,000 annually for additional front desk staff."
   - q: "Will pet owners feel comfortable talking to an AI on the phone?"
     a: "Modern AI voice agents use natural, conversational language and can be customized with your clinic's tone and protocols. Most callers don't realize they're speaking with AI, and they strongly prefer getting an immediate answer over reaching voicemail."
-draft: false
+draft: true
 ---
 
 ## It's 2 AM and Someone's Dog Just Ate Chocolate
