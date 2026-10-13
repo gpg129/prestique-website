@@ -111,6 +111,11 @@
       "source": "/blog/reduce-missed-client-calls-attorney-office",
       "destination": "/blog/reduce-missed-client-calls-at-small-law-office",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/ai-phone-answering-for-veterinary-clinic",
+      "destination": "/blog/ai-phone-answering-service-for-busy-veterinary-clinics",
+      "statusCode": 301
     }
   ]
 }

@@ -29,7 +29,7 @@ draft: false
 
 The phone starts ringing before the doors unlock. Line one is a panicked owner whose Labrador ate chocolate overnight. Line two is a routine vaccine appointment request. Line three rings through to voicemail — and that caller never tries again. Your single front desk receptionist is simultaneously checking in a patient, processing a payment, and trying to answer the phone with a smile. By 9:30 AM, she's already missed eleven calls.
 
-This isn't a failure of effort. It's a math problem. And **[AI phone answering for veterinary clinic](https://prestique.ai/blog/ai-phone-answering-for-veterinary-clinic) high call volume** is the solution an increasing number of practices are deploying to stop the bleeding.
+This isn't a failure of effort. It's a math problem. And **[AI phone answering for veterinary clinic](/blog/ai-phone-answering-service-for-busy-veterinary-clinics) high call volume** is the solution an increasing number of practices are deploying to stop the bleeding.
 
 ## The Real Cost of Missed Calls in Veterinary Medicine
 

@@ -22,7 +22,7 @@ faqs:
     a: "Most AI voice agent solutions cost between $300 and $1,000 per month — a fraction of the $3,000-$4,000 monthly cost of a full-time receptionist. And the AI never calls in sick, takes lunch, or misses a call."
   - q: "How long does it take to set up AI phone answering at a veterinary practice?"
     a: "Most veterinary clinics can be fully operational with an AI voice agent within one to two weeks, including customization for your specific services, hours, and call-handling protocols."
-draft: false
+draft: true
 ---
 
 ## It's 9:07 on a Monday Morning and You're Already Underwater
