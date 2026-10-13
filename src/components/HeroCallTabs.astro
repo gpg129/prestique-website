@@ -2,12 +2,13 @@
 // Homepage hero: pick your trade, see a sample call for it. ARIA tabs; the first
 // panel is visible at build time so the page is complete without JS.
 import SampleCall from './SampleCall.astro'
+import DemoRequest from './DemoRequest.astro'
 import { SAMPLE_CALLS, TAB_LABELS } from '../lib/sampleCalls'
 
 const ORDER = ['home-services', 'dental', 'law', 'auto-repair', 'veterinary', 'beauty-salons']
 const slugs = ORDER.filter((s) => SAMPLE_CALLS[s])
 ---
-<div class="w-full max-w-[500px] mx-auto lg:mx-0 lg:ml-auto" data-call-tabs>
+<div class="w-full max-w-[500px] mx-auto lg:mx-0 lg:ml-auto" data-call-tabs data-demo-industry={slugs[0]}>
   <div class="call-tablist flex gap-1.5 overflow-x-auto lg:overflow-visible lg:flex-wrap pb-3 -mx-1 px-1" role="tablist" aria-label="Pick your industry">
     {slugs.map((slug, i) => (
       <button
@@ -33,6 +34,7 @@ const slugs = ORDER.filter((s) => SAMPLE_CALLS[s])
       </div>
     ))}
   </div>
+  <DemoRequest class="mt-4" />
 </div>
 
 <script>
@@ -50,6 +52,7 @@ const slugs = ORDER.filter((s) => SAMPLE_CALLS[s])
         if (on) panel.removeAttribute('aria-hidden')
         else panel.setAttribute('aria-hidden', 'true')
         if (on) {
+          root.dataset.demoIndustry = (t.getAttribute('aria-controls') || '').replace('call-panel-', '')
           // Replay the entrance animation for the newly shown call.
           const card = panel.querySelector<HTMLElement>('.call-card')
           if (card) { card.classList.remove('call-animate'); void card.offsetWidth; card.classList.add('call-animate') }

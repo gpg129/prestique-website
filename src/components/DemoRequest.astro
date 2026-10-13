@@ -1,0 +1,164 @@
+---
+// "Try it live": a short form in a dialog → we save the lead and show the shared demo number. Calling
+// from the phone entered lets the right industry agent answer as the visitor's own business.
+// industry: fixed industry (industry pages); omit on the homepage, where the active sample-call tab
+// sets it (data-demo-industry on the tabs root), or set select to let the visitor choose (/demo page).
+import { DEMO_INDUSTRIES } from '../lib/demo'
+import { bookingUrlFor } from '../lib/booking'
+
+interface Props {
+  industry?: string
+  select?: boolean
+  label?: string
+  class?: string
+}
+const { industry = '', select = false, label = 'Try it live: hear it answer as your business', class: className = '' } = Astro.props as Props
+const uid = Math.random().toString(36).slice(2, 8)
+const bookUrl = bookingUrlFor(Astro.url.pathname, 'section')
+---
+<div class={className} data-demo-root data-demo-fixed={industry} data-demo-book-url={bookUrl}>
+  <a href="/demo" data-demo-open class="btn-secondary w-full justify-center text-sm !py-2.5">
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+    </svg>
+    {label}
+  </a>
+
+  <dialog data-demo-dialog aria-labelledby={`demo-title-${uid}`} class="demo-dialog">
+    <div class="p-6 sm:p-7">
+      <div class="flex items-start justify-between gap-4 mb-1">
+        <h2 id={`demo-title-${uid}`} class="text-xl font-semibold text-white tracking-tight">Hear it answer as your business</h2>
+        <button type="button" data-demo-close class="text-p-muted hover:text-white -mt-1 -mr-1 p-1" aria-label="Close">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+
+      <form data-demo-form class="mt-4" novalidate>
+        <p class="text-p-muted text-sm leading-relaxed mb-5">
+          Tell us who you are and we'll show you the demo number. Call it and our AI receptionist answers as your business.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="demo-field"><span>First name</span><input name="first_name" autocomplete="given-name" required maxlength="40" /></label>
+          <label class="demo-field"><span>Business name</span><input name="business" autocomplete="organization" required maxlength="60" /></label>
+          <label class="demo-field"><span>Work email</span><input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+          <label class="demo-field"><span>Mobile phone</span><input name="phone" type="tel" autocomplete="tel" required maxlength="20" placeholder="(555) 123-4567" /></label>
+          {select && (
+            <label class="demo-field sm:col-span-2"><span>Your industry</span>
+              <select name="industry" required>
+                {DEMO_INDUSTRIES.map((i) => <option value={i.slug}>{i.label}</option>)}
+              </select>
+            </label>
+          )}
+        </div>
+        <!-- Honeypot: hidden from people, filled by bots -->
+        <div aria-hidden="true" class="absolute -left-[9999px] w-px h-px overflow-hidden">
+          <label>Company website<input name="hp" tabindex="-1" autocomplete="off" /></label>
+        </div>
+        <p data-demo-error role="alert" class="hidden mt-4 text-sm text-red-300"></p>
+        <button type="submit" data-demo-submit class="btn-primary w-full justify-center mt-5">Show me the demo number</button>
+        <p class="mt-3 text-[11px] leading-relaxed text-p-muted/80">
+          Calls are transcribed so we can improve the demo and follow up with you. By submitting, you agree to be contacted about Prestique.
+          See our <a href="/privacy" class="underline hover:text-white">privacy policy</a>.
+        </p>
+      </form>
+
+      <div data-demo-done class="hidden mt-4 text-center">
+        <p class="text-p-muted text-sm">Call our demo line</p>
+        <a data-demo-tel href="#" class="block text-3xl sm:text-4xl font-semibold text-white tracking-tight my-2 hover:text-p-glow"></a>
+        <p class="text-p-text text-sm leading-relaxed">
+          Call from <strong data-demo-from class="text-white"></strong> so it answers as <strong data-demo-biz class="text-white"></strong>.
+          Play a customer calling your business.
+        </p>
+        <a data-demo-tel-btn href="#" class="btn-primary w-full justify-center mt-5 sm:hidden">Call now</a>
+        <p class="mt-4 text-xs text-p-muted">Prefer to talk to a person? <a href="#book-a-call" data-demo-book class="text-p-glow hover:text-white">Book a call</a>.</p>
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<script>
+  import { DEMO_API, type DemoResponse } from '../lib/demo'
+
+  function attribution() {
+    try {
+      const a = JSON.parse(localStorage.getItem('pq_attr') || '{}')
+      return { ...a, entry_point: 'try it live' }
+    } catch {
+      return { entry_point: 'try it live' }
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-demo-root]').forEach((root) => {
+    const open = root.querySelector<HTMLAnchorElement>('[data-demo-open]')!
+    const dialog = root.querySelector<HTMLDialogElement>('[data-demo-dialog]')!
+    const form = root.querySelector<HTMLFormElement>('[data-demo-form]')!
+    const done = root.querySelector<HTMLElement>('[data-demo-done]')!
+    const err = root.querySelector<HTMLElement>('[data-demo-error]')!
+    const submit = root.querySelector<HTMLButtonElement>('[data-demo-submit]')!
+    let openedAt = 0
+
+    const industry = () => {
+      const picked = form.querySelector<HTMLSelectElement>('select[name="industry"]')
+      if (picked) return picked.value
+      if (root.dataset.demoFixed) return root.dataset.demoFixed
+      return (document.querySelector<HTMLElement>('[data-call-tabs]')?.dataset.demoIndustry) || 'home-services'
+    }
+
+    open.addEventListener('click', (e) => {
+      if (typeof dialog.showModal !== 'function') return   // very old browser: follow the /demo link
+      e.preventDefault()
+      openedAt = Date.now()
+      dialog.showModal()
+      form.querySelector<HTMLInputElement>('input[name="first_name"]')?.focus()
+    })
+    root.querySelector('[data-demo-close]')?.addEventListener('click', () => dialog.close())
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close() })   // backdrop
+    const book = root.querySelector<HTMLAnchorElement>('[data-demo-book]')
+    if (book && !document.getElementById('book-a-call')) {   // no booking section on this page: go to Calendly
+      book.href = root.dataset.demoBookUrl || book.href
+      book.target = '_blank'
+      book.rel = 'noopener'
+    }
+    book?.addEventListener('click', () => dialog.close())
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      err.classList.add('hidden')
+      if (!form.reportValidity()) return
+      const fd = new FormData(form)
+      submit.disabled = true
+      submit.textContent = 'One moment…'
+      try {
+        const res = await fetch(`${DEMO_API}/demo/request`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            first_name: String(fd.get('first_name') || '').trim(),
+            business: String(fd.get('business') || '').trim(),
+            email: String(fd.get('email') || '').trim(),
+            phone: String(fd.get('phone') || '').trim(),
+            industry: industry(),
+            hp: String(fd.get('hp') || ''),
+            elapsed_ms: Date.now() - openedAt,
+            attribution: attribution(),
+          }),
+        })
+        const body = await res.json().catch(() => ({}))
+        if (!res.ok) throw new Error(body.error || 'Something went wrong. Please try again.')
+        const r = body as DemoResponse
+        root.querySelectorAll<HTMLAnchorElement>('[data-demo-tel], [data-demo-tel-btn]').forEach((a) => (a.href = `tel:${r.number}`))
+        root.querySelector('[data-demo-tel]')!.textContent = r.display
+        root.querySelector('[data-demo-from]')!.textContent = r.call_from
+        root.querySelector('[data-demo-biz]')!.textContent = r.business
+        form.classList.add('hidden')
+        done.classList.remove('hidden')
+      } catch (x) {
+        err.textContent = x instanceof Error ? x.message : 'Something went wrong. Please try again.'
+        err.classList.remove('hidden')
+      } finally {
+        submit.disabled = false
+        submit.textContent = 'Show me the demo number'
+      }
+    })
+  })
+</script>

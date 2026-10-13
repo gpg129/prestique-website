@@ -2,15 +2,36 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import DemoRequest from '../components/DemoRequest.astro';
+import SampleCall from '../components/SampleCall.astro';
+import { SAMPLE_CALLS, TAB_LABELS } from '../lib/sampleCalls';
 import '../styles/global.css';
 ---
-<Layout title="AI Demo Line — Prestique" description="Text Prestique's AI receptionist demo line to see how our AI handles tenant-side property-management scenarios live.">
+<Layout title="Try our AI receptionist — Prestique" description="Call Prestique's AI receptionist demo and hear it answer as your own business: home services, dental, law, auto repair, veterinary and salons.">
   <Nav />
   <main class="pt-32 pb-24 px-6">
-    <div class="max-w-3xl mx-auto prose-blog">
-      <h1 class="text-4xl font-bold text-white mb-2">AI Demo Line</h1>
-      <p class="text-p-muted text-sm mb-12">Try Prestique's AI receptionist live — text us any tenant scenario and see how it would handle the call.</p>
+    <section class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-24">
+      <div>
+        <p class="section-label mb-4">Live demo</p>
+        <h1 class="text-4xl md:text-5xl font-semibold text-white leading-tight tracking-tight mb-5">Try our AI receptionist</h1>
+        <p class="text-p-muted text-lg leading-relaxed mb-6">
+          Tell us your business and we'll give you a number to call. Our AI receptionist answers as your business,
+          so you can hear exactly what your customers would.
+        </p>
+        <ol class="space-y-3 text-p-text mb-8">
+          <li class="flex gap-3"><span class="text-p-blue font-semibold">1</span>Fill in four quick details</li>
+          <li class="flex gap-3"><span class="text-p-blue font-semibold">2</span>Call the number from your phone</li>
+          <li class="flex gap-3"><span class="text-p-blue font-semibold">3</span>Play a customer. It handles the rest.</li>
+        </ol>
+        <DemoRequest select label="Get the demo number" />
+      </div>
+      <div class="hidden lg:block">
+        <SampleCall call={SAMPLE_CALLS['dental']} />
+      </div>
+    </section>
 
+    <div class="max-w-3xl mx-auto prose-blog">
+      <h2 class="text-2xl font-semibold text-white mb-2">Property management SMS demo</h2>
       <p>If you run a property management company and want to see how AI handles tenant-side calls — text or call our demo line with a maintenance scenario, lockout, or any tenant-side question you'd normally take by phone. Our AI replies in seconds with how it would handle the situation, including how it would dispatch to your vendors and notify you.</p>
 
       <h2>Text or call our demo line</h2>

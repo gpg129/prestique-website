@@ -1,5 +1,6 @@
 ---
 import SampleCall from './SampleCall.astro'
+import DemoRequest from './DemoRequest.astro'
 import { SAMPLE_CALLS } from '../lib/sampleCalls'
 
 interface Props {
@@ -51,6 +52,7 @@ const call = slug ? SAMPLE_CALLS[slug] : undefined
     {call && (
       <div class="w-full max-w-[480px] mx-auto lg:mx-0 lg:ml-auto">
         <SampleCall call={call} />
+        <DemoRequest industry={slug} class="mt-4" />
       </div>
     )}
   </div>
