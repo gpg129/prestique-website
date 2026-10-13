@@ -22,7 +22,7 @@ faqs:
     a: "Modern AI voice agents sound natural and conversational. They can be customized with your firm's tone, terminology, and intake procedures, often providing a more consistent experience than an overwhelmed receptionist."
   - q: "How quickly can a law firm set up an AI voice agent to reduce missed client calls?"
     a: "Most law firms can have an AI voice agent live within one to two weeks. Setup includes customizing call flows, intake questions, and scheduling integration with your existing calendar and case management tools."
-draft: false
+draft: true
 ---
 
 ## It's 5:47 PM and Your Next Big Case Just Called a Competitor

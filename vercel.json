@@ -106,6 +106,11 @@
       "source": "/blog/missed-calls-costing-law-practice-new-clients",
       "destination": "/blog/missed-calls-law-firm-revenue-loss",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/reduce-missed-client-calls-attorney-office",
+      "destination": "/blog/reduce-missed-client-calls-at-small-law-office",
+      "statusCode": 301
     }
   ]
 }
