@@ -95,26 +95,43 @@ const { spec, industry, audience } = Astro.props as Props
       </div>
     </div>
 
-    <!-- Impact -->
+    <!-- Impact: Today vs. With Prestique -->
     <div class="mb-24 fade-up">
-      <h3 class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-8">What we aim for</h3>
-      <div class="glass-card p-8 md:p-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-          {spec.impact.map((metric) => (
-            <div>
-              <p class="text-p-muted text-sm mb-3">{metric.label}</p>
-              <div class="flex items-baseline gap-3 mb-2">
-                <span class="text-white/40 text-lg line-through">{metric.before}</span>
-                <span class="text-p-glow text-2xl">→</span>
-                <span class="text-white text-2xl font-bold">{metric.after}</span>
-              </div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-p-blue mb-3">What we aim for</p>
+      <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-8">Where we aim to move the numbers</h3>
+
+      <div class="rounded-2xl overflow-hidden" style="border: 1px solid rgba(148,163,184,0.14); background: rgba(15,26,46,0.45);">
+        <!-- Column headings (desktop) -->
+        <div class="hidden md:grid grid-cols-[1.1fr_1fr_1.2fr] gap-6 px-7 py-4 text-[11px] font-semibold uppercase tracking-widest"
+             style="background: rgba(255,255,255,0.02); border-bottom: 1px solid rgba(148,163,184,0.12);">
+          <span class="text-p-muted">Metric</span>
+          <span class="text-p-muted">Today</span>
+          <span class="text-emerald-300">With Prestique</span>
+        </div>
+        <dl>
+          {spec.impact.map((metric, i) => (
+            <div class={`grid grid-cols-1 md:grid-cols-[1.1fr_1fr_1.2fr] gap-3 md:gap-6 px-6 md:px-7 py-5 md:items-center ${i > 0 ? 'border-t border-white/[0.06]' : ''}`}>
+              <dt class="text-white font-medium leading-snug">{metric.label}</dt>
+              <dd class="text-p-muted text-sm leading-relaxed">
+                <span class="md:hidden text-[11px] font-semibold uppercase tracking-widest text-p-muted/70 block mb-0.5">Today</span>
+                {metric.before}
+              </dd>
+              <dd class="flex items-start gap-2.5 text-sm leading-relaxed text-white font-semibold">
+                <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4L8 12.58l7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" />
+                </svg>
+                <span>
+                  <span class="md:hidden text-[11px] font-semibold uppercase tracking-widest text-emerald-300 block mb-0.5">With Prestique</span>
+                  {metric.after}
+                </span>
+              </dd>
             </div>
           ))}
-        </div>
-        <p class="text-xs text-p-muted mt-8 pt-6 border-t border-white/5">
-          Targets we build toward, not guarantees. Results depend on your call volume and the systems you run.
-        </p>
+        </dl>
       </div>
+      <p class="text-xs text-p-muted mt-4">
+        Targets we build toward, not guarantees. Results depend on your call volume and the systems you run.
+      </p>
     </div>
     <!-- Stack -->
     <details class="group glass-card fade-up">
