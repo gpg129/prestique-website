@@ -121,6 +121,11 @@
       "source": "/blog/how-vet-clinics-lose-revenue-from-missed-calls",
       "destination": "/blog/missed-calls-veterinary-practice-revenue-loss",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/after-hours-emergency-call-handling-for-animal-hospitals",
+      "destination": "/blog/ai-receptionist-handling-after-hours-pet-intake-and-emergency-triage",
+      "statusCode": 301
     }
   ]
 }

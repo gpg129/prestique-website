@@ -22,7 +22,7 @@ faqs:
     a: "AI voice agents typically cost a fraction of a traditional veterinary answering service. Most clinics see costs well below what they'd pay a part-time receptionist or per-call answering service, while getting superior coverage, consistency, and call data."
   - q: "How long does it take to set up AI call handling for a veterinary practice?"
     a: "Most veterinary practices can have an AI voice agent fully operational within one to two weeks. Setup includes customizing triage protocols, integrating with your scheduling system, and defining emergency escalation rules specific to your practice."
-draft: false
+draft: true
 ---
 
 ## It's 2 AM and Someone's Dog Just Ate a Sock
