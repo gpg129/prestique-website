@@ -169,9 +169,12 @@ const hasIndustryPreFill = !!industry
         window.location.href = url
       } catch (err) {
         console.error('Lead submission failed:', err)
-        errorEl.textContent = String(err).includes(': 429')
-          ? 'This email has already started a few audits today. Please check your inbox, or try again tomorrow.'
-          : 'Something went wrong. Please try again.'
+        const msg = String(err)
+        errorEl.textContent = msg.includes(': 429 ip')
+          ? 'Too many audits have been started from this network today. Please try again tomorrow.'
+          : msg.includes(': 429')
+            ? 'This email has already started a few audits today. Please check your inbox, or try again tomorrow.'
+            : 'Something went wrong. Please try again.'
         errorEl.classList.remove('hidden')
         submitBtn.disabled = false
         submitBtn.style.opacity = '1'

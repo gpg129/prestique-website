@@ -68,7 +68,9 @@ export async function submitLead(data: LeadInput, guards: LeadGuards): Promise<L
   })
 
   if (!res.ok) {
-    throw new Error(`Lead submission failed: ${res.status}`)
+    // 429 carries which limit was hit ("email" or "ip") so the form can say so.
+    const limited = res.status === 429 ? ((await res.json().catch(() => ({}))) as { limited?: string }).limited : undefined
+    throw new Error(`Lead submission failed: ${res.status}${limited ? ` ${limited}` : ''}`)
   }
 
   return res.json() as Promise<LeadResponse>
