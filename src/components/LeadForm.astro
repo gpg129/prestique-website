@@ -87,6 +87,11 @@ const hasIndustryPreFill = !!industry
       <input type="hidden" name="industry" value={industry} />
     )}
 
+    <!-- Honeypot: hidden from people and screen readers; scripts fill every input. -->
+    <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+      <label>Leave this field empty <input type="text" name="pq_note" tabindex="-1" autocomplete="off" /></label>
+    </div>
+
     <p data-leadform-error class="text-red-400 text-sm m-0 hidden"></p>
 
     <button
@@ -120,6 +125,7 @@ const hasIndustryPreFill = !!industry
     const label = form.querySelector<HTMLElement>('[data-leadform-label]')
     const errorEl = form.querySelector<HTMLElement>('[data-leadform-error]')
     const originalLabel = label?.textContent ?? 'Start my free audit →'
+    const startedAt = Date.now()
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
@@ -155,12 +161,17 @@ const hasIndustryPreFill = !!industry
       label.textContent = 'Getting Aria ready…'
 
       try {
-        const result = await submitLead(data)
+        const result = await submitLead(data, {
+          hp: String(formData.get('pq_note') || ''),
+          formElapsedMs: Date.now() - startedAt,
+        })
         const url = buildAuditSessionUrl({ ...data, ...result })
         window.location.href = url
       } catch (err) {
         console.error('Lead submission failed:', err)
-        errorEl.textContent = 'Something went wrong. Please try again.'
+        errorEl.textContent = String(err).includes(': 429')
+          ? 'This email has already started a few audits today. Please check your inbox, or try again tomorrow.'
+          : 'Something went wrong. Please try again.'
         errorEl.classList.remove('hidden')
         submitBtn.disabled = false
         submitBtn.style.opacity = '1'

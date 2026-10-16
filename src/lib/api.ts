@@ -53,11 +53,18 @@ export interface LeadResponse {
   recordId: string
 }
 
-export async function submitLead(data: LeadInput): Promise<LeadResponse> {
+// Abuse guards checked by prestique-audit src/lib/abuse.ts: `hp` is a hidden field only a script
+// fills; `formElapsedMs` is page-load → submit, measured in the browser.
+export interface LeadGuards {
+  hp: string
+  formElapsedMs: number
+}
+
+export async function submitLead(data: LeadInput, guards: LeadGuards): Promise<LeadResponse> {
   const res = await fetch(`${AUDIT_API_BASE}/api/leads`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
+    body: JSON.stringify({ ...data, ...guards }),
   })
 
   if (!res.ok) {
