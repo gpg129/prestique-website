@@ -1,0 +1,101 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "boulevard.capability.book.4"
+      ],
+      "text": "Boulevard's Admin API has a bookingCreate mutation that creates a booking"
+    },
+    {
+      "factIds": [
+        "boulevard.capability.availability.2"
+      ],
+      "text": "Boulevard's Client API provides cart.getBookableDates() and cart.getBookableTimes(date) methods to check availability"
+    },
+    {
+      "factIds": [
+        "boulevard.access.model"
+      ],
+      "text": "Requirement: Boulevard uses Business ID and API key authentication for API access"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "Boulevard's API provides methods to check available dates and times and to create a booking. Prestique connects the agent to those API methods, so it works within what Boulevard's API allows. The agent only acts within what you have approved it to do.",
+      "q": "Will the agent book into our actual Boulevard calendar?"
+    },
+    {
+      "a": "Anything the agent shouldn't handle goes to your team with a summary of the call.",
+      "q": "What happens when a caller asks for something the agent can't handle?"
+    },
+    {
+      "a": "You keep the software you already use. The agent works with Boulevard rather than replacing it.",
+      "q": "Do we have to replace Boulevard or change how we work?"
+    },
+    {
+      "a": "Every call is recorded with a transcript and a summary of what the caller needed. You control what the agent says and does, and changes are made when you ask for them.",
+      "q": "How do we know what the agent is doing?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do we find out if this would work for our salon?"
+    },
+    {
+      "a": "Prestique is not affiliated with Boulevard. Boulevard is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with Boulevard?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with Boulevard.",
+  "howItWorks": [
+    {
+      "body": "Boulevard's API includes a method to check bookable dates and times, and a mutation to create a booking. Prestique connects the agent to Boulevard's API so it can work within what that API allows. The agent only does what Boulevard's API allows and what you have approved it to do.",
+      "title": "Booking through Boulevard"
+    },
+    {
+      "body": "Booking follows your own rules, such as your hours, your capacity, and what the agent won't do. Anything the agent shouldn't handle goes to your team with a summary of the call.",
+      "title": "Your rules, your limits"
+    },
+    {
+      "body": "Every call is recorded with a transcript and a summary of what the caller needed. The agent can follow up by text message after a call.",
+      "title": "Every call logged, follow-up sent"
+    }
+  ],
+  "intro": [
+    "Prestique builds custom AI voice and text agents for small businesses. The agent answers calls when your team can't, including after hours and when the line is busy.",
+    "You keep Boulevard. The agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them."
+  ],
+  "lastVerified": "2026-10-11",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with Boulevard, based on Boulevard's own published API documentation.",
+  "platform": "Boulevard",
+  "slug": "boulevard",
+  "sources": [
+    {
+      "id": "boulevard.access.model",
+      "label": "Boulevard documentation",
+      "retrieved": "2026-10-11",
+      "url": "https://github.com/Boulevard/book-sdk"
+    },
+    {
+      "id": "boulevard.capability.availability.2",
+      "label": "Boulevard documentation",
+      "retrieved": "2026-10-12",
+      "url": "https://github.com/Boulevard/book-sdk"
+    },
+    {
+      "id": "boulevard.capability.book.3",
+      "label": "Boulevard documentation",
+      "retrieved": "2026-10-13",
+      "url": "https://developers.joinblvd.com/2026-06/admin-api/api-reference/mutations/appointmentReschedule"
+    },
+    {
+      "id": "boulevard.capability.book.4",
+      "label": "Boulevard documentation",
+      "retrieved": "2026-10-13",
+      "url": "https://developers.joinblvd.com/2026-06/admin-api/api-reference/mutations/bookingCreate"
+    }
+  ],
+  "status": "live",
+  "subhead": "Prestique builds a custom AI receptionist that works with Boulevard. It answers calls, handles booking requests, and passes anything else to your team.",
+  "title": "AI Receptionist for Boulevard | Prestique",
+  "vertical": "beauty_salon"
+}
