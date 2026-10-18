@@ -64,7 +64,7 @@
     "Prestique builds custom AI voice and text agents for small businesses. The agent answers calls when your team can't, including after hours and when the line is busy.",
     "You keep Boulevard. The agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them."
   ],
-  "lastVerified": "2026-10-11",
+  "lastVerified": "2026-10-18",
   "metaDescription": "What a custom AI receptionist from Prestique can do with Boulevard, based on Boulevard's own published API documentation.",
   "platform": "Boulevard",
   "slug": "boulevard",
@@ -72,25 +72,25 @@
     {
       "id": "boulevard.access.model",
       "label": "Boulevard documentation",
-      "retrieved": "2026-10-11",
+      "retrieved": "2026-10-18",
       "url": "https://github.com/Boulevard/book-sdk"
     },
     {
       "id": "boulevard.capability.availability.2",
       "label": "Boulevard documentation",
-      "retrieved": "2026-10-12",
+      "retrieved": "2026-10-18",
       "url": "https://github.com/Boulevard/book-sdk"
     },
     {
       "id": "boulevard.capability.book.3",
       "label": "Boulevard documentation",
-      "retrieved": "2026-10-13",
+      "retrieved": "2026-10-18",
       "url": "https://developers.joinblvd.com/2026-06/admin-api/api-reference/mutations/appointmentReschedule"
     },
     {
       "id": "boulevard.capability.book.4",
       "label": "Boulevard documentation",
-      "retrieved": "2026-10-13",
+      "retrieved": "2026-10-18",
       "url": "https://developers.joinblvd.com/2026-06/admin-api/api-reference/mutations/bookingCreate"
     }
   ],
