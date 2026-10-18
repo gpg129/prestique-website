@@ -1,0 +1,101 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "phorest.capability.availability"
+      ],
+      "text": "Phorest can list appointment availabilities for given services over a date range"
+    },
+    {
+      "factIds": [
+        "phorest.capability.status"
+      ],
+      "text": "Phorest's API has an endpoint that retrieves an appointment by its ID"
+    },
+    {
+      "factIds": [
+        "phorest.capability.lead"
+      ],
+      "text": "Phorest exposes a createDepositPaymentLink endpoint for deposit collection"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "No. You keep Phorest. Prestique builds the agent to work with it rather than replacing it.",
+      "q": "Will I have to replace Phorest to use this?"
+    },
+    {
+      "a": "The agent can check available appointment times for specified services over a date range, retrieve an appointment by its ID, confirm a client's appointments on a specified date, and generate a deposit payment link. It only does what Phorest's API allows and what you have approved it to do.",
+      "q": "What can the agent actually do inside Phorest?"
+    },
+    {
+      "a": "Anything the agent shouldn't handle goes to your team with a summary of the call.",
+      "q": "What happens when the agent gets a question it can't handle?"
+    },
+    {
+      "a": "Every call is recorded with a transcript and a summary of what the caller needed.",
+      "q": "How do I know what was said on each call?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do I get started?"
+    },
+    {
+      "a": "Prestique is not affiliated with Phorest. Phorest is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with Phorest?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with Phorest.",
+  "howItWorks": [
+    {
+      "body": "The agent answers calls when your team can't: after hours and when the line is busy. Every call is recorded with a transcript and a summary of what the caller needed. Anything the agent shouldn't handle goes to your team with a summary of the call.",
+      "title": "Answers calls when your team can't"
+    },
+    {
+      "body": "The agent can check available appointment times for specified services over a date range, using Phorest's availability data. It can also generate a deposit payment link through Phorest. The agent only does what Phorest's API allows and what you have approved it to do.",
+      "title": "Checks availability and collects deposits"
+    },
+    {
+      "body": "The agent can confirm a client's appointments on a specified date and retrieve an appointment by its ID. After a call, it can follow up with the caller by text message.",
+      "title": "Confirms appointments and follows up"
+    }
+  ],
+  "intro": [
+    "Prestique builds custom AI voice and text agents for small businesses. Where Phorest offers an API, Prestique connects the agent to it so it can work from the same information your team sees and create records there, within what that API allows.",
+    "You keep Phorest. The agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them."
+  ],
+  "lastVerified": "2026-10-18",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with Phorest, based on Phorest's own published API documentation.",
+  "platform": "Phorest",
+  "slug": "phorest",
+  "sources": [
+    {
+      "id": "phorest.capability.availability",
+      "label": "Phorest documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://developer.phorest.com/reference/checkappointmentavailability.md"
+    },
+    {
+      "id": "phorest.capability.lead",
+      "label": "Phorest documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://developer.phorest.com/reference/createdepositpaymentlink.md"
+    },
+    {
+      "id": "phorest.capability.status",
+      "label": "Phorest documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://developer.phorest.com/reference/getappointment.md"
+    },
+    {
+      "id": "phorest.capability.status.2",
+      "label": "Phorest documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://developer.phorest.com/reference/confirmappointments.md"
+    }
+  ],
+  "status": "live",
+  "subhead": "A custom AI receptionist that works with Phorest. Built by Prestique for salons and spas.",
+  "title": "AI Receptionist for Phorest | Prestique",
+  "vertical": "beauty_salon"
+}
