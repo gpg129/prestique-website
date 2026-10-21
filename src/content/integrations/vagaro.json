@@ -1,0 +1,131 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "vagaro.capability.availability"
+      ],
+      "text": "Vagaro provides a search-availability API endpoint for querying availability"
+    },
+    {
+      "factIds": [
+        "vagaro.capability.status"
+      ],
+      "text": "Vagaro's API can retrieve details about an appointment, including its status"
+    },
+    {
+      "factIds": [
+        "vagaro.capability.webhooks.2"
+      ],
+      "text": "Vagaro webhook delivery uses HTTPS POST with JSON body and requires the endpoint to return a 2xx status code within 20 seconds"
+    },
+    {
+      "factIds": [
+        "vagaro.access.model"
+      ],
+      "text": "Requirement: Vagaro API authentication requires clientId, clientSecretKey, and a comma-separated scope list sent via POST to the generate-access-token endpoint"
+    },
+    {
+      "factIds": [
+        "vagaro.access.model.2"
+      ],
+      "text": "Requirement: APIs and Webhooks are only available to businesses on computer, tablet, Pay Desk or PayPro versions that use Vagaro Credit Card Processing and are not on a free trial"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "Vagaro's API is available to businesses on the computer, tablet, Pay Desk, or PayPro version of Vagaro that use Credit Card Processing and are not on a free trial. If your setup meets those conditions, Prestique can connect the agent to Vagaro's API.",
+      "q": "Does my Vagaro setup need anything special for this to work?"
+    },
+    {
+      "a": "Vagaro's API includes a search-availability endpoint for querying available appointment time slots, and a retrieve-appointments endpoint that returns appointment details such as status, start time, and who is providing the service. The agent only does what Vagaro's API allows and what you have approved it to do.",
+      "q": "What can the agent actually look up in Vagaro?"
+    },
+    {
+      "a": "No. You keep the software you already use. The agent works with Vagaro rather than replacing it.",
+      "q": "Will I have to replace Vagaro or change how my team uses it?"
+    },
+    {
+      "a": "Anything the agent shouldn't handle goes to your team with a summary of the call. Every call is also recorded with a transcript and a summary of what the caller needed.",
+      "q": "What happens when a caller asks something the agent can't handle?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do I find out if this would help my business?"
+    },
+    {
+      "a": "Prestique is not affiliated with Vagaro. Vagaro is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with Vagaro?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with Vagaro.",
+  "howItWorks": [
+    {
+      "body": "The agent answers calls after hours and when the line is busy. Anything the agent shouldn't handle goes to your team with a summary of the call. The agent can also follow up by text message after a call.",
+      "title": "Answers calls when your team can't"
+    },
+    {
+      "body": "Vagaro provides an API for searching available appointment time slots and for retrieving appointment details such as status, start time, and who is providing the service. Where a platform offers an API, Prestique connects the agent to it so the agent works from the same information your team sees. The agent only does what Vagaro's API allows and what you have approved it to do. Access to Vagaro's API requires the business version of Vagaro with Credit Card Processing and is not available during a free trial.",
+      "title": "Connected to Vagaro's API"
+    },
+    {
+      "body": "Every call is recorded with a transcript and a summary of what the caller needed. You control what the agent says and does, and changes are made when you ask for them.",
+      "title": "Every call is recorded"
+    }
+  ],
+  "intro": [
+    "Prestique builds custom AI voice and text agents for small businesses. If your business runs Vagaro, Prestique connects the agent to the Vagaro API so the agent works from the same information your team sees.",
+    "You keep Vagaro. The agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them."
+  ],
+  "lastVerified": "2026-10-18",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with Vagaro, based on Vagaro's own published API documentation.",
+  "platform": "Vagaro",
+  "slug": "vagaro",
+  "sources": [
+    {
+      "id": "vagaro.access.model",
+      "label": "Vagaro documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://docs.vagaro.com/public/reference/generate-access-token"
+    },
+    {
+      "id": "vagaro.access.model.2",
+      "label": "Vagaro documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://support.vagaro.com/hc/en-us/articles/29521637950875-Set-Up-Webhooks-From-Vagaro"
+    },
+    {
+      "id": "vagaro.capability.availability",
+      "label": "Vagaro documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://docs.vagaro.com/public/reference/search-availability"
+    },
+    {
+      "id": "vagaro.capability.status",
+      "label": "Vagaro documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://docs.vagaro.com/public/reference/api-introduction"
+    },
+    {
+      "id": "vagaro.capability.status.2",
+      "label": "Vagaro documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://docs.vagaro.com/public/reference/retrieve-appointment"
+    },
+    {
+      "id": "vagaro.capability.webhooks",
+      "label": "Vagaro documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://docs.vagaro.com/docs/introduction"
+    },
+    {
+      "id": "vagaro.capability.webhooks.2",
+      "label": "Vagaro documentation",
+      "retrieved": "2026-10-18",
+      "url": "https://support.vagaro.com/hc/en-us/articles/29521637950875-Set-Up-Webhooks-From-Vagaro"
+    }
+  ],
+  "status": "live",
+  "subhead": "A custom AI receptionist that works with Vagaro. Built by Prestique.",
+  "title": "AI Receptionist for Vagaro | Prestique",
+  "vertical": "beauty_salon"
+}
