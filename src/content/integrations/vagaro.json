@@ -76,7 +76,7 @@
     "Prestique builds custom AI voice and text agents for small businesses. If your business runs Vagaro, Prestique connects the agent to the Vagaro API so the agent works from the same information your team sees.",
     "You keep Vagaro. The agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them."
   ],
-  "lastVerified": "2026-10-18",
+  "lastVerified": "2026-10-25",
   "metaDescription": "What a custom AI receptionist from Prestique can do with Vagaro, based on Vagaro's own published API documentation.",
   "platform": "Vagaro",
   "slug": "vagaro",
@@ -84,43 +84,43 @@
     {
       "id": "vagaro.access.model",
       "label": "Vagaro documentation",
-      "retrieved": "2026-10-18",
+      "retrieved": "2026-10-25",
       "url": "https://docs.vagaro.com/public/reference/generate-access-token"
     },
     {
       "id": "vagaro.access.model.2",
       "label": "Vagaro documentation",
-      "retrieved": "2026-10-18",
+      "retrieved": "2026-10-25",
       "url": "https://support.vagaro.com/hc/en-us/articles/29521637950875-Set-Up-Webhooks-From-Vagaro"
     },
     {
       "id": "vagaro.capability.availability",
       "label": "Vagaro documentation",
-      "retrieved": "2026-10-18",
+      "retrieved": "2026-10-25",
       "url": "https://docs.vagaro.com/public/reference/search-availability"
     },
     {
       "id": "vagaro.capability.status",
       "label": "Vagaro documentation",
-      "retrieved": "2026-10-18",
+      "retrieved": "2026-10-25",
       "url": "https://docs.vagaro.com/public/reference/api-introduction"
     },
     {
       "id": "vagaro.capability.status.2",
       "label": "Vagaro documentation",
-      "retrieved": "2026-10-18",
+      "retrieved": "2026-10-25",
       "url": "https://docs.vagaro.com/public/reference/retrieve-appointment"
     },
     {
       "id": "vagaro.capability.webhooks",
       "label": "Vagaro documentation",
-      "retrieved": "2026-10-18",
+      "retrieved": "2026-10-25",
       "url": "https://docs.vagaro.com/docs/introduction"
     },
     {
       "id": "vagaro.capability.webhooks.2",
       "label": "Vagaro documentation",
-      "retrieved": "2026-10-18",
+      "retrieved": "2026-10-25",
       "url": "https://support.vagaro.com/hc/en-us/articles/29521637950875-Set-Up-Webhooks-From-Vagaro"
     }
   ],
