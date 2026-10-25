@@ -1,0 +1,107 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "fleetio.capability.book"
+      ],
+      "text": "Fleetio's API has a POST /v2/work_orders endpoint that creates a new work order"
+    },
+    {
+      "factIds": [
+        "fleetio.capability.status"
+      ],
+      "text": "Fleetio's API can retrieve the details of an existing work order"
+    },
+    {
+      "factIds": [
+        "fleetio.capability.webhooks"
+      ],
+      "text": "Fleetio supports 50+ webhook events including vehicle status changes, issue creation and resolution, and work order completion"
+    },
+    {
+      "factIds": [
+        "fleetio.access.model"
+      ],
+      "text": "Requirement: Fleetio API uses REST with API key and Account-Token header authentication"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "No. You keep Fleetio and keep using it the way you do today. The agent works with Fleetio rather than replacing it.",
+      "q": "Does this replace Fleetio?"
+    },
+    {
+      "a": "Fleetio's API has an endpoint to create a new work order and an endpoint to retrieve the details of an existing work order. The agent connects to those endpoints and works within what the API allows. It only does what Fleetio's API permits and what you have approved it to do.",
+      "q": "What can the agent actually do inside Fleetio?"
+    },
+    {
+      "a": "Anything the agent shouldn't handle goes to your team with a summary of the call. Every call is also recorded with a transcript and a summary of what the caller needed.",
+      "q": "What happens when a caller asks something the agent can't handle?"
+    },
+    {
+      "a": "You control what the agent says and does. Booking follows your own rules — your hours, your capacity, and what the agent won't do. Changes are made when you ask for them.",
+      "q": "How much control do we have over what the agent says and does?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do we find out if this is a good fit for our shop?"
+    },
+    {
+      "a": "Prestique is not affiliated with Fleetio. Fleetio is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with Fleetio?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with Fleetio.",
+  "howItWorks": [
+    {
+      "body": "When a caller rings in, the agent takes the call and collects the details required to open a work order in Fleetio. Booking follows your own rules — your hours, your capacity, and what the agent won't do. You control what the agent says and does, and changes are made when you ask for them.",
+      "title": "Answers calls and gathers what's needed"
+    },
+    {
+      "body": "Prestique connects the agent to Fleetio's API so it can create a new work order using Fleetio's POST /v2/work_orders endpoint and retrieve the details of an existing work order using the GET /v2/work_orders/:id endpoint. The agent only does what Fleetio's API allows and what you have approved it to do.",
+      "title": "Creates and checks work orders in Fleetio"
+    },
+    {
+      "body": "After a call, the agent can follow up by text message. Anything outside its scope goes to your team with a summary of the call. You keep the software you already use — the agent works with Fleetio rather than replacing it.",
+      "title": "Follows up and hands off"
+    }
+  ],
+  "intro": [
+    "Prestique builds custom AI voice and text agents for small businesses. For shops that run Fleetio, the agent connects to Fleetio's API so it can create new work orders and retrieve details of existing ones, within what that API allows.",
+    "The agent answers calls when your team can't — after hours and when the line is busy. Every call is recorded with a transcript and a summary of what the caller needed. Anything the agent shouldn't handle goes to your team with a summary of the call."
+  ],
+  "lastVerified": "2026-10-25",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with Fleetio, based on Fleetio's own published API documentation.",
+  "platform": "Fleetio",
+  "slug": "fleetio",
+  "sources": [
+    {
+      "id": "fleetio.access.model",
+      "label": "Fleetio documentation",
+      "retrieved": "2026-10-25",
+      "url": "https://developer.fleetio.com/docs/overview/quick-start"
+    },
+    {
+      "id": "fleetio.capability.book",
+      "label": "Fleetio documentation",
+      "retrieved": "2026-10-25",
+      "url": "https://developer.fleetio.com/docs/api/2023-03-01/v-2-work-orders-create"
+    },
+    {
+      "id": "fleetio.capability.status",
+      "label": "Fleetio documentation",
+      "retrieved": "2026-10-25",
+      "url": "https://developer.fleetio.com/docs/api/2023-03-01/v-2-work-orders-show"
+    },
+    {
+      "id": "fleetio.capability.webhooks",
+      "label": "Fleetio documentation",
+      "retrieved": "2026-10-25",
+      "url": "https://developer.fleetio.com/"
+    }
+  ],
+  "status": "live",
+  "subhead": "An AI receptionist built for shops that run Fleetio. It answers calls, creates work orders, and pulls work order details — working with Fleetio's API so your team keeps using the tools they already have.",
+  "title": "AI Receptionist for Fleetio | Prestique",
+  "vertical": "auto_repair"
+}
