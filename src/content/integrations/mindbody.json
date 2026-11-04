@@ -1,0 +1,107 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "mindbody.capability.book"
+      ],
+      "text": "Mindbody's API can book an appointment for a client"
+    },
+    {
+      "factIds": [
+        "mindbody.capability.availability"
+      ],
+      "text": "Mindbody's API can list appointment availabilities with the details needed to book them"
+    },
+    {
+      "factIds": [
+        "mindbody.capability.status"
+      ],
+      "text": "Mindbody's API can list appointments by staff member"
+    },
+    {
+      "factIds": [
+        "mindbody.capability.lead"
+      ],
+      "text": "Mindbody's API can create a new client record at a business"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "No. You keep Mindbody. The agent works with it through Mindbody's API rather than replacing it.",
+      "q": "Will this replace Mindbody?"
+    },
+    {
+      "a": "The agent can retrieve available appointment slots, book appointments using the location, staff member, session type, and start time, and create new client records. It only does what Mindbody's API allows and what you have approved it to do.",
+      "q": "What can the agent actually do inside Mindbody?"
+    },
+    {
+      "a": "Yes. Booking follows your own rules, such as your hours, your capacity, and what the agent won't do.",
+      "q": "Can I set rules about what the agent books or doesn't book?"
+    },
+    {
+      "a": "Anything the agent shouldn't handle goes to your team with a summary of the call.",
+      "q": "What happens when a caller asks for something the agent can't handle?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do I find out if this would work for my salon or spa?"
+    },
+    {
+      "a": "Prestique is not affiliated with Mindbody. Mindbody is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with Mindbody?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with Mindbody.",
+  "howItWorks": [
+    {
+      "body": "Mindbody's API returns a list of available slots with the details needed to book them. When a caller wants to schedule, the agent uses that information to book an appointment against a location, staff member, session type, and start time. Booking follows your own rules, such as your hours, your capacity, and what the agent won't do.",
+      "title": "Checks availability and books appointments"
+    },
+    {
+      "body": "If a caller is not already in Mindbody, the agent can create a new client record there. After the call, it can follow up by text message. Everything the agent shouldn't handle goes to your team with a summary of the call.",
+      "title": "Creates new client records"
+    },
+    {
+      "body": "Every call is recorded with a transcript and a summary of what the caller needed. You control what the agent says and does, and changes are made when you ask for them. You keep Mindbody and everything else you already use.",
+      "title": "Every call is logged and you stay in control"
+    }
+  ],
+  "intro": [
+    "Prestique builds custom AI voice and text agents for salons and spas that run Mindbody. The agent answers calls when your team can't — after hours and when the line is busy — and works with Mindbody rather than replacing it.",
+    "The agent connects to Mindbody's API so it works from the same information your team sees. It can check available appointment slots, book appointments, and create new client records, within what Mindbody's API allows and what you have approved it to do."
+  ],
+  "lastVerified": "2026-11-01",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with Mindbody, based on Mindbody's own published API documentation.",
+  "platform": "Mindbody",
+  "slug": "mindbody",
+  "sources": [
+    {
+      "id": "mindbody.capability.availability",
+      "label": "Mindbody documentation",
+      "retrieved": "2026-11-01",
+      "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/appointment/get-bookable-items"
+    },
+    {
+      "id": "mindbody.capability.book",
+      "label": "Mindbody documentation",
+      "retrieved": "2026-11-01",
+      "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/appointment/add-appointment"
+    },
+    {
+      "id": "mindbody.capability.lead",
+      "label": "Mindbody documentation",
+      "retrieved": "2026-11-01",
+      "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/client/add-client"
+    },
+    {
+      "id": "mindbody.capability.status",
+      "label": "Mindbody documentation",
+      "retrieved": "2026-11-01",
+      "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/appointment/get-staff-appointments"
+    }
+  ],
+  "status": "live",
+  "subhead": "A custom AI receptionist that works with Mindbody. Prestique builds it for your salon or spa.",
+  "title": "AI Receptionist for Mindbody | Prestique",
+  "vertical": "beauty_salon"
+}
