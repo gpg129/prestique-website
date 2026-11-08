@@ -1,0 +1,95 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "clio.capability.book"
+      ],
+      "text": "Clio Manage's API can create a new calendar entry"
+    },
+    {
+      "factIds": [
+        "clio.capability.status"
+      ],
+      "text": "Clio Manage's API has an endpoint that returns the data for a single matter"
+    },
+    {
+      "factIds": [
+        "clio.capability.lead.2"
+      ],
+      "text": "Clio Manage's API can create a new matter"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "Prestique connects the agent to Clio's API so it can create records there, within what that API allows. Clio's API supports creating a new calendar entry and creating a new matter, so the agent can do both. It only takes those actions within what Clio's API allows and what you have approved it to do.",
+      "q": "Will the agent actually create records in Clio, or just take a message?"
+    },
+    {
+      "a": "Yes. Clio's API has an endpoint that returns the data for a single matter, and Prestique connects the agent to it so the agent works from the same information your team sees.",
+      "q": "Can the agent check the status of an existing matter?"
+    },
+    {
+      "a": "You do. You control what the agent says and does, and changes are made when you ask for them. Booking follows your own rules, such as your hours, your capacity and what the agent won't do.",
+      "q": "Who controls what the agent says and does?"
+    },
+    {
+      "a": "No. You keep the software you already use; the agent works with it rather than replacing it. Prestique builds the agent to connect with Clio's API alongside your existing setup.",
+      "q": "Do we have to replace Clio or any other software we use?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do we find out if this is a good fit before committing?"
+    },
+    {
+      "a": "Prestique is not affiliated with Clio. Clio is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with Clio?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with Clio.",
+  "howItWorks": [
+    {
+      "body": "The agent answers calls when your team can't: after hours and when the line is busy. Anything the agent shouldn't handle goes to your team with a summary of the call. The agent can also follow up by text message after a call.",
+      "title": "Answers calls when your team can't"
+    },
+    {
+      "body": "Where Clio's API offers an endpoint, Prestique connects the agent to it so the agent works from the same information your team sees. The agent can return the data for a single matter using Clio's API. It can also create a new calendar entry or open a new matter, within what Clio's API allows.",
+      "title": "Works from the same information your team sees"
+    },
+    {
+      "body": "Every call is recorded with a transcript and a summary of what the caller needed. Anything outside the agent's approved scope goes to your team with a summary of the call. You control what the agent says and does, and changes are made when you ask for them.",
+      "title": "Every call is recorded and summarised"
+    }
+  ],
+  "intro": [
+    "Prestique builds custom AI voice and text agents for small businesses. Where a platform offers an API, Prestique connects the agent to it so it can create records there, within what that API allows. Clio's API lets the agent create a new calendar entry, create a new matter, and return the data for a single matter. The agent only does what Clio's API allows and what you have approved it to do.",
+    "You keep the software you already use; the agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them. Booking follows your own rules, such as your hours, your capacity and what the agent won't do."
+  ],
+  "lastVerified": "2026-11-08",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with Clio, based on Clio's own published API documentation.",
+  "platform": "Clio",
+  "slug": "clio",
+  "sources": [
+    {
+      "id": "clio.capability.book",
+      "label": "Clio documentation",
+      "retrieved": "2026-11-08",
+      "url": "https://docs.developers.clio.com/clio-manage/api-reference/"
+    },
+    {
+      "id": "clio.capability.lead.2",
+      "label": "Clio documentation",
+      "retrieved": "2026-11-08",
+      "url": "https://docs.developers.clio.com/clio-manage/api-reference/"
+    },
+    {
+      "id": "clio.capability.status",
+      "label": "Clio documentation",
+      "retrieved": "2026-11-08",
+      "url": "https://docs.developers.clio.com/clio-manage/api-reference/"
+    }
+  ],
+  "status": "live",
+  "subhead": "Prestique builds a custom AI receptionist that works with Clio. It answers calls, creates calendar entries, opens new matters, and looks up matter status — within what Clio's API allows and what you have approved.",
+  "title": "AI Receptionist for Clio | Prestique",
+  "vertical": "law"
+}
