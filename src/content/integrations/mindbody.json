@@ -70,7 +70,7 @@
     "Prestique builds custom AI voice and text agents for salons and spas that run Mindbody. The agent answers calls when your team can't — after hours and when the line is busy — and works with Mindbody rather than replacing it.",
     "The agent connects to Mindbody's API so it works from the same information your team sees. It can check available appointment slots, book appointments, and create new client records, within what Mindbody's API allows and what you have approved it to do."
   ],
-  "lastVerified": "2026-11-01",
+  "lastVerified": "2026-11-08",
   "metaDescription": "What a custom AI receptionist from Prestique can do with Mindbody, based on Mindbody's own published API documentation.",
   "platform": "Mindbody",
   "slug": "mindbody",
@@ -78,25 +78,25 @@
     {
       "id": "mindbody.capability.availability",
       "label": "Mindbody documentation",
-      "retrieved": "2026-11-01",
+      "retrieved": "2026-11-08",
       "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/appointment/get-bookable-items"
     },
     {
       "id": "mindbody.capability.book",
       "label": "Mindbody documentation",
-      "retrieved": "2026-11-01",
+      "retrieved": "2026-11-08",
       "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/appointment/add-appointment"
     },
     {
       "id": "mindbody.capability.lead",
       "label": "Mindbody documentation",
-      "retrieved": "2026-11-01",
+      "retrieved": "2026-11-08",
       "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/client/add-client"
     },
     {
       "id": "mindbody.capability.status",
       "label": "Mindbody documentation",
-      "retrieved": "2026-11-01",
+      "retrieved": "2026-11-08",
       "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/appointment/get-staff-appointments"
     }
   ],
