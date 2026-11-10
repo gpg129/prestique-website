@@ -22,7 +22,7 @@ faqs:
     a: "Most AI phone answering solutions for law firms cost a fraction of a full-time receptionist's salary — typically 70-85% less — while providing 24/7 coverage that a single employee cannot match."
   - q: "How quickly can a law firm implement an AI phone answering service?"
     a: "Most firms are fully operational within one to two weeks. Setup involves mapping your intake workflow, training the AI on your practice areas, and connecting it to your calendar and CRM."
-draft: false
+draft: true
 ---
 
 ## The Call That Built Someone Else's Caseload

@@ -22,7 +22,7 @@ faqs:
     a: "Most AI phone answering solutions cost a fraction of a full-time receptionist's salary — typically 70-90% less — while providing 24/7 coverage that a single employee cannot match."
   - q: "How long does it take to set up an AI voice agent for a law office?"
     a: "Setup typically takes one to two weeks, including script customization, integration with your scheduling and CRM tools, and testing. Most firms are fully operational within 14 days."
-draft: false
+draft: true
 ---
 
 ## A Tuesday Afternoon You've Lived Before

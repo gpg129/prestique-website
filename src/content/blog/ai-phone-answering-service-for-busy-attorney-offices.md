@@ -22,7 +22,7 @@ faqs:
     a: "AI phone answering typically costs 70-85% less than a full-time receptionist. Most small law firms spend between $300-$800/month on an AI solution versus $3,000-$4,500/month for a salaried front desk hire."
   - q: "How quickly can a law firm set up an AI phone answering system?"
     a: "Most law firms can have an AI voice agent fully configured, trained on their practice areas, and answering live calls within one to two weeks of onboarding."
-draft: false
+draft: true
 ---
 
 ## It's 6:47 PM and Your Next $15,000 Case Just Called a Competitor
