@@ -146,6 +146,11 @@
       "source": "/blog/ai-phone-answering-service-for-attorneys",
       "destination": "/blog/ai-receptionist-for-law-firm",
       "statusCode": 301
+    },
+    {
+      "source": "/blog/ai-phone-answering-service-for-pet-emergency-clinics",
+      "destination": "/blog/ai-phone-answering-service-for-pet-emergency-clinics-high-volume",
+      "statusCode": 301
     }
   ]
 }

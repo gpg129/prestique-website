@@ -22,7 +22,7 @@ faqs:
     a: "Today's AI voice agents use natural-sounding conversational AI that most callers don't distinguish from a human. They respond with empathy, answer common questions accurately, and seamlessly transfer to staff when a situation demands human judgment."
   - q: "How quickly can a veterinary clinic implement an AI phone answering system?"
     a: "Most clinics are fully operational within one to two weeks. Setup includes customizing call scripts, integrating with your scheduling system, and training the AI on your clinic's specific protocols and services."
-draft: false
+draft: true
 ---
 
 ## A Call That Nobody Answered
