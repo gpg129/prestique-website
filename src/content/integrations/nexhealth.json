@@ -1,0 +1,83 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "nexhealth.capability.book"
+      ],
+      "text": "NexHealth provides a POST /appointments endpoint to book appointments"
+    },
+    {
+      "factIds": [
+        "nexhealth.capability.availability"
+      ],
+      "text": "NexHealth provides POST /availabilities and GET /appointment_slots endpoints to retrieve availability information"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "No. You keep the software you already use. The agent works with NexHealth rather than replacing it.",
+      "q": "Will I have to switch away from NexHealth?"
+    },
+    {
+      "a": "NexHealth provides endpoints to retrieve available appointment slots and to book appointments. Prestique connects the agent to those endpoints so it can create appointment records there, within what that API allows. The agent only does what NexHealth's API allows and what you have approved it to do.",
+      "q": "What can the agent actually do inside NexHealth?"
+    },
+    {
+      "a": "You do. Booking follows your own rules, such as your hours, your capacity, and what the agent won't do. Anything outside those rules goes to your team with a summary of the call. Changes are made when you ask for them.",
+      "q": "Who decides what the agent says and what it won't do?"
+    },
+    {
+      "a": "Every call is recorded with a transcript and a summary of what the caller needed. The agent can also follow up by text message after a call.",
+      "q": "How do I know what happened on each call?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do I find out if this would work for my practice?"
+    },
+    {
+      "a": "Prestique is not affiliated with NexHealth. NexHealth is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with NexHealth?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with NexHealth.",
+  "howItWorks": [
+    {
+      "body": "The agent answers calls when your team can't: after hours and when the line is busy. Anything the agent shouldn't handle goes to your team with a summary of the call. Every call is recorded with a transcript and a summary of what the caller needed.",
+      "title": "Answers when your team can't"
+    },
+    {
+      "body": "NexHealth provides endpoints to retrieve appointment slots and to book appointments. Prestique connects the agent to those endpoints so it can create appointment records in NexHealth, within what that API allows. Where a platform offers an API, Prestique connects the agent to it so the agent works from the same information your team sees.",
+      "title": "Books into NexHealth"
+    },
+    {
+      "body": "You keep the software you already use; the agent works with it rather than replacing it. You control what the agent says and does, and changes are made when you ask for them. The agent can also follow up by text message after a call.",
+      "title": "Stays in your control"
+    }
+  ],
+  "intro": [
+    "Prestique builds custom AI voice and text agents for small businesses. Where a platform offers an API, Prestique connects the agent to it so it can create records there, within what that API allows. NexHealth offers endpoints for retrieving appointment slots and booking appointments, and Prestique connects the agent to those endpoints.",
+    "You control what the agent says and does, and changes are made when you ask for them. Booking follows your own rules, such as your hours, your capacity, and what the agent will not do. The agent only does what NexHealth's API allows and what you have approved it to do."
+  ],
+  "lastVerified": "2026-11-08",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with NexHealth, based on NexHealth's own published API documentation.",
+  "platform": "NexHealth",
+  "slug": "nexhealth",
+  "sources": [
+    {
+      "id": "nexhealth.capability.availability",
+      "label": "NexHealth documentation",
+      "retrieved": "2026-11-08",
+      "url": "https://docs.nexhealth.com/docs/book-an-appointment"
+    },
+    {
+      "id": "nexhealth.capability.book",
+      "label": "NexHealth documentation",
+      "retrieved": "2026-11-08",
+      "url": "https://docs.nexhealth.com/docs/book-an-appointment"
+    }
+  ],
+  "status": "live",
+  "subhead": "Prestique builds a custom AI voice and text agent that works with NexHealth. The agent answers calls and handles booking without replacing the software your team already uses.",
+  "title": "AI Receptionist for NexHealth | Prestique",
+  "vertical": "dental"
+}
