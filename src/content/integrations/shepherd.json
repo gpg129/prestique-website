@@ -1,0 +1,101 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "shepherd.capability.book.2"
+      ],
+      "text": "Shepherd's API can update an existing appointment"
+    },
+    {
+      "factIds": [
+        "shepherd.capability.availability"
+      ],
+      "text": "Shepherd API provides a POST endpoint at /pav2/open-api-provider-availabilities/timeslots to retrieve availability"
+    },
+    {
+      "factIds": [
+        "shepherd.capability.status.2"
+      ],
+      "text": "Shepherd's API has an endpoint that returns a paginated collection of appointments"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "Yes. Booking follows your own rules, such as your hours, your capacity and what the agent won't do.",
+      "q": "Does the agent follow our clinic's booking rules?"
+    },
+    {
+      "a": "Anything the agent shouldn't handle goes to your team with a summary of the call.",
+      "q": "What happens when a caller asks about something the agent can't handle?"
+    },
+    {
+      "a": "Every call is recorded with a transcript and a summary of what the caller needed. The agent can also follow up by text message after a call.",
+      "q": "How do we know what callers asked about?"
+    },
+    {
+      "a": "You control what the agent says and does, and changes are made when you ask for them.",
+      "q": "Can we change what the agent says or does?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do we find out if this would work for our clinic?"
+    },
+    {
+      "a": "Prestique is not affiliated with Shepherd. Shepherd is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with Shepherd?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with Shepherd.",
+  "howItWorks": [
+    {
+      "body": "Before booking, the agent checks provider availability through Shepherd's API. Shepherd provides an endpoint to retrieve available timeslots by provider and date range.",
+      "title": "Checks availability in Shepherd"
+    },
+    {
+      "body": "The agent can create a new appointment on the clinic calendar through Shepherd's API. It can also update an existing appointment. The agent only does what Shepherd's API allows and what you have approved it to do.",
+      "title": "Books and updates appointments"
+    },
+    {
+      "body": "Shepherd's API returns a paginated collection of appointments for the clinic. Prestique connects the agent to it so the agent works from the same information your team sees.",
+      "title": "Works from the same appointment data your team sees"
+    }
+  ],
+  "intro": [
+    "Prestique builds custom AI voice and text agents for small businesses. The agent answers calls when your team can't: after hours and when the line is busy.",
+    "You keep Shepherd. The agent works with it rather than replacing it. Where Shepherd offers an API, Prestique connects the agent to it so it can create records there, within what that API allows."
+  ],
+  "lastVerified": "2026-11-08",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with Shepherd, based on Shepherd's own published API documentation.",
+  "platform": "Shepherd",
+  "slug": "shepherd",
+  "sources": [
+    {
+      "id": "shepherd.capability.availability",
+      "label": "Shepherd documentation",
+      "retrieved": "2026-11-08",
+      "url": "https://developer.shepherd.vet/llms-full.txt"
+    },
+    {
+      "id": "shepherd.capability.book",
+      "label": "Shepherd documentation",
+      "retrieved": "2026-11-08",
+      "url": "https://developer.shepherd.vet/llms-full.txt"
+    },
+    {
+      "id": "shepherd.capability.book.2",
+      "label": "Shepherd documentation",
+      "retrieved": "2026-11-08",
+      "url": "https://developer.shepherd.vet/llms-full.txt"
+    },
+    {
+      "id": "shepherd.capability.status.2",
+      "label": "Shepherd documentation",
+      "retrieved": "2026-11-08",
+      "url": "https://developer.shepherd.vet/llms-full.txt"
+    }
+  ],
+  "status": "live",
+  "subhead": "A custom AI receptionist that works with Shepherd. Built by Prestique.",
+  "title": "AI Receptionist for Shepherd | Prestique",
+  "vertical": "veterinary"
+}
