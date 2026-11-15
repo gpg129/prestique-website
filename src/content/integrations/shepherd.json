@@ -64,7 +64,7 @@
     "Prestique builds custom AI voice and text agents for small businesses. The agent answers calls when your team can't: after hours and when the line is busy.",
     "You keep Shepherd. The agent works with it rather than replacing it. Where Shepherd offers an API, Prestique connects the agent to it so it can create records there, within what that API allows."
   ],
-  "lastVerified": "2026-11-08",
+  "lastVerified": "2026-11-15",
   "metaDescription": "What a custom AI receptionist from Prestique can do with Shepherd, based on Shepherd's own published API documentation.",
   "platform": "Shepherd",
   "slug": "shepherd",
@@ -72,25 +72,25 @@
     {
       "id": "shepherd.capability.availability",
       "label": "Shepherd documentation",
-      "retrieved": "2026-11-08",
+      "retrieved": "2026-11-15",
       "url": "https://developer.shepherd.vet/llms-full.txt"
     },
     {
       "id": "shepherd.capability.book",
       "label": "Shepherd documentation",
-      "retrieved": "2026-11-08",
+      "retrieved": "2026-11-15",
       "url": "https://developer.shepherd.vet/llms-full.txt"
     },
     {
       "id": "shepherd.capability.book.2",
       "label": "Shepherd documentation",
-      "retrieved": "2026-11-08",
+      "retrieved": "2026-11-15",
       "url": "https://developer.shepherd.vet/llms-full.txt"
     },
     {
       "id": "shepherd.capability.status.2",
       "label": "Shepherd documentation",
-      "retrieved": "2026-11-08",
+      "retrieved": "2026-11-15",
       "url": "https://developer.shepherd.vet/llms-full.txt"
     }
   ],

@@ -84,19 +84,19 @@
     {
       "id": "mindbody.capability.book",
       "label": "Mindbody documentation",
-      "retrieved": "2026-11-08",
+      "retrieved": "2026-11-15",
       "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/appointment/add-appointment"
     },
     {
       "id": "mindbody.capability.lead",
       "label": "Mindbody documentation",
-      "retrieved": "2026-11-08",
+      "retrieved": "2026-11-15",
       "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/client/add-client"
     },
     {
       "id": "mindbody.capability.status",
       "label": "Mindbody documentation",
-      "retrieved": "2026-11-08",
+      "retrieved": "2026-11-15",
       "url": "https://developers.mindbodyonline.com/ui/documentation/public-api#/http/api-endpoints/appointment/get-staff-appointments"
     }
   ],
