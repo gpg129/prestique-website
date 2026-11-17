@@ -1,6 +1,6 @@
 ---
-title: "How to Stop Missing Calls for Your HVAC Business"
-description: "Learn how to stop missing calls for my HVAC business with AI voice agents. HVAC companies miss 30-40% of calls — here's the fix."
+title: "How to Stop Missing Calls in Your HVAC or Plumbing Business"
+description: "Every missed call is lost revenue. See how AI voice agents answer HVAC and plumbing calls 24/7 so you book more jobs. Take our free 5-minute AI audit."
 pubDate: 2026-08-03
 keyword: "how to stop missing calls for my HVAC business"
 vertical: "hvac"
