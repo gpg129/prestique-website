@@ -1,6 +1,6 @@
 ---
-title: "Why Your HVAC Company Misses 40% of Its Calls (And What AI Does About It)"
-description: "Most HVAC companies lose thousands every month to missed calls. Here's why it happens and how AI voice agents are solving it."
+title: "HVAC Missed Calls: Why They Happen and How AI Fixes It"
+description: "Learn why HVAC companies miss so many inbound calls during peak seasons and how AI voice agents answer every one. Take our free 5-minute AI audit."
 pubDate: 2026-03-17
 keyword: "why HVAC companies miss calls"
 vertical: hvac
