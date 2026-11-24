@@ -1,6 +1,6 @@
 ---
-title: "Best Way to Handle Overflow Calls at Your Vet Clinic"
-description: "Discover the best way to handle overflow calls veterinary clinic owners trust. Learn how AI voice agents capture every pet owner call, 24/7."
+title: "How to Capture After-Hours Veterinary Calls With AI"
+description: "Stop missing pet owner calls nights and weekends. See how AI voice agents answer overflow and after-hours vet calls 24/7. Take our free 5-minute AI audit."
 pubDate: 2026-09-23
 keyword: "best way to handle overflow calls veterinary clinic"
 vertical: "veterinary"
