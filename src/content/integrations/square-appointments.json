@@ -1,0 +1,107 @@
+{
+  "capabilities": [
+    {
+      "factIds": [
+        "square.capability.book.2"
+      ],
+      "text": "Square's Bookings API has an UpdateBooking endpoint for changing a booking after it is created"
+    },
+    {
+      "factIds": [
+        "square.capability.availability"
+      ],
+      "text": "Square Bookings API can search availability by service, team member, and location"
+    },
+    {
+      "factIds": [
+        "square.capability.status"
+      ],
+      "text": "Square's Bookings API can retrieve an existing booking by its ID"
+    },
+    {
+      "factIds": [
+        "square.capability.webhooks"
+      ],
+      "text": "Square Bookings API supports booking.created and booking.updated webhooks"
+    }
+  ],
+  "faqs": [
+    {
+      "a": "Prestique builds the agent to work with Square Appointments rather than replace it. You keep the software you already use. The agent connects to Square Appointments's Bookings API so it works from the same information your team sees.",
+      "q": "Will it work with the Square Appointments setup I already have?"
+    },
+    {
+      "a": "It can search availability by service, team member, and location. The returned availability can be turned into a booking by adding a customer. After a booking is created, it can call the UpdateBooking endpoint to make certain changes. It can also retrieve an existing booking by its ID. The agent only does what Square Appointments's API allows and what you have approved it to do.",
+      "q": "What can the agent actually do inside Square Appointments?"
+    },
+    {
+      "a": "Anything the agent shouldn't handle goes to your team with a summary of the call. Every call is also recorded with a transcript and a summary of what the caller needed.",
+      "q": "What happens when a caller asks for something the agent can't handle?"
+    },
+    {
+      "a": "You control what the agent says and does, and changes are made when you ask for them. Booking follows your own rules, such as your hours, your capacity, and what the agent won't do.",
+      "q": "How much control do I have over what the agent says and does?"
+    },
+    {
+      "a": "The free audit takes about five minutes and shows where an AI agent would help your business first. You can also book a call with Prestique to talk through your setup.",
+      "q": "How do I find out if this is the right fit for my salon or spa?"
+    },
+    {
+      "a": "Prestique is not affiliated with Square Appointments. Square Appointments is a trademark of its owner. Prestique builds custom AI voice and text agents for small businesses.",
+      "q": "Is Prestique affiliated with Square Appointments?"
+    }
+  ],
+  "headline": "A custom AI receptionist that works with Square Appointments.",
+  "howItWorks": [
+    {
+      "body": "The agent connects to Square Appointments's Bookings API. It can search availability by service, team member, and location, and that availability can be turned into a booking by adding a customer. After a booking is created, it can call the UpdateBooking endpoint to make certain changes to it. It can also retrieve an existing booking by its ID.",
+      "title": "Availability and bookings"
+    },
+    {
+      "body": "The agent only does what Square Appointments's API allows and what you have approved it to do. Booking follows your own rules, such as your hours, your capacity, and what the agent won't do. You control what the agent says and does, and changes are made when you ask for them.",
+      "title": "Your rules, your approvals"
+    },
+    {
+      "body": "Every call is recorded with a transcript and a summary of what the caller needed. Anything the agent shouldn't handle goes to your team with a summary of the call. The agent can follow up by text message after a call.",
+      "title": "Calls, records, and hand-offs"
+    }
+  ],
+  "intro": [
+    "When your team can't get to the phone — after hours or when the line is busy — the agent answers. It can search availability by service, team member, and location in Square Appointments, and the returned availability can be turned into a booking by adding a customer. Booking follows your own rules, such as your hours, your capacity, and what the agent won't do.",
+    "Anything the agent shouldn't handle goes to your team with a summary of the call. Every call is recorded with a transcript and a summary of what the caller needed. The agent can also follow up by text message after a call."
+  ],
+  "lastVerified": "2026-11-22",
+  "metaDescription": "What a custom AI receptionist from Prestique can do with Square Appointments, based on Square Appointments' own published API documentation.",
+  "platform": "Square Appointments",
+  "slug": "square-appointments",
+  "sources": [
+    {
+      "id": "square.capability.availability",
+      "label": "Square Appointments documentation",
+      "retrieved": "2026-11-22",
+      "url": "https://developer.squareup.com/docs/bookings-api/what-it-is"
+    },
+    {
+      "id": "square.capability.book.2",
+      "label": "Square Appointments documentation",
+      "retrieved": "2026-11-22",
+      "url": "https://developer.squareup.com/docs/bookings-api/use-the-api"
+    },
+    {
+      "id": "square.capability.status",
+      "label": "Square Appointments documentation",
+      "retrieved": "2026-11-22",
+      "url": "https://developer.squareup.com/docs/bookings-api/use-the-api"
+    },
+    {
+      "id": "square.capability.webhooks",
+      "label": "Square Appointments documentation",
+      "retrieved": "2026-11-22",
+      "url": "https://developer.squareup.com/docs/bookings-api/use-the-api"
+    }
+  ],
+  "status": "live",
+  "subhead": "Prestique builds a custom AI voice and text agent that works with Square Appointments. You keep Square Appointments; the agent works with it rather than replacing it.",
+  "title": "AI Receptionist for Square Appointments | Prestique",
+  "vertical": "beauty_salon"
+}
